@@ -45,20 +45,6 @@ document.querySelectorAll('.card').forEach(card => {
   });
 });
 
-// ---- Active nav link (home page only) --------------------
-const anchors = document.querySelectorAll('section[id]');
-const links   = document.querySelectorAll('.nav__link');
-if (anchors.length && links.length) {
-  const ao = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${e.target.id}`));
-      }
-    });
-  }, { rootMargin: '-40% 0px -55%' });
-  anchors.forEach(s => ao.observe(s));
-}
-
 // ---- Current page nav highlight (sub-pages) --------------
 const path = window.location.pathname;
 document.querySelectorAll('.nav__link').forEach(l => {
