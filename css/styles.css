@@ -457,6 +457,17 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   gap: 0.875rem;
   margin-top: 2.5rem;
 }
+.skill-category {
+  grid-column: 1 / -1;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border);
+}
+.skill-category:first-child { padding-top: 0; border-top: none; }
 
 .skill-chip {
   display: flex;
