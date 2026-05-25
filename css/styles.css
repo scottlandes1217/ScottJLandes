@@ -41,7 +41,11 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
 body {
   font-family: var(--font-body);
-  background: var(--bg);
+  background:
+    radial-gradient(ellipse 70% 30% at 5%  30%,  rgba(124,58,237,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 25% at 95% 60%,  rgba(168,85,247,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 80% 30% at 50% 90%,  rgba(124,58,237,0.06) 0%, transparent 70%),
+    var(--bg);
   color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
@@ -192,9 +196,9 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 100% 65% at 50% -5%,  rgba(168,85,247,0.45) 0%, transparent 65%),
-    radial-gradient(ellipse 70%  50% at 85% 60%,  rgba(124,58,237,0.28) 0%, transparent 60%),
-    radial-gradient(ellipse 55%  45% at 10% 80%,  rgba(168,85,247,0.18) 0%, transparent 60%);
+    radial-gradient(ellipse 80% 60% at 15% 65%,  rgba(124,58,237,0.32) 0%, transparent 65%),
+    radial-gradient(ellipse 65% 55% at 88% 55%,  rgba(168,85,247,0.28) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 50% 85%,  rgba(124,58,237,0.18) 0%, transparent 55%);
   z-index: 0;
 }
 
@@ -604,8 +608,8 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 65% at 30% -15%, rgba(168,85,247,0.38) 0%, transparent 65%),
-    radial-gradient(ellipse 55% 45% at 80% 65%,  rgba(124,58,237,0.22) 0%, transparent 60%);
+    radial-gradient(ellipse 75% 60% at 20% 70%,  rgba(168,85,247,0.30) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 50% at 85% 55%,  rgba(124,58,237,0.22) 0%, transparent 60%);
 }
 
 .page-hero__content { position: relative; z-index: 1; }
