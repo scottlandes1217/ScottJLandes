@@ -812,7 +812,7 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   .nav__ham   { display: flex; margin-left: auto; }
   .nav__theme { order: 1; margin-left: 0.25rem; }
   .hero       { align-items: flex-start; padding-top: 4.5rem; }
-  .hero__subtitle { margin-bottom: 5rem; }
+  .hero__subtitle { margin-bottom: 10rem; }
 
   .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
   .exp-item__period { font-size: 0.78rem; }
