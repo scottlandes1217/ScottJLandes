@@ -13,11 +13,21 @@ const ham    = document.querySelector('.nav__ham');
 const mobile = document.querySelector('.nav__mobile');
 
 if (ham && mobile) {
-  ham.addEventListener('click', () => {
+  const toggleMenu = () => {
     const open = ham.classList.toggle('open');
     mobile.classList.toggle('open', open);
     document.body.style.overflow = open ? 'hidden' : '';
-  });
+  };
+
+  // Handle touch immediately; preventDefault stops the synthetic click from double-firing
+  ham.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    toggleMenu();
+  }, { passive: false });
+
+  // Fallback for mouse / keyboard users
+  ham.addEventListener('click', toggleMenu);
+
   mobile.querySelectorAll('.nav__mobile-link').forEach(a => {
     a.addEventListener('click', () => {
       ham.classList.remove('open');
