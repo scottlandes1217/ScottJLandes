@@ -51,7 +51,7 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css" />
-  <script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
+  <script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);if(t==="light")document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll("img[data-logo-dark]").forEach(function(i){i.src=i.getAttribute("data-logo-dark");});});})();</script>
 </head>
 
 <body>
@@ -63,7 +63,7 @@
     <nav class="nav" aria-label="Main navigation">
       <div class="container">
         <div class="nav__inner">
-          <a href="#" class="nav__logo" aria-label="Scott Landes - Home"><img src="images/icons/icon-logo.png" alt="" width="22" height="24"><span>Scott Landes</span></a>
+          <a href="#" class="nav__logo" aria-label="Scott Landes - Home"><img src="images/icons/icon-logo.png" data-logo-light="images/icons/icon-logo.png" data-logo-dark="images/icons/icon-logo-dark.png" alt="" width="22" height="24"><span>Scott Landes</span></a>
 
           <ul class="nav__links" role="list">
             <li><a href="#" class="nav__link active"><img src="images/icons/icon-home.svg" alt="" width="14" height="14">Home</a></li>
@@ -116,7 +116,7 @@
 
           <h1 class="hero__title reveal reveal-d1">
             <span class="hero__name-row">
-              <img src="images/icons/icon-logo.png" alt="" class="hero__logo" width="72" height="72">
+              <img src="images/icons/icon-logo.png" data-logo-light="images/icons/icon-logo.png" data-logo-dark="images/icons/icon-logo-dark.png" alt="" class="hero__logo" width="72" height="72">
               Scott Landes
             </span>
             <span class="gradient-text">Software Engineer &amp; Designer</span>
@@ -484,7 +484,7 @@
     <div class="container">
       <div class="footer__inner">
 
-        <a href="#" class="footer__logo" aria-label="Scott Landes - Back to top"><img src="images/icons/icon-logo.png" alt="" width="18" height="20"><span>Scott Landes</span></a>
+        <a href="#" class="footer__logo" aria-label="Scott Landes - Back to top"><img src="images/icons/icon-logo.png" data-logo-light="images/icons/icon-logo.png" data-logo-dark="images/icons/icon-logo-dark.png" alt="" width="18" height="20"><span>Scott Landes</span></a>
 
         <nav class="footer__nav" aria-label="Footer navigation">
           <a href="#">Home</a>

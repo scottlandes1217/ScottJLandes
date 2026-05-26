@@ -51,6 +51,9 @@ themeBtn?.addEventListener('click', () => {
   const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
   document.documentElement.setAttribute('data-theme', next);
   localStorage.setItem('theme', next);
+  document.querySelectorAll('img[data-logo-dark]').forEach(img => {
+    img.src = next === 'light' ? img.getAttribute('data-logo-dark') : img.getAttribute('data-logo-light');
+  });
 });
 
 // ---- Current page nav highlight (sub-pages) --------------

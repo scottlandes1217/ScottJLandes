@@ -50,7 +50,7 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="../css/styles.css" />
-  <script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
+  <script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);if(t==="light")document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll("img[data-logo-dark]").forEach(function(i){i.src=i.getAttribute("data-logo-dark");});});})();</script>
 </head>
 
 <body>
@@ -62,7 +62,7 @@
     <nav class="nav" aria-label="Main navigation">
       <div class="container">
         <div class="nav__inner">
-          <a href="../index.html" class="nav__logo" aria-label="Scott Landes - Home"><img src="../images/icons/icon-logo.png" alt="" width="22" height="24"><span>Scott Landes</span></a>
+          <a href="../index.html" class="nav__logo" aria-label="Scott Landes - Home"><img src="../images/icons/icon-logo.png" data-logo-light="../images/icons/icon-logo.png" data-logo-dark="../images/icons/icon-logo-dark.png" alt="" width="22" height="24"><span>Scott Landes</span></a>
 
           <ul class="nav__links" role="list">
             <li><a href="../index.html" class="nav__link"><img src="../images/icons/icon-home.svg" alt="" width="14" height="14">Home</a></li>
@@ -203,7 +203,7 @@
     <div class="container">
       <div class="footer__inner">
 
-        <a href="../index.html" class="footer__logo" aria-label="Scott Landes - Back to home"><img src="../images/icons/icon-logo.png" alt="" width="18" height="20"><span>Scott Landes</span></a>
+        <a href="../index.html" class="footer__logo" aria-label="Scott Landes - Back to home"><img src="../images/icons/icon-logo.png" data-logo-light="../images/icons/icon-logo.png" data-logo-dark="../images/icons/icon-logo-dark.png" alt="" width="18" height="20"><span>Scott Landes</span></a>
 
         <nav class="footer__nav" aria-label="Footer navigation">
           <a href="../index.html">Home</a>
