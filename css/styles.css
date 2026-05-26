@@ -809,8 +809,8 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 
 @media (max-width: 768px) {
   .nav__links { display: none; }
-  .nav__ham   { display: flex; }
-  .nav__theme { order: 1; }
+  .nav__ham   { display: flex; margin-left: auto; }
+  .nav__theme { order: 1; margin-left: 0.25rem; }
 
   .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
   .exp-item__period { font-size: 0.78rem; }
