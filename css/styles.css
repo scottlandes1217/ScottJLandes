@@ -348,7 +348,7 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 }
 
 .btn-ghost {
-  background: var(--bg-card);
+  background: rgba(15,23,42,0.75);
   color: var(--text);
   border: 1px solid var(--border);
 }
@@ -498,7 +498,7 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   align-items: center;
   gap: 0.75rem;
   padding: 0.875rem 1.125rem;
-  background: var(--bg-card);
+  background: rgba(15,23,42,0.75);
   border: 1px solid var(--border);
   border-radius: var(--r-sm);
   font-size: 0.875rem;
@@ -559,7 +559,7 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 
 .stat {
   padding: 1.375rem;
-  background: var(--bg-card);
+  background: rgba(15,23,42,0.75);
   border: 1px solid var(--border);
   border-radius: var(--r-md);
   text-align: center;
@@ -595,7 +595,7 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 
 .about-visual__card {
   position: absolute;
-  background: var(--bg-card);
+  background: rgba(15,23,42,0.75);
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
   padding: 1.25rem 1.5rem;
@@ -879,7 +879,11 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
     radial-gradient(ellipse 60% 55% at 50% 50%,  rgba(124,58,237,0.08) 0%, transparent 65%);
   background-size: 72px 72px, 72px 72px, cover, cover, cover, cover, cover;
 }
-[data-theme="light"] .card { background: rgba(255,255,255,0.82); }
+[data-theme="light"] .card          { background: rgba(255,255,255,0.82); }
+[data-theme="light"] .btn-ghost     { background: rgba(255,255,255,0.82); }
+[data-theme="light"] .skill-chip    { background: rgba(255,255,255,0.82); }
+[data-theme="light"] .stat          { background: rgba(255,255,255,0.82); }
+[data-theme="light"] .about-visual__card { background: rgba(255,255,255,0.82); }
 
 [data-theme="light"] .nav.scrolled {
   background: rgba(244,246,255,0.97);
