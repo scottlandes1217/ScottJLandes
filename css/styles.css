@@ -823,3 +823,64 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   .footer__inner { flex-direction: column; align-items: flex-start; }
   .footer__nav { display: none; }
 }
+
+/* ---- Theme Toggle Button --------------------------------- */
+.nav__theme {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--r-sm);
+  color: var(--text-2);
+  transition: color 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+.nav__theme:hover { color: var(--text); background: rgba(255,255,255,0.06); }
+.theme-icon--moon { display: none; }
+
+/* ---- Light Mode ------------------------------------------ */
+[data-theme="light"] {
+  --bg:         #f4f6ff;
+  --bg-surface: #e8ecf8;
+  --bg-card:    rgba(0,0,0,0.04);
+  --bg-card-h:  rgba(0,0,0,0.07);
+  --text:       #0f172a;
+  --text-2:     #334155;
+  --text-muted: #64748b;
+  --border:     rgba(0,0,0,0.1);
+  --border-a:   rgba(124,58,237,0.35);
+  --shadow-card: 0 8px 32px rgba(0,0,0,0.1);
+  --shadow-glow: 0 0 48px rgba(168,85,247,0.12);
+}
+
+[data-theme="light"] body {
+  background:
+    radial-gradient(ellipse 70% 30% at 5%  30%,  rgba(124,58,237,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 25% at 95% 60%,  rgba(168,85,247,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 80% 30% at 50% 90%,  rgba(124,58,237,0.05) 0%, transparent 70%),
+    var(--bg);
+}
+
+[data-theme="light"] .nav.scrolled {
+  background: rgba(244,246,255,0.92);
+}
+
+[data-theme="light"] .nav__link:hover  { background: rgba(0,0,0,0.05); }
+[data-theme="light"] .nav__ham:hover   { background: rgba(0,0,0,0.05); }
+[data-theme="light"] .nav__theme:hover { background: rgba(0,0,0,0.05); color: var(--text); }
+
+[data-theme="light"] .nav__mobile {
+  background: rgba(244,246,255,0.98);
+}
+
+[data-theme="light"] .hero__grid {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px);
+}
+
+[data-theme="light"] .btn-ghost:hover { border-color: rgba(0,0,0,0.2); }
+
+[data-theme="light"] .theme-icon--sun  { display: none; }
+[data-theme="light"] .theme-icon--moon { display: flex; }

@@ -45,6 +45,14 @@ document.querySelectorAll('.card').forEach(card => {
   });
 });
 
+// ---- Theme toggle -----------------------------------------
+const themeBtn = document.querySelector('.nav__theme');
+themeBtn?.addEventListener('click', () => {
+  const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+});
+
 // ---- Current page nav highlight (sub-pages) --------------
 const path = window.location.pathname;
 document.querySelectorAll('.nav__link').forEach(l => {
