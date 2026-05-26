@@ -903,3 +903,10 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 
 [data-theme="light"] .theme-icon--sun  { display: none; }
 [data-theme="light"] .theme-icon--moon { display: flex; }
+
+/* ---- Theme transition ------------------------------------ */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.4s;
+  animation-timing-function: ease;
+}
