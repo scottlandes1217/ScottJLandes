@@ -790,6 +790,16 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 }
 .footer__social a:hover { border-color: var(--border-a); color: var(--accent); transform: translateY(-2px); }
 
+.footer__bend-badge {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-left: 0.25rem;
+  border-radius: 50%;
+  opacity: 0.75;
+}
+
 .footer__copy {
   width: 100%;
   text-align: center;
