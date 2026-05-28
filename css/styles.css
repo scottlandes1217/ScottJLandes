@@ -792,11 +792,10 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 .footer__bend-badge {
   display: inline-block;
   width: 22px;
-  height: 16px;
+  height: 22px;
   vertical-align: middle;
   margin-left: 0.35rem;
-  opacity: 0.6;
-  color: var(--accent);
+  opacity: 0.85;
 }
 
 .footer__copy {
