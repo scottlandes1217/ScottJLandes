@@ -125,7 +125,7 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   flex-shrink: 0;
   text-decoration: none;
 }
-.nav__logo img { flex-shrink: 0; }
+.nav__logo img { flex-shrink: 0; width: 32px; height: 35px; }
 .nav__logo span {
   font-family: var(--font-head);
   font-size: 1.2rem;
@@ -273,7 +273,7 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   align-items: center;
   gap: 1rem;
 }
-.hero__logo { flex-shrink: 0; }
+.hero__logo { flex-shrink: 0; width: 96px; height: 96px; }
 
 .hero__title {
   font-size: clamp(2.75rem, 8vw, 5.75rem);
@@ -762,6 +762,7 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   gap: 0.4rem;
   text-decoration: none;
 }
+.footer__logo img { width: 28px; height: 31px; }
 .footer__logo span {
   font-family: var(--font-head);
   font-size: 1.15rem;
