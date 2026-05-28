@@ -725,6 +725,7 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 
 .cta-banner__title { font-size: clamp(1.5rem,3vw,2.25rem); font-weight: 800; margin-bottom: 0.75rem; }
 .cta-banner__desc  { font-size: 1rem; color: var(--text-2); margin-bottom: 2rem; }
+.cta-banner .hero__actions { justify-content: center; align-items: center; }
 
 /* ---- Scroll Reveal --------------------------------------- */
 .reveal {
