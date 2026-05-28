@@ -416,7 +416,7 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   gap: 1.375rem;
   margin-top: 3rem;
 }
-.proj-card--live { grid-column: span 3; }
+.proj-card--live { grid-column: span 2; }
 .proj-card--soon { grid-column: span 2; }
 
 @media (max-width: 900px) {
@@ -424,8 +424,8 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   .proj-card--soon { grid-column: span 6; }
 }
 @media (min-width: 901px) and (max-width: 1100px) {
+  .proj-card--live,
   .proj-card--soon { grid-column: span 3; }
-  .proj-card--live { grid-column: span 3; }
 }
 
 .proj-card { cursor: pointer; }
