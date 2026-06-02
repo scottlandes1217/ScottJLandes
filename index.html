@@ -600,7 +600,11 @@
   <script type='text/javascript'>
   function initEmbeddedMessaging() {
     try {
-      embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+      embeddedservice_bootstrap.settings.language = 'en_US';
+
+      embeddedservice_bootstrap.settings.hiddenPrechatFields = {
+        "Origin_Domain": window.location.hostname
+      };
 
       embeddedservice_bootstrap.init(
         '00Dca000004FD5u',
@@ -616,7 +620,6 @@
   };
 </script>
 <script type='text/javascript' src='https://getcovered--agentforce.sandbox.my.site.com/ESWCustomerServiceAgent1780000088217/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-
 
   <!-- Scripts -->
   <script src="js/main.js" defer></script>
