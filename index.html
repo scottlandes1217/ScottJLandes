@@ -600,33 +600,6 @@
     </div>
   </footer>
 
-<script type='text/javascript'>
-  function initEmbeddedMessaging() {
-    try {
-      embeddedservice_bootstrap.settings.language = 'en_US';
-
-      embeddedservice_bootstrap.init(
-        '00D6g000001YXyV',
-        'Agentforce_Vanessa_TEST',
-        'https://getcovered.my.site.com/ESWAgentforceVanessaTES1781721121036',
-        {
-          scrt2URL: 'https://getcovered.my.salesforce-scrt.com'
-        }
-      );
-    } catch (err) {
-      console.error('Error loading Embedded Messaging: ', err);
-    }
-  };
-
-  window.addEventListener('onEmbeddedMessagingReady', () => {
-    embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-      "Origin_Domain": window.location.hostname
-    });
-  });
-</script>
-<script type='text/javascript' src='https://getcovered.my.site.com/ESWAgentforceVanessaTES1781721121036/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-initEmbeddedMessaging()'></script>
-
   <!-- Scripts -->
   <script src="js/main.js" defer></script>
 
