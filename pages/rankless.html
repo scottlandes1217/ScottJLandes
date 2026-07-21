@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rankless - RPG Chess | Coming Soon | Scott Landes</title>
-  <meta name="description" content="Rankless is RPG chess you can play anywhere - your pieces have HP, levels, and gear, and they remember every battle. A browser game in development by Scott Landes.">
-  <meta name="keywords" content="Rankless, RPG chess, browser game, chess RPG, roguelite chess, Scott Landes, indie game development">
+  <title>Rankless - RPG Chess | Now in Beta | Scott Landes</title>
+  <meta name="description" content="Rankless is RPG chess you can play anywhere, now in beta - your pieces have HP, levels, and gear, and they remember every battle. Play free in your browser.">
+  <meta name="keywords" content="Rankless, Rankless chess, RPG chess, browser game, chess RPG, roguelite chess, Scott Landes, indie game development">
   <link rel="canonical" href="https://scottjlandes.com/pages/rankless.html">
   <link rel="icon" type="image/svg+xml" href="../images/icons/icon-logo.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="../images/icons/icon-logo.png">
@@ -14,14 +14,14 @@
   <!-- Open Graph -->
   <meta property="og:type"        content="website">
   <meta property="og:url"         content="https://scottjlandes.com/pages/rankless.html">
-  <meta property="og:title"       content="Rankless - RPG Chess | Scott Landes">
-  <meta property="og:description" content="RPG chess you can play anywhere. Your pieces have HP, levels, and gear - and they remember every battle.">
+  <meta property="og:title"       content="Rankless - RPG Chess | Now in Beta | Scott Landes">
+  <meta property="og:description" content="RPG chess you can play anywhere, now in beta. Your pieces have HP, levels, and gear - and they remember every battle.">
   <meta property="og:site_name"   content="Scott Landes">
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="Rankless - RPG Chess | Scott Landes">
-  <meta name="twitter:description" content="RPG chess you can play anywhere. Your pieces have HP, levels, and gear - and they remember every battle.">
+  <meta name="twitter:title"       content="Rankless - RPG Chess | Now in Beta | Scott Landes">
+  <meta name="twitter:description" content="RPG chess you can play anywhere, now in beta. Your pieces have HP, levels, and gear - and they remember every battle.">
 
   <!-- Schema.org -->
   <script type="application/ld+json">
@@ -32,6 +32,7 @@
     "applicationCategory": "GameApplication",
     "gamePlatform": "Web browser",
     "operatingSystem": "Any (web browser)",
+    "url": "https://www.ranklesschess.com",
     "description": "RPG chess you can play anywhere. Pieces have HP, levels, and equipment, and carry their progress between battles.",
     "author": {
       "@type": "Person",
@@ -44,7 +45,9 @@
     },
     "offers": {
       "@type": "Offer",
-      "availability": "https://schema.org/PreOrder"
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
     }
   }
   </script>
@@ -60,7 +63,9 @@
     /* Rankless-specific accent: gold / amber */
     .rankless-accent { color: #f59e0b; }
     .rankless-tag {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       padding: 0.3rem 0.875rem;
       border-radius: 100px;
       border: 1px solid rgba(245,158,11,0.35);
@@ -71,6 +76,23 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-bottom: 1.5rem;
+    }
+    /* Live-beta pulse, matching the other product pages */
+    .rankless-tag::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+      animation: rankless-pulse 2.4s var(--ease) infinite;
+    }
+    @keyframes rankless-pulse {
+      0%   { box-shadow: 0 0 0 0   rgba(245,158,11,0.55); }
+      70%  { box-shadow: 0 0 0 8px rgba(245,158,11,0);    }
+      100% { box-shadow: 0 0 0 0   rgba(245,158,11,0);    }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .rankless-tag::before { animation: none; }
     }
     .rankless-hero__bg {
       position: absolute;
@@ -166,7 +188,7 @@
   <main>
 
     <!-- ============================================================
-         Coming Soon Hero
+         Beta Hero
     ============================================================ -->
     <section class="cs-hero">
       <div class="rankless-hero__bg"></div>
@@ -177,7 +199,7 @@
 
           <div class="cs-hero__logo" aria-hidden="true"><img src="../images/icons/icon-kings.svg" alt="" width="80" height="80"></div>
 
-          <div class="rankless-tag">Coming Soon: Beta</div>
+          <div class="rankless-tag">Now in Beta</div>
 
           <h1 class="cs-hero__title">
             <span class="gradient-text">Rankless</span>
@@ -189,11 +211,11 @@
           </p>
 
           <div class="hero__actions">
-            <a href="mailto:scottandvega@gmail.com?subject=Rankless%20Beta%20Interest" class="btn rankless-btn">
-              Notify Me at Beta
+            <a href="https://www.ranklesschess.com" target="_blank" rel="noopener noreferrer" class="btn rankless-btn">
+              Play the Beta →
             </a>
-            <a href="../index.html" class="btn btn-ghost">
-              Learn About Scott
+            <a href="mailto:scottandvega@gmail.com?subject=Rankless%20Beta%20Feedback" class="btn btn-ghost">
+              Send Feedback
             </a>
           </div>
 
@@ -446,22 +468,40 @@
     </section>
 
     <!-- ============================================================
+         Beta Status
+    ============================================================ -->
+    <section>
+      <div class="container">
+        <div class="reveal">
+          <span class="label">Status</span>
+          <h2 class="section-title">What Beta Means Here</h2>
+          <p class="section-desc">
+            Rankless is playable right now, free, at ranklesschess.com - no download and no account
+            required to start. The game is feature-complete, but the world is still filling in: Act I
+            of the campaign and the first adventure map are the story content so far, and more is
+            being built. Expect the occasional rough edge, and tell me when you find one.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
          CTA
     ============================================================ -->
     <section>
       <div class="container">
         <div class="cta-banner rankless-cta reveal">
-          <h2 class="cta-banner__title">Be the First to Play Rankless</h2>
+          <h2 class="cta-banner__title">Go Build an Army</h2>
           <p class="cta-banner__desc">
-            The game is built and heading into beta at rankless.com. Drop me an email and I'll let you
-            know the moment it opens up.
+            Rankless is in beta and free to play - open it in a browser and you're in. It's still being
+            actively built, so if something breaks or an idea would make it better, tell me.
           </p>
           <div class="hero__actions" style="justify-content: center;">
-            <a href="mailto:scottandvega@gmail.com?subject=Rankless%20Beta%20Interest" class="btn rankless-btn">
-              Join the Beta List
+            <a href="https://www.ranklesschess.com" target="_blank" rel="noopener noreferrer" class="btn rankless-btn">
+              Play at ranklesschess.com →
             </a>
-            <a href="../index.html" class="btn btn-ghost">
-              See All Projects
+            <a href="mailto:scottandvega@gmail.com?subject=Rankless%20Beta%20Feedback" class="btn btn-ghost">
+              Email Me
             </a>
           </div>
         </div>
