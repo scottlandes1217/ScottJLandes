@@ -60,65 +60,9 @@
   <link rel="stylesheet" href="../css/styles.css">
 
   <style>
-    /* Rankless-specific accent: gold / amber */
-    .rankless-accent { color: #f59e0b; }
-    .rankless-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.3rem 0.875rem;
-      border-radius: 100px;
-      border: 1px solid rgba(245,158,11,0.35);
-      background: rgba(245,158,11,0.1);
-      color: #f59e0b;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 1.5rem;
-    }
-    /* Live-beta pulse, matching the other product pages */
-    .rankless-tag::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: currentColor;
-      animation: rankless-pulse 2.4s var(--ease) infinite;
-    }
-    @keyframes rankless-pulse {
-      0%   { box-shadow: 0 0 0 0   rgba(245,158,11,0.55); }
-      70%  { box-shadow: 0 0 0 8px rgba(245,158,11,0);    }
-      100% { box-shadow: 0 0 0 0   rgba(245,158,11,0);    }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .rankless-tag::before { animation: none; }
-    }
-    .rankless-hero__bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 90% 55% at 50% -10%, rgba(245,158,11,0.15) 0%, transparent 70%),
-        radial-gradient(ellipse 60% 40% at 80% 60%, rgba(168,85,247,0.1) 0%, transparent 65%);
-    }
-    .board-pattern {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(245,158,11,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(245,158,11,0.04) 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
-      -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
-    }
-    .rankless-cta { border-color: rgba(245,158,11,0.3); background: linear-gradient(135deg, rgba(245,158,11,0.12) 0%, rgba(168,85,247,0.1) 100%); }
-    .rankless-btn {
-      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-      color: #000;
-      box-shadow: 0 0 24px rgba(245,158,11,0.35);
-      font-weight: 700;
-    }
-    .rankless-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 36px rgba(245,158,11,0.5); }
+    /* Chess piece cards - the only page-specific styling Rankless needs.
+       Everything else uses the site-wide accent so status and CTAs read the
+       same here as on the Hubbubb and Hoozr pages. */
     .piece-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -133,7 +77,7 @@
       text-align: center;
       transition: border-color 0.2s, transform 0.2s;
     }
-    .piece-card:hover { border-color: rgba(245,158,11,0.4); transform: translateY(-3px); }
+    .piece-card:hover { border-color: var(--border-a); transform: translateY(-3px); }
     .piece-card__symbol { font-size: 2.5rem; margin-bottom: 0.5rem; }
     .piece-card__name { font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.25rem; }
     .piece-card__role { font-size: 0.78rem; color: var(--text-muted); }
@@ -190,16 +134,16 @@
     <!-- ============================================================
          Beta Hero
     ============================================================ -->
-    <section class="cs-hero">
-      <div class="rankless-hero__bg"></div>
-      <div class="board-pattern"></div>
+    <section class="cs-hero" aria-label="Rankless - Now in Beta">
+      <div class="hero__bg"></div>
+      <div class="hero__grid"></div>
 
       <div class="container">
         <div class="cs-hero__content">
 
           <div class="cs-hero__logo" aria-hidden="true"><img src="../images/icons/icon-rankless.svg" alt="" width="80" height="80"></div>
 
-          <div class="rankless-tag">Now in Beta</div>
+          <p class="cs-hero__tag cs-hero__tag--beta">Now in Beta</p>
 
           <h1 class="cs-hero__title">
             <span class="gradient-text">Rankless</span>
@@ -211,7 +155,7 @@
           </p>
 
           <div class="hero__actions">
-            <a href="https://www.ranklesschess.com" target="_blank" rel="noopener noreferrer" class="btn rankless-btn">
+            <a href="https://www.ranklesschess.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
               Play the Beta →
             </a>
             <a href="mailto:scottandvega@gmail.com?subject=Rankless%20Beta%20Feedback" class="btn btn-ghost">
@@ -490,14 +434,14 @@
     ============================================================ -->
     <section>
       <div class="container">
-        <div class="cta-banner rankless-cta reveal">
+        <div class="cta-banner reveal">
           <h2 class="cta-banner__title">Go Build an Army</h2>
           <p class="cta-banner__desc">
             Rankless is in beta and free to play - open it in a browser and you're in. It's still being
             actively built, so if something breaks or an idea would make it better, tell me.
           </p>
           <div class="hero__actions" style="justify-content: center;">
-            <a href="https://www.ranklesschess.com" target="_blank" rel="noopener noreferrer" class="btn rankless-btn">
+            <a href="https://www.ranklesschess.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
               Play at ranklesschess.com →
             </a>
             <a href="mailto:scottandvega@gmail.com?subject=Rankless%20Beta%20Feedback" class="btn btn-ghost">
