@@ -456,6 +456,7 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 }
 .badge-soon { background: rgba(251,146,60,.14); color: #fb923c; border: 1px solid rgba(251,146,60,.25); }
 .badge-live { background: rgba(34,197,94,.14);  color: #22c55e; border: 1px solid rgba(34,197,94,.25); }
+.badge-beta { background: rgba(34,211,238,.14); color: #22d3ee; border: 1px solid rgba(34,211,238,.28); }
 
 .proj-card__title { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
 .proj-card__desc  { font-size: 0.87rem; color: var(--text-2); line-height: 1.65; margin-bottom: 1.375rem; }
@@ -642,6 +643,33 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   margin-bottom: 1.5rem;
 }
 
+/* Beta variant — live product, not a placeholder */
+.cs-hero__tag--beta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-color: rgba(34,211,238,0.32);
+  background: rgba(34,211,238,0.1);
+  color: #22d3ee;
+}
+.cs-hero__tag--beta::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 0 0 rgba(34,211,238,0.6);
+  animation: beta-pulse 2.4s var(--ease) infinite;
+}
+@keyframes beta-pulse {
+  0%   { box-shadow: 0 0 0 0   rgba(34,211,238,0.55); }
+  70%  { box-shadow: 0 0 0 8px rgba(34,211,238,0);    }
+  100% { box-shadow: 0 0 0 0   rgba(34,211,238,0);    }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cs-hero__tag--beta::before { animation: none; }
+}
+
 .cs-hero__title { font-size: clamp(3rem,8vw,5rem); font-weight: 800; letter-spacing: -0.04em; margin-bottom: 1.25rem; }
 .cs-hero__desc  { font-size: 1.15rem; color: var(--text-2); margin-bottom: 2.5rem; line-height: 1.65; }
 
@@ -739,6 +767,7 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 .reveal-d3 { transition-delay: 0.3s; }
 .reveal-d4 { transition-delay: 0.4s; }
 .reveal-d5 { transition-delay: 0.5s; }
+.reveal-d6 { transition-delay: 0.6s; }
 
 /* ---- Footer ---------------------------------------------- */
 .footer {
@@ -896,6 +925,22 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 
 [data-theme="light"] .nav.scrolled {
   background: rgba(244,246,255,0.97);
+}
+
+/* Cyan reads too light on the pale background — darken it */
+[data-theme="light"] .badge-beta,
+[data-theme="light"] .cs-hero__tag--beta {
+  background: rgba(14,116,144,0.1);
+  color: #0e7490;
+  border-color: rgba(14,116,144,0.3);
+}
+[data-theme="light"] .cs-hero__tag--beta::before {
+  animation-name: beta-pulse-light;
+}
+@keyframes beta-pulse-light {
+  0%   { box-shadow: 0 0 0 0   rgba(14,116,144,0.45); }
+  70%  { box-shadow: 0 0 0 8px rgba(14,116,144,0);    }
+  100% { box-shadow: 0 0 0 0   rgba(14,116,144,0);    }
 }
 
 [data-theme="light"] .nav__link:hover  { background: rgba(0,0,0,0.05); }

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rankless - RPG Chess | Coming Soon | Scott Landes</title>
+  <meta name="description" content="Rankless is RPG chess you can play anywhere - your pieces have HP, levels, and gear, and they remember every battle. A browser game in development by Scott Landes.">
+  <meta name="keywords" content="Rankless, RPG chess, browser game, chess RPG, roguelite chess, Scott Landes, indie game development">
+  <link rel="canonical" href="https://scottjlandes.com/pages/rankless.html">
+  <link rel="icon" type="image/svg+xml" href="../images/icons/icon-logo.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/icons/icon-logo.png">
+  <link rel="apple-touch-icon" href="../images/icons/icon-logo.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://scottjlandes.com/pages/rankless.html">
+  <meta property="og:title"       content="Rankless - RPG Chess | Scott Landes">
+  <meta property="og:description" content="RPG chess you can play anywhere. Your pieces have HP, levels, and gear - and they remember every battle.">
+  <meta property="og:site_name"   content="Scott Landes">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Rankless - RPG Chess | Scott Landes">
+  <meta name="twitter:description" content="RPG chess you can play anywhere. Your pieces have HP, levels, and gear - and they remember every battle.">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Rankless",
+    "applicationCategory": "GameApplication",
+    "gamePlatform": "Web browser",
+    "operatingSystem": "Any (web browser)",
+    "description": "RPG chess you can play anywhere. Pieces have HP, levels, and equipment, and carry their progress between battles.",
+    "author": {
+      "@type": "Person",
+      "name": "Scott Landes",
+      "url": "https://scottjlandes.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/scott-and-vega",
+        "https://www.instagram.com/scottnvega/"
+      ]
+    },
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/PreOrder"
+    }
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <style>
+    /* Rankless-specific accent: gold / amber */
+    .rankless-accent { color: #f59e0b; }
+    .rankless-tag {
+      display: inline-block;
+      padding: 0.3rem 0.875rem;
+      border-radius: 100px;
+      border: 1px solid rgba(245,158,11,0.35);
+      background: rgba(245,158,11,0.1);
+      color: #f59e0b;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+    }
+    .rankless-hero__bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 90% 55% at 50% -10%, rgba(245,158,11,0.15) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 80% 60%, rgba(168,85,247,0.1) 0%, transparent 65%);
+    }
+    .board-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(245,158,11,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245,158,11,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    }
+    .rankless-cta { border-color: rgba(245,158,11,0.3); background: linear-gradient(135deg, rgba(245,158,11,0.12) 0%, rgba(168,85,247,0.1) 100%); }
+    .rankless-btn {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: #000;
+      box-shadow: 0 0 24px rgba(245,158,11,0.35);
+      font-weight: 700;
+    }
+    .rankless-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 36px rgba(245,158,11,0.5); }
+    .piece-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+    .piece-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 1.25rem;
+      text-align: center;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .piece-card:hover { border-color: rgba(245,158,11,0.4); transform: translateY(-3px); }
+    .piece-card__symbol { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .piece-card__name { font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .piece-card__role { font-size: 0.78rem; color: var(--text-muted); }
+  </style>
+  <script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);if(t==="light")document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll("img[data-logo-dark]").forEach(function(i){i.src=i.getAttribute("data-logo-dark");});});})();</script>
+</head>
+<body>
+  <div class="page-bg" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       Navigation
+  ============================================================ -->
+  <header>
+    <nav class="nav" aria-label="Main navigation">
+      <div class="container">
+        <div class="nav__inner">
+          <a href="../index.html" class="nav__logo" aria-label="Scott Landes - Home"><img src="../images/icons/icon-logo.png" data-logo-light="../images/icons/icon-logo.png" data-logo-dark="../images/icons/icon-logo-dark.png" alt="" width="22" height="24"><span>Scott Landes</span></a>
+
+          <ul class="nav__links" role="list">
+            <li><a href="../index.html" class="nav__link"><img src="../images/icons/icon-home.svg" alt="" width="14" height="14">Home</a></li>
+            <li><a href="web-design.html" class="nav__link"><img src="../images/icons/icon-web-design.svg" alt="" width="14" height="14">Web Design</a></li>
+            <li><a href="salesforce.html" class="nav__link"><img src="../images/icons/icon-salesforce.svg" alt="" width="14" height="14">Salesforce</a></li>
+            <li><a href="hubbubb.html" class="nav__link"><img src="../images/icons/icon-hubbub.svg" alt="" width="14" height="14">Hubbubb</a></li>
+            <li><a href="hoozr.html" class="nav__link"><img src="../images/icons/icon-hoozr.svg" alt="" width="14" height="14">Hoozr</a></li>
+            <li><a href="rankless.html" class="nav__link active" aria-current="page"><img src="../images/icons/icon-kings.svg" alt="" width="14" height="14">Rankless</a></li>
+          </ul>
+
+          <button class="nav__theme" aria-label="Toggle dark/light mode">
+            <svg class="theme-icon theme-icon--sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="theme-icon theme-icon--moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button class="nav__ham" aria-label="Open mobile menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile overlay menu -->
+    <div class="nav__mobile" aria-hidden="true">
+      <a href="../index.html" class="nav__mobile-link"><img src="../images/icons/icon-home.svg" alt="" width="28" height="28">Home</a>
+      <a href="web-design.html" class="nav__mobile-link"><img src="../images/icons/icon-web-design.svg" alt="" width="28" height="28">Web Design</a>
+      <a href="salesforce.html" class="nav__mobile-link"><img src="../images/icons/icon-salesforce.svg" alt="" width="28" height="28">Salesforce</a>
+      <a href="hubbubb.html" class="nav__mobile-link"><img src="../images/icons/icon-hubbub.svg" alt="" width="28" height="28">Hubbubb</a>
+      <a href="hoozr.html" class="nav__mobile-link"><img src="../images/icons/icon-hoozr.svg" alt="" width="28" height="28">Hoozr</a>
+      <a href="rankless.html" class="nav__mobile-link"><img src="../images/icons/icon-kings.svg" alt="" width="28" height="28">Rankless</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         Coming Soon Hero
+    ============================================================ -->
+    <section class="cs-hero">
+      <div class="rankless-hero__bg"></div>
+      <div class="board-pattern"></div>
+
+      <div class="container">
+        <div class="cs-hero__content">
+
+          <div class="cs-hero__logo" aria-hidden="true"><img src="../images/icons/icon-kings.svg" alt="" width="80" height="80"></div>
+
+          <div class="rankless-tag">Coming Soon: Beta</div>
+
+          <h1 class="cs-hero__title">
+            <span class="gradient-text">Rankless</span>
+          </h1>
+
+          <p class="cs-hero__desc">
+            RPG chess you can play anywhere. Your pieces have health, levels, and gear -
+            and they carry every scar with them into the next battle.
+          </p>
+
+          <div class="hero__actions">
+            <a href="mailto:scottandvega@gmail.com?subject=Rankless%20Beta%20Interest" class="btn rankless-btn">
+              Notify Me at Beta
+            </a>
+            <a href="../index.html" class="btn btn-ghost">
+              Learn About Scott
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         The Game
+    ============================================================ -->
+    <section>
+      <div class="container">
+
+        <div class="reveal">
+          <span class="label">The Game</span>
+          <h2 class="section-title">Chess, Except Your Pieces Level Up</h2>
+          <p class="section-desc">
+            Captures aren't instant in Rankless. Pieces have hit points, attack, and defense, so a
+            fight over a square is an actual fight - and the piece that survives it keeps the experience.
+            Your knight who's been through three campaigns plays nothing like a fresh recruit.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="card reveal reveal-d1">
+            <div class="feature-card__icon"><img src="../images/icons/icon-shield.svg" alt="" width="32" height="32"></div>
+            <h3 class="feature-card__title">RPG Combat</h3>
+            <p class="feature-card__desc">
+              HP, attack, defense, and a block chance that scales with armor. Skills change the math -
+              piercing, execute, lifesteal, reflect damage, splash, and regeneration. Melee pieces
+              advance into the square; knights and archers strike from range.
+            </p>
+          </article>
+          <article class="card reveal reveal-d2">
+            <div class="feature-card__icon"><img src="../images/icons/icon-trophy.svg" alt="" width="32" height="32"></div>
+            <h3 class="feature-card__title">A Persistent Army</h3>
+            <p class="feature-card__desc">
+              Every individual piece earns XP and levels independently, gaining health, attack,
+              defense, and speed as it goes. Not the piece type - that pawn. It's your roster,
+              and you build it one battle at a time.
+            </p>
+          </article>
+          <article class="card reveal reveal-d3">
+            <div class="feature-card__icon"><img src="../images/icons/icon-component.svg" alt="" width="32" height="32"></div>
+            <h3 class="feature-card__title">Gear That Changes Rules</h3>
+            <p class="feature-card__desc">
+              Dozens of weapons, armor, and accessories across five rarities - and the good stuff
+              grants mechanics, not just numbers. A Longbow makes a piece ranged. Thorn Mail reflects
+              damage. A Healing Staff turns a bishop into a medic.
+            </p>
+          </article>
+          <article class="card reveal reveal-d4">
+            <div class="feature-card__icon"><img src="../images/icons/icon-refresh.svg" alt="" width="32" height="32"></div>
+            <h3 class="feature-card__title">Speed Decides Turns</h3>
+            <p class="feature-card__desc">
+              In battle rooms, an initiative queue replaces strict alternating turns. Build a faster
+              army and you simply act more often - a whole axis of strategy chess doesn't have.
+            </p>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Modes
+    ============================================================ -->
+    <section>
+      <div class="container">
+
+        <div class="reveal">
+          <span class="label">Ways to Play</span>
+          <h2 class="section-title">Five Games in One Board</h2>
+          <p class="section-desc">
+            Underneath all of it is a complete, legal chess engine - en passant, castling, promotion,
+            pins, checkmate, stalemate. Everything else is built on top of a game that plays by the real rules.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="card reveal reveal-d1">
+            <div class="feature-card__icon"><img src="../images/icons/icon-book.svg" alt="" width="32" height="32"></div>
+            <h3 class="feature-card__title">Campaign</h3>
+            <p class="feature-card__desc">
+              Act I, The Verdant Kingdom: a branching run of hand-built rooms that each teach one real
+              chess idea - the knight's L, the fork, the pin, the back-rank mate - wrapped in story
+              beats, shops, rest stops, and a boss who tells you the pieces were only ever tools.
+            </p>
+          </article>
+          <article class="card reveal reveal-d2">
+            <div class="feature-card__icon"><img src="../images/icons/icon-map.svg" alt="" width="32" height="32"></div>
+            <h3 class="feature-card__title">Adventure</h3>
+            <p class="feature-card__desc">
+              Leave the board entirely. Walk your hero through the Blackreach Dungeons, dodge patrols,
+              crack open chests, recruit prisoners into your army, and drop into a battle whenever
+              something blocks the way out.
+            </p>
+          </article>
+          <article class="card reveal reveal-d3">
+            <div class="feature-card__icon"><img src="../images/icons/icon-users.svg" alt="" width="32" height="32"></div>
+            <h3 class="feature-card__title">Online Multiplayer</h3>
+            <p class="feature-card__desc">
+              Real matchmaking against real people, with live clocks and increment, draw offers,
+              resignation, and a match history that tracks your record. Bullet, Blitz, Rapid, or
+              multi-day correspondence.
+            </p>
+          </article>
+          <article class="card reveal reveal-d4">
+            <div class="feature-card__icon"><img src="../images/icons/icon-chart.svg" alt="" width="32" height="32"></div>
+            <h3 class="feature-card__title">Classic Chess</h3>
+            <p class="feature-card__desc">
+              Want none of the RPG? Play straight chess against a proper engine with search, position
+              evaluation, and a difficulty ladder from beginner to genuinely unpleasant.
+            </p>
+          </article>
+          <article class="card reveal reveal-d5">
+            <div class="feature-card__icon"><img src="../images/icons/icon-search.svg" alt="" width="32" height="32"></div>
+            <h3 class="feature-card__title">Puzzles</h3>
+            <p class="feature-card__desc">
+              Mate-in-N puzzles with timed records - plus a built-in editor so you can build your own
+              positions, share them, and see what other people made of yours.
+            </p>
+          </article>
+          <article class="card reveal reveal-d6">
+            <div class="feature-card__icon"><img src="../images/icons/icon-palette.svg" alt="" width="32" height="32"></div>
+            <h3 class="feature-card__title">Make It Yours</h3>
+            <p class="feature-card__desc">
+              A 3D perspective board if you want atmosphere, flat 2D if you want clarity. Eight board
+              themes from Forest to Volcanic to Void, plus piece sets and board sidings earned or
+              bought with what you win.
+            </p>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         The Pieces
+    ============================================================ -->
+    <section style="background: var(--bg-surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+      <div class="container">
+
+        <div class="reveal">
+          <span class="label">Characters</span>
+          <h2 class="section-title">Every Piece Has a Role</h2>
+          <p class="section-desc">
+            The classic six become archetypes with their own stat lines, abilities, and upgrade paths.
+            Heroes bring the whole army with them: a King inspires nearby allies to hit harder, and a
+            Queen's dominance lets her strike several enemies at once.
+          </p>
+        </div>
+
+        <div class="piece-grid">
+          <div class="piece-card reveal reveal-d1">
+            <div class="piece-card__symbol">♚</div>
+            <div class="piece-card__name">The King</div>
+            <div class="piece-card__role">Sovereign: Inspires nearby allies</div>
+          </div>
+          <div class="piece-card reveal reveal-d1">
+            <div class="piece-card__symbol">♛</div>
+            <div class="piece-card__name">The Queen</div>
+            <div class="piece-card__role">Champion: Strikes multiple foes</div>
+          </div>
+          <div class="piece-card reveal reveal-d2">
+            <div class="piece-card__symbol">♜</div>
+            <div class="piece-card__name">The Rook</div>
+            <div class="piece-card__role">Guardian: Excellent defense</div>
+          </div>
+          <div class="piece-card reveal reveal-d2">
+            <div class="piece-card__symbol">♝</div>
+            <div class="piece-card__name">The Bishop</div>
+            <div class="piece-card__role">Sage: Arcane diagonal striker</div>
+          </div>
+          <div class="piece-card reveal reveal-d3">
+            <div class="piece-card__symbol">♞</div>
+            <div class="piece-card__name">The Knight</div>
+            <div class="piece-card__role">Ranger: Leaps and hits at range</div>
+          </div>
+          <div class="piece-card reveal reveal-d3">
+            <div class="piece-card__symbol">♟</div>
+            <div class="piece-card__name">The Pawn</div>
+            <div class="piece-card__role">Recruit: Hidden potential</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Platform
+    ============================================================ -->
+    <section>
+      <div class="container">
+
+        <div class="reveal">
+          <span class="label">Platform</span>
+          <h2 class="section-title">It Just Runs in Your Browser</h2>
+          <p class="section-desc">
+            No download, no store, no waiting on review. Open a link and you're playing - on a phone,
+            a tablet, or a desktop. Add it to your home screen and it behaves like an installed app,
+            offline included.
+          </p>
+        </div>
+
+        <div class="feature-grid" style="margin-top: 2.5rem;">
+          <article class="card reveal reveal-d1">
+            <div class="feature-card__icon"><img src="../images/icons/icon-responsive.svg" alt="" width="32" height="32"></div>
+            <h3 class="feature-card__title">Touch and Desktop</h3>
+            <p class="feature-card__desc">
+              Pinch to zoom and drag to pan the board on a phone; mouse and wheel on a desktop.
+              Portrait or landscape, the board is built to be readable on a small screen.
+            </p>
+          </article>
+          <article class="card reveal reveal-d2">
+            <div class="feature-card__icon"><img src="../images/icons/icon-cloud.svg" alt="" width="32" height="32"></div>
+            <h3 class="feature-card__title">Cloud Saves</h3>
+            <p class="feature-card__desc">
+              Make an account and your army, campaign progress, and match record follow you to any
+              device. No account? It still saves locally and plays fine.
+            </p>
+          </article>
+          <article class="card reveal reveal-d3">
+            <div class="feature-card__icon"><img src="../images/icons/icon-lock.svg" alt="" width="32" height="32"></div>
+            <h3 class="feature-card__title">Installable &amp; Offline</h3>
+            <p class="feature-card__desc">
+              A real progressive web app - install it from the browser, launch it full screen, and
+              play the single-player content with no connection at all.
+            </p>
+          </article>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="reveal" style="margin-top: 3rem;">
+          <span class="label">Tech Stack</span>
+          <h3 class="section-title" style="font-size: 1.5rem;">What It's Built With</h3>
+          <div class="tags">
+            <span class="tag">TypeScript</span>
+            <span class="tag">React</span>
+            <span class="tag">Phaser 3</span>
+            <span class="tag">Vite</span>
+            <span class="tag">Supabase</span>
+            <span class="tag">Realtime Multiplayer</span>
+            <span class="tag">Progressive Web App</span>
+            <span class="tag">Vitest</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CTA
+    ============================================================ -->
+    <section>
+      <div class="container">
+        <div class="cta-banner rankless-cta reveal">
+          <h2 class="cta-banner__title">Be the First to Play Rankless</h2>
+          <p class="cta-banner__desc">
+            The game is built and heading into beta at rankless.com. Drop me an email and I'll let you
+            know the moment it opens up.
+          </p>
+          <div class="hero__actions" style="justify-content: center;">
+            <a href="mailto:scottandvega@gmail.com?subject=Rankless%20Beta%20Interest" class="btn rankless-btn">
+              Join the Beta List
+            </a>
+            <a href="../index.html" class="btn btn-ghost">
+              See All Projects
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       Footer
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <a href="../index.html" class="footer__logo"><img src="../images/icons/icon-logo.png" data-logo-light="../images/icons/icon-logo.png" data-logo-dark="../images/icons/icon-logo-dark.png" alt="" width="18" height="20"><span>Scott Landes</span></a>
+
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <a href="../index.html">Home</a>
+          <a href="hubbubb.html"><img src="../images/icons/icon-hubbub.svg" alt="" width="12" height="12">Hubbubb</a>
+          <a href="web-design.html"><img src="../images/icons/icon-web-design.svg" alt="" width="12" height="12">Web Design</a>
+          <a href="salesforce.html"><img src="../images/icons/icon-salesforce.svg" alt="" width="12" height="12">Salesforce</a>
+          <a href="hoozr.html"><img src="../images/icons/icon-hoozr.svg" alt="" width="12" height="12">Hoozr</a>
+          <a href="rankless.html"><img src="../images/icons/icon-kings.svg" alt="" width="12" height="12">Rankless</a>
+        </nav>
+
+        <div class="footer__social">
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/scott-and-vega" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/scottnvega/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <!-- GitHub -->
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <p class="footer__copy">© 2025 Scott Landes. Built with care in Bend, Oregon.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+</body>
+</html>
