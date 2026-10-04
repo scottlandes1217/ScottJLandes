@@ -363,15 +363,28 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 
 /* Character animation hooks for hero title */
 .hero__title .char {
-  display: inline-block;
+  display: inline;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
   opacity: 0;
-  transform: translateY(8px);
   transition: none; /* JS drives this */
 }
 .hero__title .char.revealed {
   opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.4s ease, transform 0.5s var(--ease-out);
+  transition: opacity 0.35s ease, transform 0.45s var(--ease-out);
+}
+
+/* Mobile: disable character animation — just show text normally */
+@media (max-width: 768px) {
+  .hero__title .char {
+    opacity: 1 !important;
+    display: inline !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+    letter-spacing: inherit !important;
+    vertical-align: baseline !important;
+  }
 }
 
 /* Typewriter cursor for subtitle */
@@ -395,9 +408,9 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   gap: 0.5rem;
   padding: 0.4rem 1rem;
   border-radius: 100px;
-  border: 1px solid rgba(245,158,11,0.2);
-  background: rgba(245,158,11,0.06);
-  color: var(--amber);
+  border: 1px solid rgba(96,165,250,0.3);
+  background: rgba(96,165,250,0.08);
+  color: var(--ice-blue);
   font-size: 0.8rem;
   font-weight: 600;
   margin-bottom: 1.75rem;
@@ -642,34 +655,72 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   border: 1px solid var(--border);
 }
 
-/* Per-product icon colors via parent class */
-.icon-hubbub svg    { stroke: var(--icon-hubbub); fill: none; }
-.icon-hubbub svg[fill] { fill: var(--icon-hubbub, currentColor); }
-.icon-hoozr svg     { stroke: var(--icon-hoozr);  fill: none; }
-.icon-hoozr svg[fill] { fill: var(--icon-hoozr, currentColor); }
-.icon-rankless svg  { stroke: var(--icon-rankless); fill: none; filter: drop-shadow(0 0 3px rgba(52,211,153,0.4)); }
-.icon-webdesign svg { stroke: var(--icon-webdesign); fill: none; }
-.icon-salesforce svg{ stroke: var(--icon-salesforce); fill: none; }
+/* Per-product icon colors — dark mode (light bg, colored icons) */
+.icon-hubbub svg     { stroke: var(--icon-hubbub); filter: drop-shadow(0 0 2px rgba(245,158,11,0.3)); }
+.icon-hubbub svg[fill]:not([fill="none"]) { fill: var(--icon-hubbub); }
+.icon-hoozr svg      { stroke: var(--icon-hoozr); }
+.icon-hoozr svg[fill]:not([fill="none"])  { fill: var(--icon-hoozr); }
+.icon-rankless svg   { stroke: var(--icon-rankless); filter: drop-shadow(0 0 3px rgba(52,211,153,0.4)); }
+.icon-rankless svg[fill]:not([fill="none"]) { fill: var(--icon-rankless); }
+.icon-webdesign svg  { stroke: var(--icon-webdesign); }
+.icon-webdesign svg[fill]:not([fill="none"]) { fill: var(--icon-webdesign); }
+.icon-salesforce svg { stroke: var(--icon-salesforce); }
+.icon-salesforce svg[fill]:not([fill="none"]) { fill: var(--icon-salesforce); }
 
-/* Default fallback colors for utility icons */
-.icon-code svg          { stroke: var(--cyan); fill: none; }
-.icon-chart svg         { stroke: #14b8a6; fill: none; }
-.icon-palette svg       { stroke: var(--icon-hoozr); fill: none; }
-.icon-component svg     { stroke: var(--ice-blue); fill: none; }
-.icon-users svg         { stroke: #a78bfa; fill: none; }
-.icon-globe svg         { stroke: var(--cyan); fill: none; }
-.icon-search svg        { stroke: var(--icon-rankless); fill: none; }
-.icon-book svg          { stroke: var(--gold); fill: none; }
-.icon-terminal svg      { stroke: var(--ice-blue); fill: none; }
-.icon-cloud svg         { stroke: #7dd3fc; fill: none; }
-.icon-layers svg        { stroke: #a78bfa; fill: none; }
-.icon-link svg          { stroke: var(--cyan); fill: none; }
-.icon-settings svg      { stroke: #94a3b8; fill: none; }
-.icon-shield svg        { stroke: var(--ice-blue); fill: none; }
-.icon-agile svg         { stroke: var(--icon-rankless); fill: none; }
-.icon-robot svg         { stroke: var(--cyan); fill: none; }
-.icon-refresh svg       { stroke: #7dd3fc; fill: none; }
-.icon-responsive svg    { stroke: var(--ice-blue); fill: none; }
+/* Utility icon colors — dark mode (dark bg, colored icons) */
+.icon-code svg          { stroke: var(--cyan); }
+.icon-code svg[fill]:not([fill="none"]) { fill: var(--cyan); }
+.icon-chart svg         { stroke: #14b8a6; }
+.icon-chart svg[fill]:not([fill="none"]) { fill: #14b8a6; }
+.icon-palette svg       { stroke: var(--icon-hoozr); }
+.icon-palette svg[fill]:not([fill="none"]) { fill: var(--icon-hoozr); }
+.icon-component svg     { stroke: var(--ice-blue); }
+.icon-component svg[fill]:not([fill="none"]) { fill: var(--ice-blue); }
+.icon-users svg         { stroke: #a78bfa; }
+.icon-globe svg         { stroke: var(--cyan); }
+.icon-search svg        { stroke: var(--icon-rankless); }
+.icon-book svg          { stroke: var(--gold); }
+.icon-terminal svg      { stroke: var(--ice-blue); }
+.icon-cloud svg         { stroke: #7dd3fc; }
+.icon-layers svg        { stroke: #a78bfa; }
+.icon-link svg          { stroke: var(--cyan); }
+.icon-settings svg      { stroke: #94a3b8; }
+.icon-shield svg        { stroke: var(--ice-blue); }
+.icon-agile svg         { stroke: var(--icon-rankless); }
+.icon-robot svg         { stroke: var(--cyan); }
+.icon-refresh svg       { stroke: #7dd3fc; }
+.icon-responsive svg    { stroke: var(--ice-blue); }
+
+/* Light mode icon colors — darker shades for contrast on white bg */
+[data-theme="light"] .icon-hubbub svg     { stroke: #b45309; }
+[data-theme="light"] .icon-hubbub svg[fill]:not([fill="none"]) { fill: #b45309; }
+[data-theme="light"] .icon-hoozr svg      { stroke: #e11d48; }
+[data-theme="light"] .icon-hoozr svg[fill]:not([fill="none"]) { fill: #e11d48; }
+[data-theme="light"] .icon-rankless svg   { stroke: #059669; filter: drop-shadow(0 0 2px rgba(5,150,105,0.3)); }
+[data-theme="light"] .icon-rankless svg[fill]:not([fill="none"]) { fill: #059669; }
+[data-theme="light"] .icon-webdesign svg  { stroke: #2563eb; }
+[data-theme="light"] .icon-webdesign svg[fill]:not([fill="none"]) { fill: #2563eb; }
+[data-theme="light"] .icon-salesforce svg { stroke: #0284c7; }
+[data-theme="light"] .icon-salesforce svg[fill]:not([fill="none"]) { fill: #0284c7; }
+
+[data-theme="light"] .icon-code svg         { stroke: #0891b2; }
+[data-theme="light"] .icon-code svg[fill]:not([fill="none"]) { fill: #0891b2; }
+[data-theme="light"] .icon-chart svg        { stroke: #0d9488; }
+[data-theme="light"] .icon-palette svg      { stroke: #e11d48; }
+[data-theme="light"] .icon-component svg    { stroke: #2563eb; }
+[data-theme="light"] .icon-globe svg        { stroke: #0891b2; }
+[data-theme="light"] .icon-search svg       { stroke: #059669; }
+[data-theme="light"] .icon-book svg         { stroke: #b45309; }
+[data-theme="light"] .icon-terminal svg     { stroke: #2563eb; }
+[data-theme="light"] .icon-cloud svg        { stroke: #0284c7; }
+[data-theme="light"] .icon-layers svg       { stroke: #7c3aed; }
+[data-theme="light"] .icon-link svg         { stroke: #0891b2; }
+[data-theme="light"] .icon-settings svg     { stroke: #475569; }
+[data-theme="light"] .icon-shield svg       { stroke: #2563eb; }
+[data-theme="light"] .icon-agile svg        { stroke: #059669; }
+[data-theme="light"] .icon-robot svg        { stroke: #0891b2; }
+[data-theme="light"] .icon-refresh svg      { stroke: #0284c7; }
+[data-theme="light"] .icon-responsive svg   { stroke: #2563eb; }
 
 .proj-card__badge {
   position: absolute;
@@ -1234,7 +1285,11 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 /* ---- Responsive ------------------------------------------ */
 @media (max-width: 900px) {
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .projects-grid { grid-template-columns: repeat(3, 1fr); }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+}
+
+@media (max-width: 520px) {
+  .projects-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
@@ -1249,18 +1304,28 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 }
 
 @media (max-width: 520px) {
-  .hero__title { font-size: 2.1rem; }
-  .hero__glow { width: 200px; height: 200px; left: -20px; top: -40px; }
+  .hero__title   { font-size: 2rem; margin-bottom: 1rem; }
+  .hero__name-row { gap: 0.75rem; margin-bottom: 0.5rem; }
+  .hero__logo     { width: 64px !important; height: 64px !important; filter: none !important; }
+  .hero__glow { width: 200px; height: 200px; left: -20px; top: -40px; opacity: 0; }
   .hero__scroll { bottom: calc(2.5rem - 10px); }
-  .hero__actions { flex-direction: column; align-items: flex-start; }
+  .hero__badge  { margin-bottom: 1.25rem; font-size: 0.75rem; padding: 0.3rem 0.75rem; }
+  .hero__subtitle { margin-bottom: 1.5rem; font-size: 0.95rem; }
+  .hero__actions { flex-direction: column; align-items: stretch; }
   .hero__actions .btn { width: 100%; justify-content: center; }
   .about-stats { grid-template-columns: 1fr 1fr; }
   .cta-banner { padding: 2rem 1.5rem; }
   .footer__inner { flex-direction: column; align-items: flex-start; }
   .footer__nav { display: none; }
+}
 
-  /* Reduce hero bg intensity on mobile */
-  .hero__bg { opacity: 0.45; }
+@media (min-width: 521px) and (max-width: 768px) {
+  .hero__title   { font-size: clamp(2.2rem, 7vw, 3.5rem); margin-bottom: 1rem; }
+  .hero__name-row { gap: 0.75rem; }
+  .hero__logo     { width: 76px !important; height: 76px !important; }
+  .hero__glow { width: 240px; height: 240px; opacity: 0.3; }
+  .hero__badge  { margin-bottom: 1rem; font-size: 0.75rem; padding: 0.3rem 0.75rem; }
+  .hero__subtitle { margin-bottom: 1.5rem; }
 }
 
 /* Medium screens — adjust projects grid */
@@ -1316,7 +1381,27 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 
 [data-theme="light"] body { background: var(--bg); }
 
-/* Ice-blue tones for light mode atmosphere */
+/* ---- Light Mode Hero ------------------------------------- */
+[data-theme="light"] .hero__bg {
+  opacity: 0;   /* hide dark image in light mode */
+}
+
+[data-theme="light"] .hero {
+  background: linear-gradient(180deg, var(--bg) 0%, rgba(96,165,250,0.03) 55%, var(--bg) 100%);
+  min-height: 90svh;   /* avoid collapsed hero in light mode */
+}
+
+/* Light mode canvas — don't show particles on white */
+[data-theme="light"] .hero__canvas { display: none; }
+
+[data-theme="light"] .hero__glow { opacity: 0.4; }
+
+[data-theme="light"] .hero__badge {
+  border-color: rgba(217,119,6,0.3);
+  background: rgba(245,158,11,0.08);
+}
+
+/* ---- Ice-blue tones for light mode atmosphere */
 [data-theme="light"] .page-bg {
   background:
     radial-gradient(ellipse 70% 60% at 5%  25%,  rgba(96,165,250,0.08) 0%, transparent 55%),
