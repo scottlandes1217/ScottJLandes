@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400">
+  <defs>
+    <!-- Dark base background -->
+    <linearGradient id="bgGrad" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#0a0f1e"/>
+      <stop offset="50%" stop-color="#0d1224"/>
+      <stop offset="100%" stop-color="#0a0f1e"/>
+    </linearGradient>
+
+    <!-- Amber to deep purple flowing gradient -->
+    <linearGradient id="amberPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0"/>
+      <stop offset="15%" stop-color="#f59e0b" stop-opacity="0.12"/>
+      <stop offset="40%" stop-color="#d97706" stop-opacity="0.35"/>
+      <stop offset="55%" stop-color="#8b5cf6" stop-opacity="0.3"/>
+      <stop offset="75%" stop-color="#7c3aed" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Warm amber sweep -->
+    <linearGradient id="amberSweep" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.2"/>
+      <stop offset="35%" stop-color="#fbbf24" stop-opacity="0.12"/>
+      <stop offset="70%" stop-color="#d97706" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#d97706" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Purple sweep from right -->
+    <linearGradient id="purpleSweep" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.15"/>
+      <stop offset="40%" stop-color="#8b5cf6" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Center glow for text visibility -->
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#0a0f1e" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Diagonal light band -->
+    <linearGradient id="diagBand" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#f59e0b" stop-opacity="0.06"/>
+      <stop offset="70%" stop-color="#d97706" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Soft blur -->
+    <filter id="softBlur">
+      <feGaussianBlur stdDeviation="25"/>
+    </filter>
+
+    <filter id="strongBlur">
+      <feGaussianBlur stdDeviation="50"/>
+    </filter>
+
+    <!-- Noise texture -->
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.02"/>
+      </feComponentTransfer>
+    </filter>
+
+    <!-- Gradient for top edge highlight -->
+    <linearGradient id="topHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Gradient for bottom edge highlight -->
+    <linearGradient id="bottomHighlight" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Accent line gradient -->
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0"/>
+      <stop offset="25%" stop-color="#f59e0b" stop-opacity="0.3"/>
+      <stop offset="75%" stop-color="#8b5cf6" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Clip path to keep things clean -->
+    <clipPath id="roundClip">
+      <rect x="0" y="0" width="1200" height="400" rx="0"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#roundClip)">
+
+    <!-- Base -->
+    <rect width="1200" height="400" fill="url(#bgGrad)"/>
+
+    <!-- Center soft glow to keep text readable -->
+    <ellipse cx="600" cy="200" rx="500" ry="250" fill="url(#centerGlow)" filter="url(#strongBlur)"/>
+
+    <!-- Main amber-to-purple flow band across center -->
+    <rect x="150" y="100" width="900" height="200" fill="url(#amberPurple)" filter="url(#softBlur)" opacity="0.6"/>
+
+    <!-- Amber sweep from left -->
+    <ellipse cx="300" cy="200" rx="500" ry="180" fill="url(#amberSweep)" filter="url(#strongBlur)"/>
+
+    <!-- Purple sweep from right -->
+    <ellipse cx="950" cy="200" rx="450" ry="160" fill="url(#purpleSweep)" filter="url(#softBlur)"/>
+
+    <!-- Diagonal light band crossing through center -->
+    <polygon points="-100,350 300,-100 380,-100 -20,350" fill="url(#diagBand)" opacity="0.5"/>
+    <polygon points="800,500 1300,200 1300,260 850,550" fill="url(#diagBand)" opacity="0.4"/>
+
+    <!-- Horizontal accent lines -->
+    <line x1="200" y1="199" x2="1000" y2="199" stroke="url(#accentLine)" stroke-width="0.5" opacity="0.4"/>
+    <line x1="250" y1="201" x2="950" y2="201" stroke="url(#accentLine)" stroke-width="0.3" opacity="0.3"/>
+
+    <!-- Subtle warm top edge -->
+    <rect x="0" y="0" width="1200" height="60" fill="url(#topHighlight)"/>
+
+    <!-- Subtle purple bottom edge -->
+    <rect x="0" y="340" width="1200" height="60" fill="url(#bottomHighlight)"/>
+
+    <!-- Warm accent dots left side -->
+    <g opacity="0.15">
+      <circle cx="280" cy="120" r="2.5" fill="#fbbf24"/>
+      <circle cx="300" cy="130" r="1.5" fill="#f59e0b"/>
+      <circle cx="260" cy="145" r="1" fill="#d97706"/>
+    </g>
+
+    <!-- Purple accent dots right side -->
+    <g opacity="0.1">
+      <circle cx="880" cy="280" r="2" fill="#8b5cf6"/>
+      <circle cx="900" cy="270" r="1.5" fill="#7c3aed"/>
+    </g>
+
+    <!-- Fine central glow for text area clarity -->
+    <rect x="400" y="50" width="400" height="300" fill="none" stroke="#f59e0b" stroke-width="0.3" opacity="0.04"/>
+
+  </g>
+
+  <!-- Noise overlay -->
+  <rect width="1200" height="400" filter="url(#noise)" opacity="0.25"/>
+</svg>

@@ -1,4 +1,4 @@
-/* ScottJLandes.com — Main JS */
+/* ScottJLandes.com — Main JS (Redesigned) */
 
 // ---- Nav scroll effect ------------------------------------
 const nav = document.querySelector('.nav');
@@ -19,13 +19,11 @@ if (ham && mobile) {
     document.body.style.overflow = open ? 'hidden' : '';
   };
 
-  // Handle touch immediately; preventDefault stops the synthetic click from double-firing
   ham.addEventListener('touchstart', (e) => {
     e.preventDefault();
     toggleMenu();
   }, { passive: false });
 
-  // Fallback for mouse / keyboard users
   ham.addEventListener('click', toggleMenu);
 
   mobile.querySelectorAll('.nav__mobile-link').forEach(a => {
@@ -37,12 +35,16 @@ if (ham && mobile) {
   });
 }
 
-// ---- Scroll reveal ----------------------------------------
-const revealEls = document.querySelectorAll('.reveal');
+// ---- Scroll reveal with spring stagger --------------------
+const revealEls = document.querySelectorAll('.reveal, .reveal-l');
 if (revealEls.length) {
   const ro = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-  }, { threshold: 0.12 });
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   revealEls.forEach(el => ro.observe(el));
 }
 
@@ -55,7 +57,7 @@ document.querySelectorAll('.card').forEach(card => {
   });
 });
 
-// ---- Theme toggle -----------------------------------------
+// ---- Theme toggle with smooth transition ------------------
 const themeBtn = document.querySelector('.nav__theme');
 themeBtn?.addEventListener('click', () => {
   const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
@@ -73,7 +75,7 @@ themeBtn?.addEventListener('click', () => {
   }
 });
 
-// ---- Current page nav highlight (sub-pages) --------------
+// ---- Current page nav highlight ---------------------------
 const path = window.location.pathname;
 document.querySelectorAll('.nav__link').forEach(l => {
   const href = l.getAttribute('href');
