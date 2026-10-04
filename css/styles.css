@@ -655,72 +655,63 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   border: 1px solid var(--border);
 }
 
-/* Per-product icon colors — dark mode (light bg, colored icons) */
-.icon-hubbub svg     { stroke: var(--icon-hubbub); filter: drop-shadow(0 0 2px rgba(245,158,11,0.3)); }
-.icon-hubbub svg[fill]:not([fill="none"]) { fill: var(--icon-hubbub); }
-.icon-hoozr svg      { stroke: var(--icon-hoozr); }
-.icon-hoozr svg[fill]:not([fill="none"])  { fill: var(--icon-hoozr); }
-.icon-rankless svg   { stroke: var(--icon-rankless); filter: drop-shadow(0 0 3px rgba(52,211,153,0.4)); }
-.icon-rankless svg[fill]:not([fill="none"]) { fill: var(--icon-rankless); }
-.icon-webdesign svg  { stroke: var(--icon-webdesign); }
-.icon-webdesign svg[fill]:not([fill="none"]) { fill: var(--icon-webdesign); }
-.icon-salesforce svg { stroke: var(--icon-salesforce); }
-.icon-salesforce svg[fill]:not([fill="none"]) { fill: var(--icon-salesforce); }
+/* ---- Icon Colors ----------------------------------------- */
+/* All icons inline in HTML with stroke="currentColor".
+ * Parent class sets `color` → SVG inherits it as stroke. */
 
-/* Utility icon colors — dark mode (dark bg, colored icons) */
-.icon-code svg          { stroke: var(--cyan); }
-.icon-code svg[fill]:not([fill="none"]) { fill: var(--cyan); }
-.icon-chart svg         { stroke: #14b8a6; }
-.icon-chart svg[fill]:not([fill="none"]) { fill: #14b8a6; }
-.icon-palette svg       { stroke: var(--icon-hoozr); }
-.icon-palette svg[fill]:not([fill="none"]) { fill: var(--icon-hoozr); }
-.icon-component svg     { stroke: var(--ice-blue); }
-.icon-component svg[fill]:not([fill="none"]) { fill: var(--ice-blue); }
-.icon-users svg         { stroke: #a78bfa; }
-.icon-globe svg         { stroke: var(--cyan); }
-.icon-search svg        { stroke: var(--icon-rankless); }
-.icon-book svg          { stroke: var(--gold); }
-.icon-terminal svg      { stroke: var(--ice-blue); }
-.icon-cloud svg         { stroke: #7dd3fc; }
-.icon-layers svg        { stroke: #a78bfa; }
-.icon-link svg          { stroke: var(--cyan); }
-.icon-settings svg      { stroke: #94a3b8; }
-.icon-shield svg        { stroke: var(--ice-blue); }
-.icon-agile svg         { stroke: var(--icon-rankless); }
-.icon-robot svg         { stroke: var(--cyan); }
-.icon-refresh svg       { stroke: #7dd3fc; }
-.icon-responsive svg    { stroke: var(--ice-blue); }
+/* Product icons — nav, footer, mobile menu */
+.ic-hubbub    { color: #f59e0b !important; }
+.ic-hoozr     { color: #fb7185 !important; }
+.ic-rankless  { color: #34d399 !important; filter: drop-shadow(0 0 2px rgba(52,211,153,0.4)); }
+.ic-webdesign { color: var(--ice-blue) !important; }
+.ic-salesforce{ color: #38bdf8 !important; }
 
-/* Light mode icon colors — darker shades for contrast on white bg */
-[data-theme="light"] .icon-hubbub svg     { stroke: #b45309; }
-[data-theme="light"] .icon-hubbub svg[fill]:not([fill="none"]) { fill: #b45309; }
-[data-theme="light"] .icon-hoozr svg      { stroke: #e11d48; }
-[data-theme="light"] .icon-hoozr svg[fill]:not([fill="none"]) { fill: #e11d48; }
-[data-theme="light"] .icon-rankless svg   { stroke: #059669; filter: drop-shadow(0 0 2px rgba(5,150,105,0.3)); }
-[data-theme="light"] .icon-rankless svg[fill]:not([fill="none"]) { fill: #059669; }
-[data-theme="light"] .icon-webdesign svg  { stroke: #2563eb; }
-[data-theme="light"] .icon-webdesign svg[fill]:not([fill="none"]) { fill: #2563eb; }
-[data-theme="light"] .icon-salesforce svg { stroke: #0284c7; }
-[data-theme="light"] .icon-salesforce svg[fill]:not([fill="none"]) { fill: #0284c7; }
+/* Utility icons */
+.ic-home       { color: var(--text-2) !important; }
+.ic-code       { color: var(--cyan) !important; }
+.ic-chart      { color: #14b8a6 !important; }
+.ic-palette    { color: #fb7185 !important; }
+.ic-component  { color: var(--ice-blue) !important; }
+.ic-globe      { color: var(--cyan) !important; }
+.ic-search     { color: #34d399 !important; }
+.ic-book       { color: #f59e0b !important; }
+.ic-terminal   { color: var(--ice-blue) !important; }
+.ic-cloud      { color: #7dd3fc !important; }
+.ic-layers     { color: #a78bfa !important; }
+.ic-link       { color: var(--cyan) !important; }
+.ic-settings   { color: #94a3b8 !important; }
+.ic-shield     { color: var(--ice-blue) !important; }
+.ic-agile      { color: #34d399 !important; }
+.ic-robot      { color: var(--cyan) !important; }
+.ic-refresh    { color: #7dd3fc !important; }
+.ic-responsive { color: var(--ice-blue) !important; }
 
-[data-theme="light"] .icon-code svg         { stroke: #0891b2; }
-[data-theme="light"] .icon-code svg[fill]:not([fill="none"]) { fill: #0891b2; }
-[data-theme="light"] .icon-chart svg        { stroke: #0d9488; }
-[data-theme="light"] .icon-palette svg      { stroke: #e11d48; }
-[data-theme="light"] .icon-component svg    { stroke: #2563eb; }
-[data-theme="light"] .icon-globe svg        { stroke: #0891b2; }
-[data-theme="light"] .icon-search svg       { stroke: #059669; }
-[data-theme="light"] .icon-book svg         { stroke: #b45309; }
-[data-theme="light"] .icon-terminal svg     { stroke: #2563eb; }
-[data-theme="light"] .icon-cloud svg        { stroke: #0284c7; }
-[data-theme="light"] .icon-layers svg       { stroke: #7c3aed; }
-[data-theme="light"] .icon-link svg         { stroke: #0891b2; }
-[data-theme="light"] .icon-settings svg     { stroke: #475569; }
-[data-theme="light"] .icon-shield svg       { stroke: #2563eb; }
-[data-theme="light"] .icon-agile svg        { stroke: #059669; }
-[data-theme="light"] .icon-robot svg        { stroke: #0891b2; }
-[data-theme="light"] .icon-refresh svg      { stroke: #0284c7; }
-[data-theme="light"] .icon-responsive svg   { stroke: #2563eb; }
+/* Light mode — darker colors for visibility on white bg */
+[data-theme="light"] .ic-hubbub    { color: #b45309 !important; }
+[data-theme="light"] .ic-hoozr     { color: #e11d48 !important; }
+[data-theme="light"] .ic-rankless  { color: #059669 !important; filter: drop-shadow(0 0 2px rgba(5,150,105,0.3)); }
+[data-theme="light"] .ic-webdesign { color: #2563eb !important; }
+[data-theme="light"] .ic-salesforce{ color: #0284c7 !important; }
+
+[data-theme="light"] .ic-code       { color: #0891b2 !important; }
+[data-theme="light"] .ic-chart      { color: #0d9488 !important; }
+[data-theme="light"] .ic-palette    { color: #e11d48 !important; }
+[data-theme="light"] .ic-component  { color: #2563eb !important; }
+[data-theme="light"] .ic-globe      { color: #0891b2 !important; }
+[data-theme="light"] .ic-search     { color: #059669 !important; }
+[data-theme="light"] .ic-book       { color: #b45309 !important; }
+[data-theme="light"] .ic-terminal   { color: #2563eb !important; }
+[data-theme="light"] .ic-cloud      { color: #0284c7 !important; }
+[data-theme="light"] .ic-layers     { color: #7c3aed !important; }
+[data-theme="light"] .ic-link       { color: #0891b2 !important; }
+[data-theme="light"] .ic-settings   { color: #475569 !important; }
+[data-theme="light"] .ic-shield     { color: #2563eb !important; }
+[data-theme="light"] .ic-agile      { color: #059669 !important; }
+[data-theme="light"] .ic-robot      { color: #0891b2 !important; }
+[data-theme="light"] .ic-refresh    { color: #0284c7 !important; }
+[data-theme="light"] .ic-responsive { color: #2563eb !important; }
+
+/* Per-product gradient hairlines (top border) */
 
 .proj-card__badge {
   position: absolute;
@@ -750,6 +741,92 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   transition: gap var(--t-fast);
 }
 .proj-card:hover .proj-card__link { gap: 0.625rem; }
+
+/* ---- Icon Colors (Dark Mode Defaults) --------------------- */
+/* Utility icons loaded as <img> — can't inherit currentColor.
+ * SVGs have stroke="currentColor" which defaults to black when loaded via <img>.
+ * Use drop-shadow to provide a colored glow that makes the icon visible. */
+.icon-nav-hubbub      img { filter: drop-shadow(0 0 2px rgba(245,158,11,0.5)); }
+.icon-nav-hoozr       img { filter: drop-shadow(0 0 2px rgba(251,113,133,0.5)); }
+.icon-nav-rankless    img { filter: drop-shadow(0 0 2px rgba(52,211,153,0.5)); }
+.icon-nav-webdesign   img { filter: drop-shadow(0 0 2px rgba(96,165,250,0.5)); }
+.icon-nav-salesforce  img { filter: drop-shadow(0 0 2px rgba(56,189,248,0.5)); }
+
+/* Utility icon classes on skill chips / feature cards */
+.skill-chip__icon .ic-code,        svg[stroke="currentColor"] ~ .ic-icon { stroke: var(--cyan); }
+
+/* Product project card icon colors — these are inlined SVGs so currentColor works */
+.icon-code         svg { stroke: var(--cyan); }
+.icon-code         svg[fill]:not([fill="none"])  { fill: var(--cyan); }
+.icon-hubbub       svg { stroke: var(--icon-hubbub); filter: drop-shadow(0 0 3px rgba(245,158,11,0.3)); }
+.icon-hubbub       svg[fill]:not([fill="none"])  { fill: var(--icon-hubbub); }
+.icon-hoozr        svg { stroke: var(--icon-hoozr); }
+.icon-hoozr        svg[fill]:not([fill="none"])   { fill: var(--icon-hoozr); }
+.icon-rankless     svg { stroke: var(--icon-rankless); filter: drop-shadow(0 0 4px rgba(52,211,153,0.5)); }
+.icon-rankless     svg[fill]:not([fill="none"])   { fill: var(--icon-rankless); }
+.icon-webdesign    svg { stroke: var(--icon-webdesign); }
+.icon-webdesign    svg[fill]:not([fill="none"])   { fill: var(--icon-webdesign); }
+.icon-salesforce   svg { stroke: var(--icon-salesforce); }
+.icon-salesforce   svg[fill]:not([fill="none"])   { fill: var(--icon-salesforce); }
+
+/* Utility icon stroke colors (inline SVGs) */
+.ic-terminal svg  { stroke: var(--ice-blue); }
+.ic-chart svg     { stroke: #14b8a6; }
+.ic-palette svg   { stroke: var(--icon-hoozr); }
+.ic-component svg { stroke: var(--ice-blue); }
+.ic-globe svg     { stroke: var(--cyan); }
+.ic-search svg    { stroke: var(--icon-rankless); }
+.ic-book svg      { stroke: var(--gold); }
+.ic-cloud svg     { stroke: #7dd3fc; }
+.ic-layers svg    { stroke: #a78bfa; }
+.ic-link svg      { stroke: var(--cyan); }
+.ic-settings svg  { stroke: #94a3b8; }
+.ic-robot svg     { stroke: var(--cyan); }
+.ic-refresh svg   { stroke: #7dd3fc; }
+.ic-responsive svg{ stroke: var(--ice-blue); }
+.ic-shield svg    { stroke: var(--ice-blue); }
+.ic-agile svg     { stroke: var(--icon-rankless); }
+
+/* Light mode icon overrides — darker strokes for visibility on white bg */
+[data-theme="light"] .nav__link img,
+[data-theme="light"] .footer__nav a img { filter: brightness(0.15) saturate(3) sepia(0.5) hue-rotate(200deg); }
+
+[data-theme="light"] .icon-nav-hubbub      img { filter: brightness(0) saturate(100) hue-rotate(0deg); background: var(--icon-hubbub) !important; padding: 6px; border-radius: 4px; }
+[data-theme="light"] .icon-nav-hoozr        img { background: #e11d48 !important; padding: 6px; border-radius: 4px; }
+[data-theme="light"] .icon-nav-rankless     img { background: #059669 !important; padding: 6px; border-radius: 4px; }
+[data-theme="light"] .icon-nav-webdesign    img { background: #2563eb !important; padding: 6px; border-radius: 4px; }
+[data-theme="light"] .icon-nav-salesforce   img { background: #0284c7 !important; padding: 6px; border-radius: 4px; }
+
+/* Light mode inline SVG overrides for project cards */
+[data-theme="light"] .icon-code         svg { stroke: #0891b2; }
+[data-theme="light"] .icon-code         svg[fill]:not([fill="none"])  { fill: #0891b2; }
+[data-theme="light"] .icon-hubbub       svg { stroke: #b45309; filter: drop-shadow(0 0 2px rgba(180,83,9,0.3)); }
+[data-theme="light"] .icon-hubbub       svg[fill]:not([fill="none"])  { fill: #b45309; }
+[data-theme="light"] .icon-hoozr        svg { stroke: #e11d48; }
+[data-theme="light"] .icon-hoozr        svg[fill]:not([fill="none"])   { fill: #e11d48; }
+[data-theme="light"] .icon-rankless     svg { stroke: #059669; filter: drop-shadow(0 0 3px rgba(5,150,105,0.4)); }
+[data-theme="light"] .icon-rankless     svg[fill]:not([fill="none"])   { fill: #059669; }
+[data-theme="light"] .icon-webdesign    svg { stroke: #2563eb; }
+[data-theme="light"] .icon-webdesign    svg[fill]:not([fill="none"])   { fill: #2563eb; }
+[data-theme="light"] .icon-salesforce   svg { stroke: #0284c7; }
+[data-theme="light"] .icon-salesforce   svg[fill]:not([fill="none"])   { fill: #0284c7; }
+
+[data-theme="light"] .ic-terminal svg     { stroke: #2563eb; }
+[data-theme="light"] .ic-chart svg        { stroke: #0d9488; }
+[data-theme="light"] .ic-palette svg      { stroke: #e11d48; }
+[data-theme="light"] .ic-component svg    { stroke: #2563eb; }
+[data-theme="light"] .ic-globe svg        { stroke: #0891b2; }
+[data-theme="light"] .ic-search svg       { stroke: #059669; }
+[data-theme="light"] .ic-book svg         { stroke: #b45309; }
+[data-theme="light"] .ic-cloud svg        { stroke: #0284c7; }
+[data-theme="light"] .ic-layers svg       { stroke: #7c3aed; }
+[data-theme="light"] .ic-link svg         { stroke: #0891b2; }
+[data-theme="light"] .ic-settings svg     { stroke: #475569; }
+[data-theme="light"] .ic-robot svg        { stroke: #0891b2; }
+[data-theme="light"] .ic-refresh svg      { stroke: #0284c7; }
+[data-theme="light"] .ic-responsive svg   { stroke: #2563eb; }
+[data-theme="light"] .ic-shield svg       { stroke: #2563eb; }
+[data-theme="light"] .ic-agile svg        { stroke: #059669; }
 
 /* Per-product gradient hairlines (top border) */
 .prod-hubbub::before    { background: linear-gradient(90deg, transparent, var(--icon-hubbub), transparent) !important; }
