@@ -36,18 +36,6 @@ document.querySelectorAll('.card').forEach(card => {
   });
 });
 
-document.querySelector('.nav__theme')?.addEventListener('click', () => {
-  const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-  const apply = () => {
-    document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-    document.querySelectorAll('img[data-logo-dark]').forEach(img => {
-      img.src = next === 'light' ? img.getAttribute('data-logo-dark') : img.getAttribute('data-logo-light');
-    });
-  };
-  document.startViewTransition ? document.startViewTransition(apply) : apply();
-});
-
 (function pageSearch() {
   const navInner = document.querySelector('.nav__inner');
   const theme = document.querySelector('.nav__theme');
