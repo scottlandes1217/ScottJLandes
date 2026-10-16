@@ -1378,7 +1378,6 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   .hero__name-row { gap: 0.75rem; margin-bottom: 0.5rem; }
   .hero__logo     { width: 64px !important; height: 64px !important; filter: none !important; }
   .hero__glow { width: 200px; height: 200px; left: -20px; top: -40px; opacity: 0; }
-  .hero__scroll { bottom: calc(2.5rem - 10px); }
   .hero__subtitle { margin-bottom: 1.5rem; font-size: 0.95rem; }
   .hero__actions { flex-direction: column; align-items: stretch; }
   .hero__actions .btn { width: 100%; justify-content: center; }
@@ -1658,6 +1657,7 @@ body.brain-past-hero .brain { opacity: 0.55; transform: translateY(-46%) scale(0
   }
   .brain__labels { display: none; }
   .brain__readout { font-size: 0.66rem; right: auto; left: 50%; transform: translateX(-50%); bottom: max(0.75rem, env(safe-area-inset-bottom)); }
+  .hero__scroll { bottom: 4.75rem; }  /* sit above the centered readout pill */
   .hero__content { max-width: none; }
 }
 @media (max-width: 520px) {
