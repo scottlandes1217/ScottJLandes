@@ -22,8 +22,8 @@
   --icon-hubbub:   #f59e0b;   /* amber — CRM/business */
   --icon-hoozr:    #fb7185;   /* rose/pink — pet warmth */
   --icon-rankless: #34d399;   /* emerald — chess strategy */
-  --icon-webdesign:#60a5fa;   /* ice-blue */
-  --icon-salesforce:#38bdf8; /* sky blue */
+  --icon-webdesign:#c084fc;   /* purple */
+  --icon-salesforce:#3b82f6; /* royal blue */
 
   /* Gradients */
   --gradient:   linear-gradient(135deg, var(--ice-blue) 0%, var(--cyan) 100%);
@@ -382,6 +382,14 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   gap: 1rem;
 }
 .hero__logo { flex-shrink: 0; width: 96px; height: 96px; filter: drop-shadow(0 4px 24px rgba(245,158,11,0.15)); }
+/* Same gradient as the name in the nav and footer */
+.hero__name-row > span {
+  background: linear-gradient(90deg, #ffffff 0%, var(--ice-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+[data-theme="light"] .hero__name-row > span { background-image: linear-gradient(90deg, var(--text) 0%, #2563eb 100%); }
 
 .hero__title {
   font-size: clamp(2.75rem, 8vw, 5.75rem);
@@ -608,8 +616,8 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 .ic-hubbub    { color: #f59e0b !important; }
 .ic-hoozr     { color: #fb7185 !important; }
 .ic-rankless  { color: #34d399 !important; filter: drop-shadow(0 0 2px rgba(52,211,153,0.4)); }
-.ic-webdesign { color: var(--ice-blue) !important; }
-.ic-salesforce{ color: #38bdf8 !important; }
+.ic-webdesign { color: var(--icon-webdesign) !important; }
+.ic-salesforce{ color: var(--icon-salesforce) !important; }
 
 /* Utility icons */
 .ic-home       { color: var(--text-2) !important; }
@@ -644,8 +652,8 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 [data-theme="light"] .ic-hubbub    { color: #b45309 !important; }
 [data-theme="light"] .ic-hoozr     { color: #e11d48 !important; }
 [data-theme="light"] .ic-rankless  { color: #059669 !important; filter: drop-shadow(0 0 2px rgba(5,150,105,0.3)); }
-[data-theme="light"] .ic-webdesign { color: #2563eb !important; }
-[data-theme="light"] .ic-salesforce{ color: #0284c7 !important; }
+[data-theme="light"] .ic-webdesign { color: #9333ea !important; }
+[data-theme="light"] .ic-salesforce{ color: #1d4ed8 !important; }
 
 [data-theme="light"] .ic-code       { color: #0891b2 !important; }
 [data-theme="light"] .ic-chart      { color: #0d9488 !important; }
@@ -769,10 +777,10 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 [data-theme="light"] .icon-hoozr        svg[fill]:not([fill="none"])   { fill: #e11d48; }
 [data-theme="light"] .icon-rankless     svg { stroke: #059669; filter: drop-shadow(0 0 3px rgba(5,150,105,0.4)); }
 [data-theme="light"] .icon-rankless     svg[fill]:not([fill="none"])   { fill: #059669; }
-[data-theme="light"] .icon-webdesign    svg { stroke: #2563eb; }
-[data-theme="light"] .icon-webdesign    svg[fill]:not([fill="none"])   { fill: #2563eb; }
-[data-theme="light"] .icon-salesforce   svg { stroke: #0284c7; }
-[data-theme="light"] .icon-salesforce   svg[fill]:not([fill="none"])   { fill: #0284c7; }
+[data-theme="light"] .icon-webdesign    svg { stroke: #9333ea; }
+[data-theme="light"] .icon-webdesign    svg[fill]:not([fill="none"])   { fill: #9333ea; }
+[data-theme="light"] .icon-salesforce   svg { stroke: #1d4ed8; }
+[data-theme="light"] .icon-salesforce   svg[fill]:not([fill="none"])   { fill: #1d4ed8; }
 
 [data-theme="light"] .ic-terminal svg     { stroke: #2563eb; }
 [data-theme="light"] .ic-chart svg        { stroke: #0d9488; }
@@ -795,7 +803,7 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 .prod-hubbub::before    { background: linear-gradient(90deg, transparent, var(--icon-hubbub), transparent) !important; }
 .prod-hoozr::before     { background: linear-gradient(90deg, transparent, var(--icon-hoozr), transparent) !important; }
 .prod-rankless::before  { background: linear-gradient(90deg, transparent, var(--icon-rankless), transparent) !important; }
-.prod-webdesign::before { background: linear-gradient(90deg, transparent, var(--ice-blue), transparent) !important; }
+.prod-webdesign::before { background: linear-gradient(90deg, transparent, var(--icon-webdesign), transparent) !important; }
 .prod-salesforce::before{ background: linear-gradient(90deg, transparent, var(--icon-salesforce), transparent) !important; }
 
 /* Default hairline — ice-blue for generic cards */
@@ -804,10 +812,22 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 /* ---- Skills Grid ----------------------------------------- */
 .skills-grid {
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  flex-wrap: wrap;
+  gap: 0.625rem;
   margin-top: 3rem;
 }
+/* Each category heading takes a full row; its chips wrap beneath it */
+.skills-grid .skill-category { flex-basis: 100%; margin: 1.75rem 0 0.25rem; }
+.skills-grid .skill-category:first-child { margin-top: 0; }
+
+/* Salesforce page: grouped tech stack */
+.sf-stack { margin-top: 2.5rem; }
+.sf-stack .skill-category { margin: 2rem 0 0; }
+.sf-stack .skill-category:first-child { margin-top: 0; }
+.sf-stack .tags { margin-top: 1rem; }
+/* Solid backing so tag text stays legible over the brain */
+.tag { background: color-mix(in srgb, var(--bg) 92%, #60a5fa); }
+[data-theme="light"] .tag { background: rgba(255,255,255,0.85); color: #1d4ed8; border-color: rgba(37,99,235,0.25); }
 
 .skill-category {
   font-size: 0.72rem;
