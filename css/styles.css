@@ -1038,23 +1038,8 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   border-radius: var(--r-xl);
   overflow: hidden;
 }
-.about-stats-wrapper::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('../images/about-portrait-bg.png');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.15;
-  z-index: 0;
-  transition: opacity var(--t-slow);
-}
-.about-stats-wrapper:hover::before { opacity: 0.22; }
 .about-stats-wrapper .about-stats { position: relative; z-index: 1; }
 
-/* Light mode — reduce portrait bg visibility on lighter bg */
-[data-theme="light"] .about-stats-wrapper::before { opacity: 0.08; }
-[data-theme="light"] .about-stats-wrapper:hover::before { opacity: 0.12; }
 
 /* ---- Coming Soon / Beta Hero (product pages) ----------- */
 .cs-hero {
@@ -1447,11 +1432,6 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 /* ---- Light Mode Hero ------------------------------------- */
 [data-theme="light"] .hero__bg {
   opacity: 0;   /* hide dark image in light mode */
-}
-
-[data-theme="light"] .hero {
-  background: linear-gradient(180deg, var(--bg) 0%, rgba(96,165,250,0.03) 55%, var(--bg) 100%);
-  min-height: 90svh;   /* avoid collapsed hero in light mode */
 }
 
 /* Light mode canvas — don't show particles on white */

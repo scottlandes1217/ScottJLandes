@@ -26,7 +26,7 @@
   // photo's central sulcus and Sylvian fissure; small areas are ellipses.
   // `deep` structures sit under the cortex and draw dashed.
   const R = {
-    prefrontal:    { name: 'Prefrontal cortex',     fn: 'planning · strategy · thinking moves ahead', color: '#34d399', poly: 'M0,0 L640,0 L560,330 L520,560 L470,640 L0,700 Z', label: [380, 330, 0, 140] },
+    prefrontal:    { name: 'Prefrontal cortex',     fn: 'planning · strategy · thinking moves ahead', color: '#34d399', poly: 'M0,0 L640,0 L560,330 L520,560 L470,640 L0,700 Z', label: [380, 330, 250, 20] },
     premotor:      { name: 'Premotor cortex',       fn: 'sequencing actions',          color: '#5eead4', poly: 'M640,0 L725,0 L640,470 L590,520 L520,560 L560,330 Z' },
     motor:         { name: 'Primary motor cortex',  fn: 'turning intent into action',  color: '#22d3ee', poly: 'M725,0 L805,0 L770,160 L735,290 L700,440 L640,470 Z', label: [740, 190, 560, 0] },
     somatosensory: { name: 'Somatosensory cortex',  fn: 'touch & feedback',            color: '#7dd3fc', poly: 'M805,0 L895,0 L850,200 L800,330 L775,430 L700,440 L735,290 L770,160 Z' },
