@@ -1601,7 +1601,7 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   color: var(--text-2);
   white-space: nowrap;
 }
-.brain__readout b { color: var(--c); font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; margin-right: 0.6rem; }
+.brain__readout b { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--c); font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; margin-right: 0.6rem; }
 .brain__readout-text { overflow: hidden; text-overflow: ellipsis; }
 .brain__readout-dot { flex-shrink: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--c); box-shadow: 0 0 10px var(--c); }
 .brain__readout.is-fresh .brain__readout-text { animation: readout-in 0.45s var(--ease-out); }

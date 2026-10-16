@@ -125,7 +125,8 @@
 
   const readout = document.createElement('div');
   readout.className = 'brain__readout';
-  readout.innerHTML = '<span class="brain__readout-dot"></span><span class="brain__readout-text"><b></b><span></span></span>';
+  // The dot lives inside the name so it stays beside it when the pill wraps.
+  readout.innerHTML = '<span class="brain__readout-text"><b><span class="brain__readout-dot"></span><span class="brain__readout-name"></span></b><span class="brain__readout-fn"></span></span>';
   document.body.appendChild(readout);  // outside .brain: its transform would trap position:fixed
 
   // ---- Neurons ------------------------------------------------------
@@ -197,8 +198,8 @@
     const first = R[t.ids[0]];
     readout.classList.toggle('is-hidden', key === 'all');
     readout.style.setProperty('--c', t.ids.length > 3 || key === '__row' ? 'var(--text)' : first.color);
-    readout.querySelector('b').textContent = t.name || first.name;
-    readout.querySelector('b + span').textContent = t.fn || first.fn;
+    readout.querySelector('.brain__readout-name').textContent = t.name || first.name;
+    readout.querySelector('.brain__readout-fn').textContent = t.fn || first.fn;
     readout.classList.remove('is-fresh');
     void readout.offsetWidth;
     readout.classList.add('is-fresh');
