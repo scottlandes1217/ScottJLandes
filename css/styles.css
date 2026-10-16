@@ -1206,10 +1206,10 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 /* ---- CTA Banner ------------------------------------------ */
 .cta-banner {
   position: relative;
-  background-image: url('../images/cta-gradient.png');
-  background-size: cover;
-  background-position: center;
-  border: 1px solid rgba(96,165,250,0.15);
+  /* Translucent so the brain shows through behind it */
+  background: linear-gradient(135deg, rgba(96,165,250,0.14) 0%, rgba(13,19,36,0.5) 55%, rgba(34,211,238,0.1) 100%);
+  backdrop-filter: blur(3px);
+  border: 1px solid rgba(96,165,250,0.2);
   border-radius: var(--r-xl);
   padding: 3.5rem 3rem;
   text-align: center;
@@ -1220,7 +1220,7 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(6,8,18,0.5);
+  background: radial-gradient(ellipse at 50% 0%, rgba(96,165,250,0.16), transparent 70%);
   z-index: 0;
 }
 
@@ -1232,7 +1232,7 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 
 /* Light mode: the dark gradient art and overlay would leave dark text on dark */
 [data-theme="light"] .cta-banner {
-  background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 50%, #ecfeff 100%);
+  background: linear-gradient(135deg, rgba(239,246,255,0.7) 0%, rgba(240,249,255,0.6) 50%, rgba(236,254,255,0.7) 100%);
   border-color: rgba(37,99,235,0.18);
 }
 [data-theme="light"] .cta-banner::before { background: radial-gradient(ellipse at 50% 0%, rgba(96,165,250,0.22), transparent 70%); }
@@ -1365,7 +1365,7 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 @media (max-width: 768px) {
   .nav__links { display: none; }
   .nav__ham   { display: flex; margin-left: auto; }
-  .nav__theme { order: 1; margin-left: 0.25rem; }
+  .nav__tools { order: 1; margin-left: 0.25rem; }
   .hero       { align-items: flex-start; padding-top: 4.5rem; }
   .hero__subtitle { margin-bottom: 1.5rem; }
 
@@ -1415,7 +1415,6 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 
 /* ---- Subtle image sizing for generated backgrounds ----------- */
 @media (min-width: 768px) and (max-width: 1200px) {
-  .cta-banner { background-size: 150% auto; }
 }
 
 /* ---- Theme Toggle Button --------------------------------- */
@@ -1500,7 +1499,8 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 /* Hover corrections for light mode */
 [data-theme="light"] .nav__link:hover  { background: rgba(0,0,0,0.02); }
 [data-theme="light"] .nav__ham:hover   { background: rgba(0,0,0,0.03); }
-[data-theme="light"] .nav__theme:hover { background: rgba(0,0,0,0.03); color: var(--text); }
+[data-theme="light"] .nav__theme:hover,
+[data-theme="light"] .nav__search:hover { background: rgba(0,0,0,0.03); color: var(--text); }
 
 /* Light mode mobile menu */
 [data-theme="light"] .nav__mobile {
@@ -1688,3 +1688,65 @@ body.brain-past-hero .brain { opacity: 0.55; transform: translateY(-46%) scale(0
   border-color: color-mix(in srgb, var(--tone) 30%, transparent);
 }
 .feature-grid .feature-card__icon svg { color: var(--tone) !important; filter: none; }
+
+/* ---- Page search ------------------------------------------ */
+.nav__tools { display: flex; align-items: center; gap: 0.25rem; flex-shrink: 0; }
+.nav__search {
+  display: flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px;
+  border-radius: var(--r-sm);
+  color: var(--text-2);
+  transition: color 0.15s, background 0.15s;
+}
+.nav__search:hover { color: var(--text); background: rgba(255,255,255,0.06); }
+
+.search-bar {
+  position: fixed;
+  z-index: 110;
+  top: 4.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(560px, calc(100vw - 2rem));
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.5rem 0.45rem 0.9rem;
+  border: 1px solid var(--border-a);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow-card);
+  color: var(--text-2);
+  animation: search-in 0.2s var(--ease-out);
+}
+.search-bar[hidden] { display: none; }
+@keyframes search-in { from { opacity: 0; transform: translate(-50%, -6px); } }
+.search-bar input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 1rem;  /* 16px keeps iOS from zooming in */
+  padding: 0.35rem 0;
+}
+.search-bar input::-webkit-search-cancel-button { display: none; }
+.search-bar__count { font-family: var(--font-mono); font-size: 0.72rem; white-space: nowrap; color: var(--text-muted); }
+.search-bar button {
+  display: flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; flex-shrink: 0;
+  border-radius: var(--r-sm);
+  color: var(--text-2);
+}
+.search-bar button:hover { color: var(--text); background: var(--bg-card-h); }
+
+::highlight(search) { background-color: rgba(250, 204, 21, 0.3); color: inherit; }
+::highlight(search-current) { background-color: #facc15; color: #111827; }
+.search-hit {
+  outline: 2px solid #facc15 !important;
+  outline-offset: 3px;
+  border-radius: var(--r-sm);
+  transition: outline-color 0.2s;
+}
