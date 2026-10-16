@@ -1603,6 +1603,8 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 /* Live readout: which region is lit and why */
 .brain__readout {
   position: fixed;
+  z-index: 50;
+  pointer-events: none;  /* floats over content; taps go through to it */
   right: 2rem;
   bottom: 1.25rem;
   display: flex;
@@ -1623,6 +1625,8 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 .brain__readout-text { overflow: hidden; text-overflow: ellipsis; }
 .brain__readout-dot { flex-shrink: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--c); box-shadow: 0 0 10px var(--c); }
 .brain__readout.is-fresh .brain__readout-text { animation: readout-in 0.45s var(--ease-out); }
+.brain__readout { transition: opacity 0.35s var(--ease-smooth), visibility 0.35s; }
+.brain__readout.is-hidden { opacity: 0; visibility: hidden; }
 @keyframes readout-in { from { opacity: 0; transform: translateY(4px); } }
 
 /* Cards go see-through enough to watch the brain fire behind them */
@@ -1663,12 +1667,16 @@ body.brain-past-hero .brain__stage { transform: translateY(-46%) scale(0.92); }
     transform: translate(-50%, -50%);
   }
   .brain__labels { display: none; }
-  .brain__readout { font-size: 0.66rem; right: auto; left: 50%; transform: translateX(-50%); bottom: max(0.75rem, env(safe-area-inset-bottom)); }
+  /* Centered with auto margins (not left:50%, which caps it at half the screen and forces wrapping) */
+  .brain__readout { font-size: 0.66rem; left: 0; right: 0; margin-inline: auto; width: max-content; bottom: max(0.75rem, env(safe-area-inset-bottom)); }
   .hero__scroll { bottom: 4.75rem; }  /* sit above the centered readout pill */
   .hero__content { max-width: none; }
 }
 @media (max-width: 520px) {
-  .brain__readout-text span { display: none; }
+  /* Name on one line, what it does on the next */
+  .brain__readout { white-space: normal; border-radius: 14px; text-align: center; }
+  .brain__readout-text { display: flex; flex-direction: column; align-items: center; gap: 0.1rem; }
+  .brain__readout b { margin-right: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .brain.is-drawn .brain__img { animation: none; opacity: 1; }

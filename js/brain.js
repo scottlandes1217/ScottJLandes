@@ -192,10 +192,13 @@
     for (const id in labelEls) labelEls[id].classList.toggle('is-on', labelled.includes(id));
     arcuate.classList.toggle('is-on', arcuateOn);
 
+    // The pill names the lit region and what it does - nothing else - and
+    // steps aside entirely when the whole brain is firing.
     const first = R[t.ids[0]];
+    readout.classList.toggle('is-hidden', key === 'all');
     readout.style.setProperty('--c', t.ids.length > 3 || key === '__row' ? 'var(--text)' : first.color);
     readout.querySelector('b').textContent = t.name || first.name;
-    readout.querySelector('b + span').textContent = t.fn === '' ? note : (t.fn || first.fn) + (note ? `  →  ${note}` : '');
+    readout.querySelector('b + span').textContent = t.fn || first.fn;
     readout.classList.remove('is-fresh');
     void readout.offsetWidth;
     readout.classList.add('is-fresh');
@@ -225,7 +228,10 @@
     if (best.length === 1) return show(best[0].dataset.brain, best[0].dataset.brainNote || '');
     // A row of cards: light the union, and list what's lit.
     const ids = [...new Set(best.flatMap(b => TARGETS[b.dataset.brain].ids))];
-    TARGETS.__row = { ids, name: `${best.length} regions firing`, fn: '',
+    const keys = [...new Set(best.map(b => b.dataset.brain))];
+    TARGETS.__row = { ids,
+      name: keys.map(k => TARGETS[k].name || R[TARGETS[k].ids[0]].name).join(' + '),
+      fn: keys.map(k => TARGETS[k].tag || TARGETS[k].fn || R[TARGETS[k].ids[0]].fn).join(' · '),
       arcuate: best.some(b => TARGETS[b.dataset.brain].arcuate) };
     show('__row', best.map(b => `${b.dataset.brainNote} = ${TARGETS[b.dataset.brain].tag}`).join(' · '));
   }
