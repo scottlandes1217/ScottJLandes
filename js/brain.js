@@ -1,30 +1,18 @@
-/* ScottJLandes.com — The brain.
-   A photographic lateral-view brain (front faces left) pinned behind the homepage. Each
-   section or card names a region with data-brain="..."; as it scrolls into
-   place that region lights up and neurons fire across it.                */
-
 (function brain() {
   const host = document.querySelector('.brain');
   if (!host) return;
 
   const NS = 'http://www.w3.org/2000/svg';
-  // Coordinates are pixels of images/brain-{dark,light}.jpg (1536×1024);
-  // the viewBox adds a margin around the photo for the callout labels.
   const IMG = { w: 1536, h: 1024 };
   const VB = { x: -120, y: -40, w: 1776, h: 1104 };
-  const K = 2;  // stroke/dot scale relative to the old 740-wide drawing
+  const STROKE = 2;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // ---- Anatomy (image pixels) -------------------------------------
-  // SILHOUETTE was traced from the photo (background flood-fill + contour).
   const SILHOUETTE = 'M666,66 L794,66 L818,78 L866,74 L918,94 L958,98 L1058,142 L1102,186 L1126,198 L1146,218 L1158,242 L1190,270 L1214,318 L1222,326 L1246,350 L1306,482 L1310,530 L1318,550 L1318,594 L1310,602 L1302,634 L1282,662 L1246,690 L1206,698 L1218,746 L1206,778 L1186,806 L1158,830 L1114,854 L1030,882 L982,878 L950,858 L946,862 L946,850 L934,842 L934,910 L946,966 L906,970 L878,966 L866,898 L834,818 L794,786 L758,722 L650,766 L566,750 L502,698 L486,662 L486,630 L462,634 L410,622 L366,622 L346,610 L314,610 L290,602 L254,582 L234,562 L222,538 L222,514 L214,506 L210,510 L214,502 L206,486 L206,458 L214,442 L214,402 L238,358 L242,330 L262,294 L334,218 L378,190 L406,162 L454,134 L498,122 L550,94 L606,90 L634,74 L666,66 Z';
   const CEREBELLUM = 'M884,740 C910,690 1090,676 1212,700 C1228,745 1214,805 1170,834 C1110,872 1020,890 962,872 C906,852 870,790 884,740 Z';
   const BRAINSTEM = 'M760,716 C800,760 846,800 862,866 L878,972 L948,972 L934,880 C928,820 918,770 896,716 Z';
   const ARCUATE = 'M560,540 C620,390 900,320 1005,452';
 
-  // Lobes are rough polygons clipped to the silhouette, following the
-  // photo's central sulcus and Sylvian fissure; small areas are ellipses.
-  // `deep` structures sit under the cortex and draw dashed.
   const R = {
     prefrontal:    { name: 'Prefrontal cortex',     fn: 'planning · strategy · thinking moves ahead', color: '#34d399', poly: 'M0,0 L640,0 L560,330 L520,560 L470,640 L0,700 Z', label: [380, 330, 250, 20] },
     premotor:      { name: 'Premotor cortex',       fn: 'sequencing actions',          color: '#5eead4', poly: 'M640,0 L725,0 L640,470 L590,520 L520,560 L560,330 Z' },
@@ -43,7 +31,6 @@
   };
   const CORTEX = ['prefrontal', 'premotor', 'motor', 'somatosensory', 'parietal', 'occipital', 'temporal', 'broca', 'wernicke'];
 
-  // What a data-brain value lights, and how the readout names it.
   const TARGETS = {
     prefrontal: { ids: ['prefrontal'], tag: 'strategy' },
     motor:      { ids: ['motor', 'premotor'], tag: 'action' },
@@ -61,7 +48,6 @@
     all:        { ids: Object.keys(R), name: 'Whole brain', fn: 'every region firing', arcuate: true },
   };
 
-  // ---- Build the stage --------------------------------------------
   const el = (tag, attrs = {}, parent) => {
     const n = document.createElementNS(NS, tag);
     for (const k in attrs) n.setAttribute(k, attrs[k]);
@@ -77,7 +63,6 @@
   stage.className = 'brain__stage';
   host.appendChild(stage);
 
-  // The photo, one per theme, placed where the viewBox puts image pixel 0,0.
   for (const theme of ['dark', 'light']) {
     const img = document.createElement('img');
     img.src = host.dataset.src.replace('{theme}', theme);
@@ -104,7 +89,6 @@
   for (const id in R) if (R[id].deep) deepEls[id] = shapeOf(R[id], { class: 'brain__deep' }, ink);
   const arcuate = el('path', { d: ARCUATE, class: 'brain__arcuate' }, ink);
 
-  // Callout labels: a leader line from the region out to a mono caption.
   const labels = el('g', { class: 'brain__labels' }, svg);
   const labelEls = {};
   for (const id in R) {
@@ -112,7 +96,7 @@
     if (!r.label) continue;
     const [ax, ay, tx, ty] = r.label;
     const g = el('g', { class: 'brain__label', style: `--c:${r.color}` }, labels);
-    el('circle', { cx: ax, cy: ay, r: 3 * K }, g);
+    el('circle', { cx: ax, cy: ay, r: 3 * STROKE }, g);
     el('path', { d: `M${ax},${ay} L${tx},${ty + (ty > ay ? -30 : 12)}`, pathLength: 1 }, g);
     const t = el('text', { x: tx, y: ty }, g);
     t.textContent = r.name.toUpperCase();
@@ -126,13 +110,9 @@
 
   const readout = document.createElement('div');
   readout.className = 'brain__readout';
-  // The dot lives inside the name so it stays beside it when the pill wraps.
   readout.innerHTML = '<span class="brain__readout-text"><b><span class="brain__readout-dot"></span><span class="brain__readout-name"></span></b><span class="brain__readout-fn"></span></span>';
-  document.body.appendChild(readout);  // outside .brain: its transform would trap position:fixed
+  document.body.appendChild(readout);
 
-  // ---- Neurons ------------------------------------------------------
-  // Scatter nodes inside each structure, tag each with its region, and
-  // wire it to its nearest neighbours.
   const paths = {};
   for (const id in R) {
     const r = R[id], p = new Path2D();
@@ -158,7 +138,6 @@
       mine.push(n);
       nodes.push(n);
     }
-    // Link each node to its 3 nearest neighbours within its own structure.
     for (const n of mine) {
       mine.filter(m => m !== n)
         .map(m => [m, (m.x - n.x) ** 2 + (m.y - n.y) ** 2])
@@ -168,7 +147,6 @@
     }
   }
   const surfaceOrder = ['broca', 'wernicke', 'motor', 'premotor', 'somatosensory', 'prefrontal', 'parietal', 'occipital', 'temporal'];
-  // The silhouette includes cerebellum and brainstem; carve them out of the cerebrum.
   const silhouette = new Path2D(SILHOUETTE);
   const cerebrum = { has: (x, y) => inside(silhouette, x, y) && !inside(paths.cerebellum, x, y) && !inside(paths.brainstem, x, y) };
   scatter(cerebrum, 320, 31, (x, y) => surfaceOrder.find(id => inside(paths[id], x, y)) || 'temporal');
@@ -176,29 +154,25 @@
   scatter({ has: (x, y) => inside(paths.brainstem, x, y) && inside(silhouette, x, y) }, 16, 19, () => 'brainstem');
   for (const id of ['hippocampus', 'insula', 'amygdala']) scatter({ has: (x, y) => inside(paths[id], x, y) }, id === 'amygdala' ? 6 : 16, 13, () => id, true);
 
-  // ---- Activation -------------------------------------------------
   let active = new Set();
   let activeKey = '';
   let arcuateOn = false;
 
-  function show(key, note) {
-    const t = TARGETS[key];
-    if (!t || key + note === activeKey) return;
-    activeKey = key + note;
+  function show(key, t = TARGETS[key]) {
+    const sig = key + t?.ids.join();
+    if (!t || sig === activeKey) return;
+    activeKey = sig;
     active = new Set(t.ids);
     arcuateOn = !!t.arcuate;
     for (const id in fillEls) fillEls[id].classList.toggle('is-on', active.has(id));
     for (const id in deepEls) deepEls[id].classList.toggle('is-on', active.has(id));
-    // Name every lit region, unless it's a whole-brain mode.
     const labelled = t.ids.length > 3 ? [] : t.ids;
     for (const id in labelEls) labelEls[id].classList.toggle('is-on', labelled.includes(id));
     arcuate.classList.toggle('is-on', arcuateOn);
 
-    // The pill names the lit region and what it does - nothing else - and
-    // steps aside entirely when the whole brain is firing.
     const first = R[t.ids[0]];
     readout.classList.toggle('is-hidden', key === 'all');
-    readout.style.setProperty('--c', t.ids.length > 3 || key === '__row' ? 'var(--text)' : first.color);
+    readout.style.setProperty('--c', t.ids.length > 3 || key === 'row' ? 'var(--text)' : first.color);
     readout.querySelector('.brain__readout-name').textContent = t.name || first.name;
     readout.querySelector('.brain__readout-fn').textContent = t.fn || first.fn;
     readout.classList.remove('is-fresh');
@@ -206,16 +180,12 @@
     readout.classList.add('is-fresh');
   }
 
-  // The current section is the last [data-brain] element (in document
-  // order) whose top has risen past 60% of the viewport. Elements sharing
-  // a row (the project cards) light up together.
   const targets = [...document.querySelectorAll('[data-brain]')];
   let hoverEl = null;
-  // Until a [data-brain] section scrolls up, show the page's home region.
-  let heroKey = host.dataset.home || 'motor', heroNote = host.dataset.homeNote || '';
+  let heroKey = host.dataset.home || 'motor';
 
   function pick() {
-    if (hoverEl) return show(hoverEl.dataset.brain, hoverEl.dataset.brainNote || '');
+    if (hoverEl) return show(hoverEl.dataset.brain);
     const line = innerHeight * 0.6;
     let best = null, bestTop = -Infinity;
     for (const t of targets) {
@@ -223,26 +193,22 @@
       if (top < line && top > bestTop + 8) { best = [t]; bestTop = top; }
       else if (top < line && Math.abs(top - bestTop) <= 8) best.push(t);
     }
-    // Two thresholds, so a fast flick or bounce near one line can't make it flicker.
     const past = document.body.classList.contains('brain-past-hero');
     document.body.classList.toggle('brain-past-hero', scrollY > innerHeight * (past ? 0.3 : 0.5));
-    if (!best) return show(heroKey, heroNote);
-    if (best.length === 1) return show(best[0].dataset.brain, best[0].dataset.brainNote || '');
-    // A row of cards: light the union, and list what's lit.
+    if (!best) return show(heroKey);
+    if (best.length === 1) return show(best[0].dataset.brain);
     const ids = [...new Set(best.flatMap(b => TARGETS[b.dataset.brain].ids))];
     const keys = [...new Set(best.map(b => b.dataset.brain))];
-    TARGETS.__row = { ids,
+    show('row', { ids,
       name: keys.map(k => TARGETS[k].name || R[TARGETS[k].ids[0]].name).join(' + '),
       fn: keys.map(k => TARGETS[k].tag || TARGETS[k].fn || R[TARGETS[k].ids[0]].fn).join(' · '),
-      arcuate: best.some(b => TARGETS[b.dataset.brain].arcuate) };
-    show('__row', best.map(b => `${b.dataset.brainNote} = ${TARGETS[b.dataset.brain].tag}`).join(' · '));
+      arcuate: best.some(b => TARGETS[b.dataset.brain].arcuate) });
   }
 
   let queued = false;
   const queue = () => { if (!queued) { queued = true; requestAnimationFrame(() => { queued = false; pick(); }); } };
   addEventListener('scroll', queue, { passive: true });
   addEventListener('resize', queue);
-  // Cards slide in with staggered transforms; re-check once they land so a row lines up.
   document.addEventListener('transitionend', e => { if (e.target.matches('[data-brain]')) queue(); });
 
   if (matchMedia('(hover: hover)').matches) {
@@ -253,10 +219,8 @@
     }
   }
 
-  // The hero's rotating role line drives the brain until you scroll.
-  window.brainHero = (key, note) => { heroKey = key; heroNote = note; queue(); };
+  window.brainHero = key => { heroKey = key; queue(); };
 
-  // ---- Render -----------------------------------------------------
   let scale = 1, dpr = 1;
   function size() {
     const w = stage.clientWidth;
@@ -295,8 +259,7 @@
       if (rand() < 0.08) fire(nodes[(rand() * nodes.length) | 0], 1, true);
     }
 
-    // Wiring inside lit regions.
-    ctx.lineWidth = 0.6 * K;
+    ctx.lineWidth = 0.6 * STROKE;
     for (const n of lit) {
       ctx.strokeStyle = R[n.region].color + '40';
       ctx.beginPath();
@@ -304,7 +267,6 @@
       ctx.stroke();
     }
 
-    // Nodes.
     for (const n of nodes) {
       const on = active.has(n.region);
       n.flash *= 0.92;
@@ -312,17 +274,16 @@
         const c = R[n.region].color;
         if (n.flash > 0.05) {
           ctx.fillStyle = c + Math.round(n.flash * 70).toString(16).padStart(2, '0');
-          ctx.beginPath(); ctx.arc(n.x, n.y, (3 + n.flash * 5) * K, 0, 7); ctx.fill();
+          ctx.beginPath(); ctx.arc(n.x, n.y, (3 + n.flash * 5) * STROKE, 0, 7); ctx.fill();
         }
         ctx.fillStyle = on ? c : c + '99';
-        ctx.beginPath(); ctx.arc(n.x, n.y, ((n.deep ? 1.1 : 1.5) + (on ? pulse * 0.5 : 0) + n.flash) * K, 0, 7); ctx.fill();
+        ctx.beginPath(); ctx.arc(n.x, n.y, ((n.deep ? 1.1 : 1.5) + (on ? pulse * 0.5 : 0) + n.flash) * STROKE, 0, 7); ctx.fill();
       } else {
         ctx.fillStyle = colors.node;
-        ctx.beginPath(); ctx.arc(n.x, n.y, (n.deep ? 0.8 : 1.1) * K, 0, 7); ctx.fill();
+        ctx.beginPath(); ctx.arc(n.x, n.y, (n.deep ? 0.8 : 1.1) * STROKE, 0, 7); ctx.fill();
       }
     }
 
-    // Action potentials racing along the wiring.
     for (let i = spikes.length - 1; i >= 0; i--) {
       const s = spikes[i];
       s.t += reduced ? 1 : s.speed;
@@ -330,10 +291,10 @@
       const y = s.from.y + (s.to.y - s.from.y) * Math.min(s.t, 1);
       const c = s.ambient ? colors.link : R[s.from.region].color;
       ctx.strokeStyle = c;
-      ctx.lineWidth = (s.ambient ? 0.6 : 1.1) * K;
+      ctx.lineWidth = (s.ambient ? 0.6 : 1.1) * STROKE;
       ctx.beginPath(); ctx.moveTo(s.from.x, s.from.y); ctx.lineTo(x, y); ctx.stroke();
       ctx.fillStyle = s.ambient ? colors.link : '#fff';
-      ctx.beginPath(); ctx.arc(x, y, (s.ambient ? 0.9 : 1.6) * K, 0, 7); ctx.fill();
+      ctx.beginPath(); ctx.arc(x, y, (s.ambient ? 0.9 : 1.6) * STROKE, 0, 7); ctx.fill();
       if (s.t >= 1) {
         spikes.splice(i, 1);
         if (!s.ambient) s.to.flash = 1;
@@ -342,15 +303,14 @@
     }
     if (spikes.length > 160) spikes.splice(0, spikes.length - 160);
 
-    // Language mode: a signal crossing the arcuate fasciculus, Broca ↔ Wernicke.
     if (arcuateOn && !reduced) {
       arcuateT = (arcuateT + 0.012) % 2;
       const along = arcuateT < 1 ? arcuateT : 2 - arcuateT;
       const p = arcuatePath.getPointAtLength(along * arcuateLen);
       ctx.fillStyle = '#fde68a';
-      ctx.beginPath(); ctx.arc(p.x, p.y, 2.4 * K, 0, 7); ctx.fill();
+      ctx.beginPath(); ctx.arc(p.x, p.y, 2.4 * STROKE, 0, 7); ctx.fill();
       ctx.fillStyle = '#f59e0b33';
-      ctx.beginPath(); ctx.arc(p.x, p.y, 7 * K, 0, 7); ctx.fill();
+      ctx.beginPath(); ctx.arc(p.x, p.y, 7 * STROKE, 0, 7); ctx.fill();
     }
 
     requestAnimationFrame(frame);
@@ -363,7 +323,6 @@
   requestAnimationFrame(frame);
 })();
 
-// ---- Hero role line: types out each role and points the brain at it ----
 (function heroRoles() {
   const out = document.querySelector('.hero__role-text');
   if (!out) return;
@@ -374,7 +333,7 @@
     ['Web Designer', 'occipital'],
   ];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const point = ([text, key]) => window.brainHero && window.brainHero(key, text);
+  const point = ([, key]) => window.brainHero?.(key);
   const wait = ms => new Promise(r => setTimeout(r, ms));
 
   (async () => {

@@ -5,25 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rankless | Scott Landes</title>
   <meta name="description" content="Rankless is RPG chess you can play anywhere, now in beta - your pieces have HP, levels, and gear, and they remember every battle. Play free in your browser.">
-  <meta name="keywords" content="Rankless, Rankless chess, RPG chess, browser game, chess RPG, roguelite chess, Scott Landes, indie game development">
   <link rel="canonical" href="https://scottjlandes.com/pages/rankless.html">
   <link rel="icon" type="image/svg+xml" href="../images/icons/icon-logo.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="../images/icons/icon-logo.png">
   <link rel="apple-touch-icon" href="../images/icons/icon-logo.png">
 
-  <!-- Open Graph -->
   <meta property="og:type"        content="website">
   <meta property="og:url"         content="https://scottjlandes.com/pages/rankless.html">
   <meta property="og:title"       content="Rankless - RPG Chess | Now in Beta | Scott Landes">
   <meta property="og:description" content="RPG chess you can play anywhere, now in beta. Your pieces have HP, levels, and gear - and they remember every battle.">
   <meta property="og:site_name"   content="Scott Landes">
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:card"        content="summary">
   <meta name="twitter:title"       content="Rankless - RPG Chess | Now in Beta | Scott Landes">
   <meta name="twitter:description" content="RPG chess you can play anywhere, now in beta. Your pieces have HP, levels, and gear - and they remember every battle.">
 
-  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -52,45 +48,17 @@
   }
   </script>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../css/styles.css">
-
-  <style>
-    /* Chess piece cards - the only page-specific styling Rankless needs.
-       Everything else uses the site-wide accent so status and CTAs read the
-       same here as on the Hubbubb and Hoozr pages. */
-    .piece-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 1rem;
-      margin-top: 2.5rem;
-    }
-    .piece-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--r-md);
-      padding: 1.25rem;
-      text-align: center;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .piece-card:hover { border-color: var(--border-a); transform: translateY(-3px); }
-    .piece-card__symbol { font-size: 2.5rem; margin-bottom: 0.5rem; }
-    .piece-card__name { font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.25rem; }
-    .piece-card__role { font-size: 0.78rem; color: var(--text-2); }
-  </style>
   <script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);if(t==="light")document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll("img[data-logo-dark]").forEach(function(i){i.src=i.getAttribute("data-logo-dark");});});})();</script>
 </head>
 <body>
   <div class="page-bg" aria-hidden="true"></div>
-  <div class="brain" aria-hidden="true" data-src="../images/brain-{theme}.jpg" data-home="prefrontal" data-home-note="Rankless"></div>
+  <div class="brain" aria-hidden="true" data-src="../images/brain-{theme}.jpg" data-home="prefrontal"></div>
 
-  <!-- ============================================================
-       Navigation
-  ============================================================ -->
   <header>
     <nav class="nav" aria-label="Main navigation">
       <div class="container">
@@ -138,7 +106,6 @@
       </div>
     </nav>
 
-    <!-- Mobile overlay menu -->
     <div class="nav__mobile" aria-hidden="true">
       <a href="../index.html" class="nav__mobile-link"><svg class="ic-home" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
   <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
@@ -170,9 +137,6 @@
 
   <main>
 
-    <!-- ============================================================
-         Beta Hero
-    ============================================================ -->
     <section class="cs-hero" aria-label="Rankless - Now in Beta">
       <div class="hero__grid"></div>
 
@@ -208,10 +172,7 @@
       </div>
     </section>
 
-    <!-- ============================================================
-         The Game
-    ============================================================ -->
-    <section data-brain="hippocampus" data-brain-note="Pieces remember every fight">
+    <section data-brain="hippocampus">
       <div class="container">
 
         <div class="reveal">
@@ -284,10 +245,7 @@
       </div>
     </section>
 
-    <!-- ============================================================
-         Modes
-    ============================================================ -->
-    <section data-brain="parietal" data-brain-note="Spatial reasoning on the board">
+    <section data-brain="parietal">
       <div class="container">
 
         <div class="reveal">
@@ -383,10 +341,7 @@
       </div>
     </section>
 
-    <!-- ============================================================
-         The Pieces
-    ============================================================ -->
-    <section data-brain="motor" data-brain-note="How each piece moves">
+    <section data-brain="motor">
       <div class="container">
 
         <div class="reveal">
@@ -435,10 +390,7 @@
       </div>
     </section>
 
-    <!-- ============================================================
-         Platform
-    ============================================================ -->
-    <section data-brain="brainstem" data-brain-note="Runs anywhere, even offline">
+    <section data-brain="brainstem">
       <div class="container">
 
         <div class="reveal">
@@ -451,7 +403,7 @@
           </p>
         </div>
 
-        <div class="feature-grid" style="margin-top: 2.5rem;">
+        <div class="feature-grid">
           <article class="card reveal reveal-d1">
             <div class="feature-card__icon"><svg class="ic-responsive" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
   <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
@@ -486,10 +438,9 @@
           </article>
         </div>
 
-        <!-- Tech Stack -->
-        <div class="reveal" style="margin-top: 3rem;">
+        <div class="subsection reveal">
           <span class="label">Tech Stack</span>
-          <h3 class="section-title" style="font-size: 1.5rem;">What It's Built With</h3>
+          <h3 class="section-title">What It's Built With</h3>
           <div class="tags">
             <span class="tag">TypeScript</span>
             <span class="tag">React</span>
@@ -505,10 +456,7 @@
       </div>
     </section>
 
-    <!-- ============================================================
-         Beta Status
-    ============================================================ -->
-    <section data-brain="prefrontal" data-brain-note="What's next">
+    <section data-brain="prefrontal">
       <div class="container">
         <div class="reveal">
           <span class="label">Status</span>
@@ -523,10 +471,7 @@
       </div>
     </section>
 
-    <!-- ============================================================
-         CTA
-    ============================================================ -->
-    <section data-brain="all" data-brain-note="Go build an army">
+    <section data-brain="all">
       <div class="container">
         <div class="cta-banner reveal">
           <h2 class="cta-banner__title">Go Build an Army</h2>
@@ -534,7 +479,7 @@
             Rankless is in beta and free to play - open it in a browser and you're in. It's still being
             actively built, so if something breaks or an idea would make it better, tell me.
           </p>
-          <div class="hero__actions" style="justify-content: center;">
+          <div class="hero__actions">
             <a href="https://www.ranklesschess.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
               Play at ranklesschess.com →
             </a>
@@ -548,9 +493,6 @@
 
   </main>
 
-  <!-- ============================================================
-       Footer
-  ============================================================ -->
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
@@ -585,14 +527,12 @@
         </nav>
 
         <div class="footer__social">
-          <!-- LinkedIn -->
           <a href="https://www.linkedin.com/in/scott-and-vega" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
               <circle cx="4" cy="4" r="2"/>
             </svg>
           </a>
-          <!-- Instagram -->
           <a href="https://www.instagram.com/scottnvega/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
@@ -600,8 +540,7 @@
               <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
             </svg>
           </a>
-          <!-- GitHub -->
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <a href="https://github.com/scottlandes1217" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
             </svg>
@@ -609,7 +548,7 @@
         </div>
       </div>
 
-      <p class="footer__copy">© <script>document.write(new Date().getFullYear())</script> Scott Landes. Built with care in Bend, Oregon.<img src="../images/icons/icon-oregon-white.png" data-logo-light="../images/icons/icon-oregon-white.png" data-logo-dark="../images/icons/icon-oregon.png" alt="Oregon" class="footer__bend-badge"></p>
+      <p class="footer__copy">© <span data-year>2026</span> Scott Landes. Built with care in Bend, Oregon.<img src="../images/icons/icon-oregon-white.png" data-logo-light="../images/icons/icon-oregon-white.png" data-logo-dark="../images/icons/icon-oregon.png" alt="Oregon" class="footer__bend-badge"></p>
     </div>
   </footer>
 

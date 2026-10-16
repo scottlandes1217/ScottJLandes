@@ -1,6 +1,3 @@
-/* ScottJLandes.com — Main JS (Standout Redesign) */
-
-// ---- Nav scroll effect ------------------------------------
 const nav = document.querySelector('.nav');
 if (nav) {
   const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
@@ -8,47 +5,29 @@ if (nav) {
   onScroll();
 }
 
-// ---- Mobile hamburger menu --------------------------------
-const ham    = document.querySelector('.nav__ham');
+const ham = document.querySelector('.nav__ham');
 const mobile = document.querySelector('.nav__mobile');
 
 if (ham && mobile) {
-  const toggleMenu = () => {
-    const open = ham.classList.toggle('open');
+  const setMenu = open => {
+    ham.classList.toggle('open', open);
     mobile.classList.toggle('open', open);
+    ham.setAttribute('aria-expanded', open);
     document.body.style.overflow = open ? 'hidden' : '';
   };
-
-  ham.addEventListener('touchstart', (e) => {
-    e.preventDefault();
-    toggleMenu();
-  }, { passive: false });
-
-  ham.addEventListener('click', toggleMenu);
-
-  mobile.querySelectorAll('.nav__mobile-link').forEach(a => {
-    a.addEventListener('click', () => {
-      ham.classList.remove('open');
-      mobile.classList.remove('open');
-      document.body.style.overflow = '';
-    });
-  });
+  ham.addEventListener('click', () => setMenu(!ham.classList.contains('open')));
+  mobile.querySelectorAll('.nav__mobile-link').forEach(a => a.addEventListener('click', () => setMenu(false)));
 }
 
-// ---- Scroll reveal with spring stagger --------------------
-const revealEls = document.querySelectorAll('.reveal, .reveal-l');
-if (revealEls.length) {
-  const ro = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  revealEls.forEach(el => ro.observe(el));
-}
+const revealer = new IntersectionObserver(entries => {
+  for (const e of entries) {
+    if (!e.isIntersecting) continue;
+    e.target.classList.add('in');
+    revealer.unobserve(e.target);
+  }
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealer.observe(el));
 
-// ---- Card shimmer on mouse move --------------------------
 document.querySelectorAll('.card').forEach(card => {
   card.addEventListener('mousemove', e => {
     const r = card.getBoundingClientRect();
@@ -57,9 +36,7 @@ document.querySelectorAll('.card').forEach(card => {
   });
 });
 
-// ---- Theme toggle with smooth transition ------------------
-const themeBtn = document.querySelector('.nav__theme');
-themeBtn?.addEventListener('click', () => {
+document.querySelector('.nav__theme')?.addEventListener('click', () => {
   const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
   const apply = () => {
     document.documentElement.setAttribute('data-theme', next);
@@ -68,30 +45,14 @@ themeBtn?.addEventListener('click', () => {
       img.src = next === 'light' ? img.getAttribute('data-logo-dark') : img.getAttribute('data-logo-light');
     });
   };
-  if (document.startViewTransition) {
-    document.startViewTransition(apply);
-  } else {
-    apply();
-  }
+  document.startViewTransition ? document.startViewTransition(apply) : apply();
 });
 
-// ---- Current page nav highlight ---------------------------
-const path = window.location.pathname;
-document.querySelectorAll('.nav__link').forEach(l => {
-  const href = l.getAttribute('href');
-  if (href && path.endsWith(href.replace(/^.*\//, '/'))) l.classList.add('active');
-});
-
-// ---- Page search: ⌘K / Ctrl+K or "/" -------------------------
-// Find-in-page for the site: highlights every match with the CSS Custom
-// Highlight API (no DOM changes), steps through them, and outlines the
-// chip/card the current match lives in.
 (function pageSearch() {
   const navInner = document.querySelector('.nav__inner');
   const theme = document.querySelector('.nav__theme');
   if (!navInner || !theme || !(window.CSS && CSS.highlights)) return;
 
-  // Shorthand people type → words that appear on the page.
   const ALIASES = {
     js: ['javascript'], ts: ['typescript'], py: ['python'], rb: ['ruby'],
     sf: ['salesforce'], sfdc: ['salesforce'], lwc: ['lightning web components'],
@@ -101,7 +62,6 @@ document.querySelectorAll('.nav__link').forEach(l => {
   const SEARCH_ICON = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>';
   const mac = /Mac|iPhone|iPad/.test(navigator.platform);
 
-  // Search button sits with the theme toggle so the nav links stay centered.
   const tools = document.createElement('div');
   tools.className = 'nav__tools';
   const btn = document.createElement('button');
@@ -146,8 +106,6 @@ document.querySelectorAll('.nav__link').forEach(l => {
     return nodes;
   }
 
-  // ponytail: matches within a single text node, so a phrase split across
-  // elements (e.g. "Salesforce <span>Tech Stack</span>") won't match as one.
   function run() {
     const q = input.value.trim().toLowerCase();
     all.clear();
@@ -161,7 +119,7 @@ document.querySelectorAll('.nav__link').forEach(l => {
         found.sort((a, b) => a[0] - b[0]);
         let end = -1;
         for (const [s, e] of found) {
-          if (s < end) continue;  // overlapping alias match
+          if (s < end) continue;
           const r = new Range();
           r.setStart(node, s);
           r.setEnd(node, e);
@@ -224,3 +182,5 @@ document.querySelectorAll('.nav__link').forEach(l => {
     else if (e.key === '/' && !typing) { e.preventDefault(); open(); }
   });
 })();
+
+document.querySelectorAll('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });

@@ -4,29 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
-  <!-- Primary Meta -->
   <title>Scott Landes</title>
   <meta name="description" content="Scott Landes is a Software Engineer and Web Designer based in Bend, Oregon with 7+ years of experience in Salesforce development, Lightning Web Components, CPQ, and building beautiful modern websites for local businesses." />
-  <meta name="keywords" content="Scott Landes, Software Engineer, Web Designer, Bend Oregon, Salesforce Developer, Lightning Web Components, Apex, CPQ, web design, Hubbubb, Hubbubb CRM, Hoozr, Rankless" />
   <meta name="author" content="Scott Landes" />
   <link rel="canonical" href="https://scottjlandes.com" />
   <link rel="icon" type="image/svg+xml" href="images/icons/icon-logo.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="images/icons/icon-logo.png" />
   <link rel="apple-touch-icon" href="images/icons/icon-logo.png" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://scottjlandes.com" />
   <meta property="og:title" content="Scott Landes | Software Engineer &amp; Web Designer | Bend, OR" />
   <meta property="og:description" content="Software Engineer and Web Designer based in Bend, Oregon. Specializing in Salesforce, Lightning Web Components, CPQ, and modern web design for local businesses." />
   <meta property="og:site_name" content="Scott Landes" />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Scott Landes | Software Engineer &amp; Web Designer | Bend, OR" />
   <meta name="twitter:description" content="Software Engineer and Web Designer based in Bend, Oregon. Salesforce expert, LWC developer, and creator of Hubbubb, Hoozr, and Rankless - all now in beta." />
 
-  <!-- Schema.org Person JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -47,12 +42,10 @@
   }
   </script>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css" />
   <script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);if(t==="light")document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll("img[data-logo-dark]").forEach(function(i){i.src=i.getAttribute("data-logo-dark");});});})();</script>
 </head>
@@ -61,9 +54,6 @@
   <div class="page-bg" aria-hidden="true"></div>
   <div class="brain" aria-hidden="true" data-src="images/brain-{theme}.jpg"></div>
 
-  <!-- ============================================================
-       Navigation
-  ============================================================ -->
   <header>
     <nav class="nav" aria-label="Main navigation">
       <div class="container">
@@ -111,7 +101,6 @@
       </div>
     </nav>
 
-    <!-- Mobile overlay menu -->
     <div class="nav__mobile" aria-hidden="true">
       <a href="#" class="nav__mobile-link"><svg class="ic-home" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
@@ -143,14 +132,10 @@
 
   <main>
 
-    <!-- ============================================================
-         Hero
-    ============================================================ -->
     <section class="hero" id="home" data-section="home">
 
       <div class="container">
         <div class="hero__content">
-          <!-- Soft glow behind name -->
           <div class="hero__glow" aria-hidden="true"></div>
           <h1 class="hero__title reveal reveal-d1">
             <span class="hero__name-row">
@@ -178,14 +163,10 @@
       </div>
     </section>
 
-    <!-- ============================================================
-         About
-    ============================================================ -->
-    <section id="about" data-section="about" data-brain="dmn" data-brain-note="About me">
+    <section id="about" data-section="about" data-brain="dmn">
       <div class="container">
         <div class="about-grid">
 
-          <!-- Left: Text -->
           <div>
             <p class="label reveal">About Me</p>
             <h2 class="section-title reveal reveal-d1">7 years in,<br />still building things I care about</h2>
@@ -197,7 +178,6 @@
             </p>
           </div>
 
-          <!-- Right: Stats with visual bg -->
           <div class="about-stats-wrapper reveal reveal-d2">
             <div class="about-stats reveal reveal-d2">
               <div class="stat">
@@ -223,9 +203,6 @@
       </div>
     </section>
 
-    <!-- ============================================================
-         Projects
-    ============================================================ -->
     <section id="projects" data-section="projects">
       <div class="container">
         <p class="label reveal">What I'm Building</p>
@@ -234,8 +211,7 @@
 
         <div class="projects-grid">
 
-          <!-- Software Development -->
-          <a href="#skills" class="card proj-card proj-card--live reveal prod-default" aria-label="Software Development - Learn More" data-brain="motor" data-brain-note="Software Development">
+          <a href="#skills" class="card proj-card proj-card--live reveal prod-default" aria-label="Software Development - Learn More" data-brain="motor">
             <div class="proj-card__icon icon-code" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polyline points="16 18 22 12 16 6"/>
   <polyline points="8 6 2 12 8 18"/>
@@ -245,8 +221,7 @@
             <span class="proj-card__link">Learn More →</span>
           </a>
 
-          <!-- Web Design -->
-          <a href="pages/web-design.html" class="card proj-card proj-card--live prod-webdesign reveal reveal-d1" aria-label="Web Design - Learn More" data-brain="occipital" data-brain-note="Web Design">
+          <a href="pages/web-design.html" class="card proj-card proj-card--live prod-webdesign reveal reveal-d1" aria-label="Web Design - Learn More" data-brain="occipital">
             <div class="proj-card__icon icon-webdesign" aria-hidden="true"><svg class="ic-webdesign" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
   <line x1="8" y1="21" x2="16" y2="21"/>
@@ -257,8 +232,7 @@
             <span class="proj-card__link">Learn More →</span>
           </a>
 
-          <!-- Salesforce -->
-          <a href="pages/salesforce.html" class="card proj-card proj-card--live prod-salesforce reveal reveal-d2" aria-label="Salesforce - Explore Skills" data-brain="parietal" data-brain-note="Salesforce">
+          <a href="pages/salesforce.html" class="card proj-card proj-card--live prod-salesforce reveal reveal-d2" aria-label="Salesforce - Explore Skills" data-brain="parietal">
             <div class="proj-card__icon icon-salesforce" aria-hidden="true"><svg class="ic-salesforce" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
 </svg></div>
@@ -267,8 +241,7 @@
             <span class="proj-card__link">Explore Skills →</span>
           </a>
 
-          <!-- Hubbubb -->
-          <a href="pages/hubbubb.html" class="card proj-card proj-card--live prod-hubbub reveal reveal-d3" aria-label="Hubbubb - In Beta" data-brain="language" data-brain-note="Hubbubb">
+          <a href="pages/hubbubb.html" class="card proj-card proj-card--live prod-hubbub reveal reveal-d3" aria-label="Hubbubb - In Beta" data-brain="language">
             <div class="proj-card__icon icon-hubbub" aria-hidden="true"><svg class="ic-hubbub" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
   <circle cx="9" cy="11" r="0.8" fill="currentColor" stroke="none"/>
@@ -281,8 +254,7 @@
             <span class="proj-card__link">Try the Beta →</span>
           </a>
 
-          <!-- Hoozr -->
-          <a href="pages/hoozr.html" class="card proj-card proj-card--live prod-hoozr reveal reveal-d4" aria-label="Hoozr - In Beta" data-brain="limbic" data-brain-note="Hoozr">
+          <a href="pages/hoozr.html" class="card proj-card proj-card--live prod-hoozr reveal reveal-d4" aria-label="Hoozr - In Beta" data-brain="limbic">
             <div class="proj-card__icon icon-hoozr" aria-hidden="true"><svg class="ic-hoozr" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
 </svg></div>
@@ -292,8 +264,7 @@
             <span class="proj-card__link">Try the Beta →</span>
           </a>
 
-          <!-- Rankless -->
-          <a href="pages/rankless.html" class="card proj-card proj-card--live prod-rankless reveal reveal-d5" aria-label="Rankless - In Beta" data-brain="prefrontal" data-brain-note="Rankless">
+          <a href="pages/rankless.html" class="card proj-card proj-card--live prod-rankless reveal reveal-d5" aria-label="Rankless - In Beta" data-brain="prefrontal">
             <div class="proj-card__icon icon-rankless" aria-hidden="true"><svg class="ic-rankless" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/>
   <line x1="5" y1="20" x2="19" y2="20"/>
@@ -308,9 +279,6 @@
       </div>
     </section>
 
-    <!-- ============================================================
-         Skills
-    ============================================================ -->
     <section id="skills" data-section="skills">
       <div class="container">
         <p class="label reveal">Tech Stack</p>
@@ -319,8 +287,7 @@
 
         <div class="skills-grid">
 
-          <!-- Languages -->
-          <p class="skill-category reveal" data-brain="language" data-brain-note="Languages">Languages</p>
+          <p class="skill-category reveal" data-brain="language">Languages</p>
           <div class="skill-chip reveal">
             <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-code" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polyline points="16 18 22 12 16 6"/>
@@ -405,8 +372,7 @@
             C++
           </div>
 
-          <!-- Frontend -->
-          <p class="skill-category reveal" data-brain="occipital" data-brain-note="Frontend">Frontend</p>
+          <p class="skill-category reveal" data-brain="occipital">Frontend</p>
           <div class="skill-chip reveal">
             <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-component" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <rect x="3" y="3" width="7" height="7" rx="1"/>
@@ -462,8 +428,7 @@
             Jest / Testing
           </div>
 
-          <!-- Backend -->
-          <p class="skill-category reveal" data-brain="cerebellum" data-brain-note="Backend">Backend</p>
+          <p class="skill-category reveal" data-brain="cerebellum">Backend</p>
           <div class="skill-chip reveal">
             <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-agile" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polyline points="23 4 23 10 17 10"/>
@@ -522,8 +487,7 @@
             Redis
           </div>
 
-          <!-- Salesforce -->
-          <p class="skill-category reveal" data-brain="parietal" data-brain-note="Salesforce">Salesforce</p>
+          <p class="skill-category reveal" data-brain="parietal">Salesforce</p>
           <div class="skill-chip reveal">
             <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-salesforce" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
@@ -687,8 +651,7 @@
             CRM Analytics
           </div>
 
-          <!-- AI & Automation -->
-          <p class="skill-category reveal" data-brain="neocortex" data-brain-note="AI & Automation">AI &amp; Automation</p>
+          <p class="skill-category reveal" data-brain="neocortex">AI &amp; Automation</p>
           <div class="skill-chip reveal">
             <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-robot" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <rect x="4" y="4" width="16" height="16" rx="2"/>
@@ -766,8 +729,7 @@
             AI Agents
           </div>
 
-          <!-- Cloud & DevOps -->
-          <p class="skill-category reveal" data-brain="brainstem" data-brain-note="Cloud & DevOps">Cloud &amp; DevOps</p>
+          <p class="skill-category reveal" data-brain="brainstem">Cloud &amp; DevOps</p>
           <div class="skill-chip reveal">
             <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-cloud" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
@@ -832,17 +794,13 @@
       </div>
     </section>
 
-    <!-- ============================================================
-         Experience
-    ============================================================ -->
     <section id="experience" data-section="experience">
       <div class="container">
         <p class="label reveal">Career</p>
         <h2 class="section-title reveal reveal-d1">Work Experience</h2>
 
-        <ul class="experience-list" role="list" data-brain="hippocampus" data-brain-note="7 years of work">
+        <ul class="experience-list" role="list" data-brain="hippocampus">
 
-          <!-- Get Covered -->
           <li class="exp-item reveal reveal-d2">
             <div class="exp-item__period">Sep 2023 - Present</div>
             <div>
@@ -859,7 +817,6 @@
             </div>
           </li>
 
-          <!-- RealPage -->
           <li class="exp-item reveal reveal-d3">
             <div class="exp-item__period">Jan 2021 - Sep 2023</div>
             <div>
@@ -875,7 +832,6 @@
             </div>
           </li>
 
-          <!-- G5 -->
           <li class="exp-item reveal reveal-d4">
             <div class="exp-item__period">Jul 2019 - Jan 2021</div>
             <div>
@@ -894,12 +850,9 @@
       </div>
     </section>
 
-    <!-- ============================================================
-         CTA Banner
-    ============================================================ -->
     <section aria-label="Contact call to action">
       <div class="container">
-        <div class="cta-banner reveal" data-brain="all" data-brain-note="Let's build something">
+        <div class="cta-banner reveal" data-brain="all">
           <h2 class="cta-banner__title">Let's Build Something Together</h2>
           <p class="cta-banner__desc">Whether you need a new website, Salesforce expertise, or want to collaborate on one of my projects - I'd love to hear from you.</p>
           <div class="hero__actions">
@@ -912,9 +865,6 @@
 
   </main>
 
-  <!-- ============================================================
-       Footer
-  ============================================================ -->
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
@@ -950,7 +900,6 @@
         </nav>
 
         <div class="footer__social">
-          <!-- LinkedIn -->
           <a href="https://www.linkedin.com/in/scott-and-vega" target="_blank" rel="noopener noreferrer" aria-label="Scott Landes on LinkedIn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
@@ -959,7 +908,6 @@
             </svg>
           </a>
 
-          <!-- Instagram -->
           <a href="https://www.instagram.com/scottnvega/" target="_blank" rel="noopener noreferrer" aria-label="Scott Landes on Instagram">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
@@ -968,21 +916,19 @@
             </svg>
           </a>
 
-          <!-- GitHub -->
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="Scott Landes on GitHub">
+          <a href="https://github.com/scottlandes1217" target="_blank" rel="noopener noreferrer" aria-label="Scott Landes on GitHub">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
             </svg>
           </a>
         </div>
 
-        <p class="footer__copy">© <script>document.write(new Date().getFullYear())</script> Scott Landes. Built with care in Bend, Oregon.<img src="images/icons/icon-oregon-white.png" data-logo-light="images/icons/icon-oregon-white.png" data-logo-dark="images/icons/icon-oregon.png" alt="Oregon" class="footer__bend-badge"></p>
+        <p class="footer__copy">© <span data-year>2026</span> Scott Landes. Built with care in Bend, Oregon.<img src="images/icons/icon-oregon-white.png" data-logo-light="images/icons/icon-oregon-white.png" data-logo-dark="images/icons/icon-oregon.png" alt="Oregon" class="footer__bend-badge"></p>
 
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="js/main.js" defer></script>
   <script src="js/brain.js" defer></script>
 
