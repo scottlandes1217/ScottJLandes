@@ -916,7 +916,7 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 .exp-item::before {
   content: '';
   position: absolute;
-  left: -3rem + 1px;
+  left: calc(-3rem + 5px);  /* centered on the 2px line at left: 7px */
   top: 2.5rem;
   width: 6px;
   height: 6px;
