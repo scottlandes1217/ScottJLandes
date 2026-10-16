@@ -361,32 +361,6 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   100% { transform: scale(1.15) translateX(8px); opacity: 0.8; }
 }
 
-/* Character animation hooks for hero title */
-.hero__title .char {
-  display: inline;
-  font-size: inherit;
-  line-height: inherit;
-  letter-spacing: inherit;
-  opacity: 0;
-  transition: none; /* JS drives this */
-}
-.hero__title .char.revealed {
-  opacity: 1;
-  transition: opacity 0.35s ease, transform 0.45s var(--ease-out);
-}
-
-/* Mobile: disable character animation — just show text normally */
-@media (max-width: 768px) {
-  .hero__title .char {
-    opacity: 1 !important;
-    display: inline !important;
-    font-size: inherit !important;
-    line-height: inherit !important;
-    letter-spacing: inherit !important;
-    vertical-align: baseline !important;
-  }
-}
-
 /* Typewriter cursor for subtitle */
 .typewriter-cursor {
   display: inline-block;
@@ -685,6 +659,15 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 .ic-robot      { color: var(--cyan) !important; }
 .ic-refresh    { color: #7dd3fc !important; }
 .ic-responsive { color: var(--ice-blue) !important; }
+.ic-calendar   { color: #f59e0b !important; }
+.ic-camera     { color: #fb7185 !important; }
+.ic-git        { color: #fb923c !important; }
+.ic-lock       { color: #34d399 !important; }
+.ic-map        { color: #34d399 !important; }
+.ic-pen        { color: #a78bfa !important; }
+.ic-trophy     { color: #facc15 !important; }
+.ic-user       { color: var(--cyan) !important; }
+.ic-users      { color: #a78bfa !important; }
 
 /* Light mode — darker colors for visibility on white bg */
 [data-theme="light"] .ic-hubbub    { color: #b45309 !important; }
@@ -710,6 +693,15 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 [data-theme="light"] .ic-robot      { color: #0891b2 !important; }
 [data-theme="light"] .ic-refresh    { color: #0284c7 !important; }
 [data-theme="light"] .ic-responsive { color: #2563eb !important; }
+[data-theme="light"] .ic-calendar   { color: #b45309 !important; }
+[data-theme="light"] .ic-camera     { color: #e11d48 !important; }
+[data-theme="light"] .ic-git        { color: #c2410c !important; }
+[data-theme="light"] .ic-lock       { color: #059669 !important; }
+[data-theme="light"] .ic-map        { color: #059669 !important; }
+[data-theme="light"] .ic-pen        { color: #7c3aed !important; }
+[data-theme="light"] .ic-trophy     { color: #a16207 !important; }
+[data-theme="light"] .ic-user       { color: #0891b2 !important; }
+[data-theme="light"] .ic-users      { color: #7c3aed !important; }
 
 /* Per-product gradient hairlines (top border) */
 
@@ -1311,6 +1303,9 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+/* The white→blue gradient vanishes on a white page */
+[data-theme="light"] .nav__logo span,
+[data-theme="light"] .footer__logo span { background-image: linear-gradient(90deg, var(--text) 0%, #2563eb 100%); }
 
 .footer__nav { display: flex; gap: 1.375rem; flex-wrap: wrap; }
 .footer__nav a { display: inline-flex; align-items: center; gap: 0.375rem; color: var(--text-muted); font-size: 0.875rem; font-weight: 500; transition: color var(--t-fast); }
@@ -1538,3 +1533,167 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   animation-duration: 0.4s;
   animation-timing-function: ease;
 }
+
+/* ---- The brain ---------------------------------------------
+   Pinned behind the homepage; js/brain.js builds it and lights the
+   region that matches whatever you're scrolling past.           */
+:root {
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --brain-sulc: rgba(147,197,253,0.22);
+  --brain-node: rgba(147,197,253,0.28);
+  --brain-link: rgba(186,230,253,0.55);
+  --brain-label: #cbd5e1;
+}
+[data-theme="light"] {
+  --brain-sulc: rgba(30,58,138,0.3);
+  --brain-node: rgba(30,58,138,0.35);
+  --brain-link: rgba(30,64,175,0.5);
+  --brain-label: #1e293b;
+}
+
+.brain {
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
+  top: 50%;
+  right: 1vw;
+  width: min(60vw, 960px);
+  transform: translateY(-46%);
+  transition: opacity 0.8s var(--ease-smooth), transform 1s var(--ease-out);
+}
+.brain__stage { position: relative; aspect-ratio: 1776 / 1104; }
+.brain__svg, .brain__canvas { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+
+/* The photo: feathered at the edges so its backdrop melts into the page */
+.brain__img {
+  position: absolute;
+  max-width: none;
+  -webkit-mask-image: radial-gradient(closest-side, #000 86%, transparent);
+  mask-image: radial-gradient(closest-side, #000 86%, transparent);
+  opacity: 0;
+}
+.brain__img--light { display: none; }
+[data-theme="light"] .brain__img--dark { display: none; }
+[data-theme="light"] .brain__img--light { display: block; }
+.brain.is-drawn .brain__img { animation: brain-in 2.2s var(--ease-out) forwards; }
+@keyframes brain-in {
+  from { opacity: 0; transform: scale(0.96); filter: blur(10px) brightness(1.8); }
+  to   { opacity: 1; transform: none; filter: none; }
+}
+
+/* Region glow and neurons add light onto the photo */
+.brain__svg, .brain__canvas { mix-blend-mode: screen; }
+[data-theme="light"] .brain__svg { mix-blend-mode: multiply; }
+[data-theme="light"] .brain__canvas { mix-blend-mode: normal; }
+
+.brain__deep { fill: none; stroke: var(--brain-sulc); stroke-width: 2; stroke-dasharray: 6 8; opacity: 0; transition: opacity 0.6s, stroke 0.6s; }
+.brain.is-drawn .brain__deep { opacity: 1; }
+.brain__deep.is-on { stroke: var(--brain-label); }
+
+.brain__arcuate { fill: none; stroke: #f59e0b; stroke-width: 2; stroke-dasharray: 4 10; opacity: 0; transition: opacity 0.6s; }
+.brain__arcuate.is-on { opacity: 0.6; }
+
+.brain__fill { opacity: 0; transition: opacity 0.7s var(--ease-smooth); }
+.brain__fill.is-on { opacity: 0.45; }
+[data-theme="light"] .brain__fill.is-on { opacity: 0.3; }
+
+.brain__label { opacity: 0; transition: opacity 0.4s; }
+.brain__label.is-on { opacity: 1; }
+.brain__label circle { fill: var(--c); }
+.brain__label path { stroke: var(--c); stroke-width: 1.6; fill: none; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.brain__label.is-on path { transition: stroke-dashoffset 0.6s 0.1s var(--ease-out); stroke-dashoffset: 0; }
+.brain__label text { font-family: var(--font-mono); font-size: 24px; letter-spacing: 0.12em; fill: var(--brain-label); }
+
+/* Live readout: which region is lit and why */
+.brain__readout {
+  position: fixed;
+  right: 2rem;
+  bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  max-width: calc(100vw - 2rem);
+  padding: 0.5rem 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--c, #60a5fa) 45%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: blur(10px);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-2);
+  white-space: nowrap;
+}
+.brain__readout b { color: var(--c); font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; margin-right: 0.6rem; }
+.brain__readout-text { overflow: hidden; text-overflow: ellipsis; }
+.brain__readout-dot { flex-shrink: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--c); box-shadow: 0 0 10px var(--c); }
+.brain__readout.is-fresh .brain__readout-text { animation: readout-in 0.45s var(--ease-out); }
+@keyframes readout-in { from { opacity: 0; transform: translateY(4px); } }
+
+/* Cards go see-through enough to watch the brain fire behind them */
+.brain ~ main .card { background: rgba(13,19,36,0.6); backdrop-filter: blur(2px); }
+[data-theme="light"] .brain ~ main .card { background: rgba(255,255,255,0.7); }
+
+/* Past the hero the brain steps back so the content leads */
+body.brain-past-hero .brain { opacity: 0.55; transform: translateY(-46%) scale(0.92); }
+
+/* Heroes sit left of the brain */
+@media (min-width: 901px) {
+  .page-hero__content, .cs-hero__content { max-width: 600px; }
+  .cs-hero { text-align: left; }
+  .cs-hero__content { margin-inline: 0; }
+  .cs-hero .hero__actions { justify-content: flex-start; }
+}
+.hero { align-items: safe center; padding-bottom: 3rem; }
+.hero__content { max-width: 600px; }
+.hero__title { margin-bottom: 0.75rem; font-size: clamp(2.5rem, 6vw, 4.75rem); white-space: nowrap; }
+.hero__role {
+  font-family: var(--font-mono);
+  font-size: clamp(1rem, 2.4vw, 1.4rem);
+  color: var(--ice-blue);
+  margin-bottom: 1.5rem;
+  min-height: 1.6em;
+}
+.hero__role-prompt { color: var(--text-muted); margin-right: 0.6em; }
+.label { font-family: var(--font-mono); font-weight: 500; }
+
+@media (max-width: 900px) {
+  /* Phones and tablets: the brain sits behind the text, centered */
+  .brain { right: auto; left: 50%; top: 60%; width: 125vw; transform: translate(-50%, -50%); opacity: 0.55; }
+  /* Past the hero, full-width cards would bury it: shrink to a live mini-brain in the corner */
+  body.brain-past-hero .brain {
+    z-index: 60; top: auto; left: auto; right: 0.25rem; bottom: 3.2rem;
+    width: 150px; transform: none; opacity: 1;
+    animation: brain-dock 0.5s var(--ease-out);
+  }
+  body.brain-past-hero .brain__stage { background: radial-gradient(closest-side, color-mix(in srgb, var(--bg) 85%, transparent) 75%, transparent); }
+  .brain__labels { display: none; }
+  .brain__readout { font-size: 0.66rem; right: auto; left: 50%; transform: translateX(-50%); bottom: max(0.75rem, env(safe-area-inset-bottom)); }
+  .hero__content { max-width: none; }
+}
+@keyframes brain-dock { from { opacity: 0; transform: translateY(12px) scale(0.9); } }
+@media (max-width: 520px) {
+  .brain__readout-text span { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brain.is-drawn .brain__img { animation: none; opacity: 1; }
+}
+
+/* Feature cards: each card in a grid gets its own hue, so neighbours never match */
+.feature-grid > :nth-child(6n+1) { --tone: #60a5fa; }
+.feature-grid > :nth-child(6n+2) { --tone: #34d399; }
+.feature-grid > :nth-child(6n+3) { --tone: #f59e0b; }
+.feature-grid > :nth-child(6n+4) { --tone: #fb7185; }
+.feature-grid > :nth-child(6n+5) { --tone: #a78bfa; }
+.feature-grid > :nth-child(6n+6) { --tone: #22d3ee; }
+[data-theme="light"] .feature-grid > :nth-child(6n+1) { --tone: #2563eb; }
+[data-theme="light"] .feature-grid > :nth-child(6n+2) { --tone: #059669; }
+[data-theme="light"] .feature-grid > :nth-child(6n+3) { --tone: #b45309; }
+[data-theme="light"] .feature-grid > :nth-child(6n+4) { --tone: #e11d48; }
+[data-theme="light"] .feature-grid > :nth-child(6n+5) { --tone: #7c3aed; }
+[data-theme="light"] .feature-grid > :nth-child(6n+6) { --tone: #0891b2; }
+.feature-grid .feature-card__icon {
+  color: var(--tone);
+  background: color-mix(in srgb, var(--tone) 12%, transparent);
+  border-color: color-mix(in srgb, var(--tone) 30%, transparent);
+}
+.feature-grid .feature-card__icon svg { color: var(--tone) !important; filter: none; }

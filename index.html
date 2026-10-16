@@ -50,7 +50,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css" />
@@ -59,6 +59,7 @@
 
 <body>
   <div class="page-bg" aria-hidden="true"></div>
+  <div class="brain" aria-hidden="true" data-src="images/brain-{theme}.jpg"></div>
 
   <!-- ============================================================
        Navigation
@@ -70,28 +71,28 @@
           <a href="#" class="nav__logo" aria-label="Scott Landes - Home"><img src="images/icons/icon-logo.png" data-logo-light="images/icons/icon-logo.png" data-logo-dark="images/icons/icon-logo-dark.png" alt="" width="32" height="32"><span>Scott Landes</span></a>
 
           <ul class="nav__links" role="list">
-            <li><a href="#" class="nav__link active"><svg class="ic-home" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <li><a href="#" class="nav__link active"><svg class="ic-home" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
   <polyline points="9 22 9 12 15 12 15 22"/>
 </svg>Home</a></li>
-            <li><a href="pages/web-design.html" class="nav__link"><svg class="ic-webdesign" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <li><a href="pages/web-design.html" class="nav__link"><svg class="ic-webdesign" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
   <line x1="8" y1="21" x2="16" y2="21"/>
   <line x1="12" y1="17" x2="12" y2="21"/>
 </svg>Web Design</a></li>
-            <li><a href="pages/salesforce.html" class="nav__link"><svg class="ic-salesforce" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <li><a href="pages/salesforce.html" class="nav__link"><svg class="ic-salesforce" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
 </svg>Salesforce</a></li>
-            <li><a href="pages/hubbubb.html" class="nav__link"><svg class="ic-hubbub" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <li><a href="pages/hubbubb.html" class="nav__link"><svg class="ic-hubbub" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
   <circle cx="9" cy="11" r="0.8" fill="currentColor" stroke="none"/>
   <circle cx="12" cy="11" r="0.8" fill="currentColor" stroke="none"/>
   <circle cx="15" cy="11" r="0.8" fill="currentColor" stroke="none"/>
 </svg>Hubbubb</a></li>
-            <li><a href="pages/hoozr.html" class="nav__link"><svg class="ic-hoozr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <li><a href="pages/hoozr.html" class="nav__link"><svg class="ic-hoozr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
 </svg>Hoozr</a></li>
-            <li><a href="pages/rankless.html" class="nav__link"><svg class="ic-rankless" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <li><a href="pages/rankless.html" class="nav__link"><svg class="ic-rankless" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/>
   <line x1="5" y1="20" x2="19" y2="20"/>
 </svg>Rankless</a></li>
@@ -112,28 +113,28 @@
 
     <!-- Mobile overlay menu -->
     <div class="nav__mobile" aria-hidden="true">
-      <a href="#" class="nav__mobile-link"><svg class="ic-home" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <a href="#" class="nav__mobile-link"><svg class="ic-home" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
   <polyline points="9 22 9 12 15 12 15 22"/>
 </svg>Home</a>
-      <a href="pages/web-design.html" class="nav__mobile-link"><svg class="ic-webdesign" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <a href="pages/web-design.html" class="nav__mobile-link"><svg class="ic-webdesign" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
   <line x1="8" y1="21" x2="16" y2="21"/>
   <line x1="12" y1="17" x2="12" y2="21"/>
 </svg>Web Design</a>
-      <a href="pages/salesforce.html" class="nav__mobile-link"><svg class="ic-salesforce" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <a href="pages/salesforce.html" class="nav__mobile-link"><svg class="ic-salesforce" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
 </svg>Salesforce</a>
-      <a href="pages/hubbubb.html" class="nav__mobile-link"><svg class="ic-hubbub" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <a href="pages/hubbubb.html" class="nav__mobile-link"><svg class="ic-hubbub" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
   <circle cx="9" cy="11" r="0.8" fill="currentColor" stroke="none"/>
   <circle cx="12" cy="11" r="0.8" fill="currentColor" stroke="none"/>
   <circle cx="15" cy="11" r="0.8" fill="currentColor" stroke="none"/>
 </svg>Hubbubb</a>
-      <a href="pages/hoozr.html" class="nav__mobile-link"><svg class="ic-hoozr" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <a href="pages/hoozr.html" class="nav__mobile-link"><svg class="ic-hoozr" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
 </svg>Hoozr</a>
-      <a href="pages/rankless.html" class="nav__mobile-link"><svg class="ic-rankless" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <a href="pages/rankless.html" class="nav__mobile-link"><svg class="ic-rankless" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/>
   <line x1="5" y1="20" x2="19" y2="20"/>
 </svg>Rankless</a>
@@ -146,8 +147,6 @@
          Hero
     ============================================================ -->
     <section class="hero" id="home" data-section="home">
-      <div class="hero__bg"></div>
-      <canvas class="hero__canvas" aria-hidden="true"></canvas>
 
       <div class="container">
         <div class="hero__content">
@@ -161,10 +160,10 @@
           <h1 class="hero__title reveal reveal-d1">
             <span class="hero__name-row">
               <img src="images/icons/icon-logo.png" data-logo-light="images/icons/icon-logo.png" data-logo-dark="images/icons/icon-logo-dark.png" alt="" class="hero__logo" width="96" height="96">
-              Scott Landes
+              <span>Scott Landes</span>
             </span>
-            <span class="gradient-text">Software Engineer &amp; Designer</span>
           </h1>
+          <p class="hero__role reveal reveal-d1"><span class="hero__role-prompt" aria-hidden="true">&gt;</span><span class="hero__role-text">Software Engineer</span><span class="typewriter-cursor" aria-hidden="true"></span></p>
 
           <p class="hero__subtitle reveal reveal-d2">
             Software engineer with 10+ years of experience building CRM systems, customer service platforms, and AI tooling. I work across the full stack - Salesforce, React, Ruby on Rails, Python. I'm used to owning problems end to end. Based in the wonderful Bend, Oregon.
@@ -188,7 +187,7 @@
     <!-- ============================================================
          About
     ============================================================ -->
-    <section id="about" data-section="about">
+    <section id="about" data-section="about" data-brain="dmn" data-brain-note="About me">
       <div class="container">
         <div class="about-grid">
 
@@ -242,8 +241,8 @@
         <div class="projects-grid">
 
           <!-- Software Development -->
-          <a href="#skills" class="card proj-card proj-card--live reveal prod-default" aria-label="Software Development - Learn More">
-            <div class="proj-card__icon icon-code" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <a href="#skills" class="card proj-card proj-card--live reveal prod-default" aria-label="Software Development - Learn More" data-brain="motor" data-brain-note="Software Development">
+            <div class="proj-card__icon icon-code" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polyline points="16 18 22 12 16 6"/>
   <polyline points="8 6 2 12 8 18"/>
 </svg></div>
@@ -253,8 +252,8 @@
           </a>
 
           <!-- Web Design -->
-          <a href="pages/web-design.html" class="card proj-card proj-card--live prod-webdesign reveal reveal-d1" aria-label="Web Design - Learn More">
-            <div class="proj-card__icon icon-webdesign" aria-hidden="true"><svg class="ic-webdesign" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <a href="pages/web-design.html" class="card proj-card proj-card--live prod-webdesign reveal reveal-d1" aria-label="Web Design - Learn More" data-brain="occipital" data-brain-note="Web Design">
+            <div class="proj-card__icon icon-webdesign" aria-hidden="true"><svg class="ic-webdesign" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
   <line x1="8" y1="21" x2="16" y2="21"/>
   <line x1="12" y1="17" x2="12" y2="21"/>
@@ -265,8 +264,8 @@
           </a>
 
           <!-- Salesforce -->
-          <a href="pages/salesforce.html" class="card proj-card proj-card--live prod-salesforce reveal reveal-d2" aria-label="Salesforce - Explore Skills">
-            <div class="proj-card__icon icon-salesforce" aria-hidden="true"><svg class="ic-salesforce" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <a href="pages/salesforce.html" class="card proj-card proj-card--live prod-salesforce reveal reveal-d2" aria-label="Salesforce - Explore Skills" data-brain="parietal" data-brain-note="Salesforce">
+            <div class="proj-card__icon icon-salesforce" aria-hidden="true"><svg class="ic-salesforce" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
 </svg></div>
             <h3 class="proj-card__title">Salesforce</h3>
@@ -275,8 +274,8 @@
           </a>
 
           <!-- Hubbubb -->
-          <a href="pages/hubbubb.html" class="card proj-card proj-card--live prod-hubbub reveal reveal-d3" aria-label="Hubbubb - In Beta">
-            <div class="proj-card__icon icon-hubbub" aria-hidden="true"><svg class="ic-hubbub" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <a href="pages/hubbubb.html" class="card proj-card proj-card--live prod-hubbub reveal reveal-d3" aria-label="Hubbubb - In Beta" data-brain="language" data-brain-note="Hubbubb">
+            <div class="proj-card__icon icon-hubbub" aria-hidden="true"><svg class="ic-hubbub" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
   <circle cx="9" cy="11" r="0.8" fill="currentColor" stroke="none"/>
   <circle cx="12" cy="11" r="0.8" fill="currentColor" stroke="none"/>
@@ -289,8 +288,8 @@
           </a>
 
           <!-- Hoozr -->
-          <a href="pages/hoozr.html" class="card proj-card proj-card--live prod-hoozr reveal reveal-d4" aria-label="Hoozr - In Beta">
-            <div class="proj-card__icon icon-hoozr" aria-hidden="true"><svg class="ic-hoozr" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <a href="pages/hoozr.html" class="card proj-card proj-card--live prod-hoozr reveal reveal-d4" aria-label="Hoozr - In Beta" data-brain="limbic" data-brain-note="Hoozr">
+            <div class="proj-card__icon icon-hoozr" aria-hidden="true"><svg class="ic-hoozr" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
 </svg></div>
             <span class="proj-card__badge badge-beta" aria-label="Status: In Beta">In Beta</span>
@@ -300,8 +299,8 @@
           </a>
 
           <!-- Rankless -->
-          <a href="pages/rankless.html" class="card proj-card proj-card--live prod-rankless reveal reveal-d5" aria-label="Rankless - In Beta">
-            <div class="proj-card__icon icon-rankless" aria-hidden="true"><svg class="ic-rankless" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <a href="pages/rankless.html" class="card proj-card proj-card--live prod-rankless reveal reveal-d5" aria-label="Rankless - In Beta" data-brain="prefrontal" data-brain-note="Rankless">
+            <div class="proj-card__icon icon-rankless" aria-hidden="true"><svg class="ic-rankless" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/>
   <line x1="5" y1="20" x2="19" y2="20"/>
 </svg></div>
@@ -327,51 +326,51 @@
         <div class="skills-grid">
 
           <!-- Languages -->
-          <p class="skill-category reveal">Languages</p>
+          <p class="skill-category reveal" data-brain="language" data-brain-note="Languages">Languages</p>
           <div class="skill-chip reveal">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polyline points="4 17 10 11 4 5"/>
   <line x1="12" y1="19" x2="20" y2="19"/>
 </svg></span>
             JavaScript
           </div>
           <div class="skill-chip reveal reveal-d1">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polyline points="4 17 10 11 4 5"/>
   <line x1="12" y1="19" x2="20" y2="19"/>
 </svg></span>
             TypeScript
           </div>
           <div class="skill-chip reveal reveal-d2">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polyline points="16 18 22 12 16 6"/>
   <polyline points="8 6 2 12 8 18"/>
 </svg></span>
             Python
           </div>
           <div class="skill-chip reveal reveal-d3">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polyline points="16 18 22 12 16 6"/>
   <polyline points="8 6 2 12 8 18"/>
 </svg></span>
             Go
           </div>
           <div class="skill-chip reveal reveal-d4">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polyline points="16 18 22 12 16 6"/>
   <polyline points="8 6 2 12 8 18"/>
 </svg></span>
             Java
           </div>
           <div class="skill-chip reveal reveal-d5">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polyline points="16 18 22 12 16 6"/>
   <polyline points="8 6 2 12 8 18"/>
 </svg></span>
             Ruby
           </div>
           <div class="skill-chip reveal reveal-d1">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <line x1="18" y1="20" x2="18" y2="10"/>
   <line x1="12" y1="20" x2="12" y2="4"/>
   <line x1="6" y1="20" x2="6" y2="14"/>
@@ -380,27 +379,27 @@
             SQL / SOQL
           </div>
           <div class="skill-chip reveal reveal-d2">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   class="ic-salesforce" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
 </svg></span>
             Apex
           </div>
           <div class="skill-chip reveal reveal-d3">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polyline points="4 17 10 11 4 5"/>
   <line x1="12" y1="19" x2="20" y2="19"/>
 </svg></span>
             Bash / Shell
           </div>
           <div class="skill-chip reveal reveal-d4">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polyline points="16 18 22 12 16 6"/>
   <polyline points="8 6 2 12 8 18"/>
 </svg></span>
             Swift
           </div>
           <div class="skill-chip reveal reveal-d5">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polyline points="16 18 22 12 16 6"/>
   <polyline points="8 6 2 12 8 18"/>
 </svg></span>
@@ -408,9 +407,9 @@
           </div>
 
           <!-- Frontend -->
-          <p class="skill-category reveal">Frontend</p>
+          <p class="skill-category reveal" data-brain="occipital" data-brain-note="Frontend">Frontend</p>
           <div class="skill-chip reveal">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <rect x="3" y="3" width="7" height="7" rx="1"/>
   <rect x="14" y="3" width="7" height="7" rx="1"/>
   <rect x="14" y="14" width="7" height="7" rx="1"/>
@@ -419,7 +418,7 @@
             React
           </div>
           <div class="skill-chip reveal reveal-d1">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <rect x="3" y="3" width="7" height="7" rx="1"/>
   <rect x="14" y="3" width="7" height="7" rx="1"/>
   <rect x="14" y="14" width="7" height="7" rx="1"/>
@@ -428,7 +427,7 @@
             Next.js
           </div>
           <div class="skill-chip reveal reveal-d2">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="13.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
   <circle cx="17.5" cy="10.5" r="0.8" fill="currentColor" stroke="none"/>
   <circle cx="8.5" cy="7.5" r="0.8" fill="currentColor" stroke="none"/>
@@ -438,7 +437,7 @@
             HTML / CSS
           </div>
           <div class="skill-chip reveal reveal-d3">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="13.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
   <circle cx="17.5" cy="10.5" r="0.8" fill="currentColor" stroke="none"/>
   <circle cx="8.5" cy="7.5" r="0.8" fill="currentColor" stroke="none"/>
@@ -448,14 +447,14 @@
             Tailwind CSS
           </div>
           <div class="skill-chip reveal reveal-d4">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
   <circle cx="12" cy="18" r="0.8" fill="currentColor" stroke="none"/>
 </svg></span>
             Responsive Design
           </div>
           <div class="skill-chip reveal reveal-d5">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <rect x="3" y="3" width="7" height="7" rx="1"/>
   <rect x="14" y="3" width="7" height="7" rx="1"/>
   <rect x="14" y="14" width="7" height="7" rx="1"/>
@@ -464,7 +463,7 @@
             State Management
           </div>
           <div class="skill-chip reveal reveal-d1">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polyline points="16 18 22 12 16 6"/>
   <polyline points="8 6 2 12 8 18"/>
 </svg></span>
@@ -472,16 +471,16 @@
           </div>
 
           <!-- Backend -->
-          <p class="skill-category reveal">Backend</p>
+          <p class="skill-category reveal" data-brain="cerebellum" data-brain-note="Backend">Backend</p>
           <div class="skill-chip reveal">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polyline points="4 17 10 11 4 5"/>
   <line x1="12" y1="19" x2="20" y2="19"/>
 </svg></span>
             Node.js
           </div>
           <div class="skill-chip reveal reveal-d1">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polygon points="12 2 2 7 12 12 22 7 12 2"/>
   <polyline points="2 17 12 22 22 17"/>
   <polyline points="2 12 12 17 22 12"/>
@@ -489,21 +488,21 @@
             Ruby on Rails
           </div>
           <div class="skill-chip reveal reveal-d2">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
   <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
 </svg></span>
             REST APIs
           </div>
           <div class="skill-chip reveal reveal-d3">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
   <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
 </svg></span>
             GraphQL
           </div>
           <div class="skill-chip reveal reveal-d4">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="12" cy="12" r="10"/>
   <line x1="2" y1="12" x2="22" y2="12"/>
   <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
@@ -511,7 +510,7 @@
             Webhooks &amp; Integrations
           </div>
           <div class="skill-chip reveal reveal-d5">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <line x1="18" y1="20" x2="18" y2="10"/>
   <line x1="12" y1="20" x2="12" y2="4"/>
   <line x1="6" y1="20" x2="6" y2="14"/>
@@ -520,7 +519,7 @@
             PostgreSQL
           </div>
           <div class="skill-chip reveal reveal-d1">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polygon points="12 2 2 7 12 12 22 7 12 2"/>
   <polyline points="2 17 12 22 22 17"/>
   <polyline points="2 12 12 17 22 12"/>
@@ -529,22 +528,22 @@
           </div>
 
           <!-- Salesforce -->
-          <p class="skill-category reveal">Salesforce</p>
+          <p class="skill-category reveal" data-brain="parietal" data-brain-note="Salesforce">Salesforce</p>
           <div class="skill-chip reveal">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   class="ic-salesforce" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
 </svg></span>
             Salesforce CRM
           </div>
           <div class="skill-chip reveal reveal-d1">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="12" cy="12" r="3"/>
   <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
 </svg></span>
             Salesforce CPQ
           </div>
           <div class="skill-chip reveal reveal-d2">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <rect x="3" y="3" width="7" height="7" rx="1"/>
   <rect x="14" y="3" width="7" height="7" rx="1"/>
   <rect x="14" y="14" width="7" height="7" rx="1"/>
@@ -553,7 +552,7 @@
             Lightning Web Components
           </div>
           <div class="skill-chip reveal reveal-d3">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polyline points="17 1 21 5 17 9"/>
   <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
   <polyline points="7 23 3 19 7 15"/>
@@ -563,9 +562,9 @@
           </div>
 
           <!-- AI & Automation -->
-          <p class="skill-category reveal">AI &amp; Automation</p>
+          <p class="skill-category reveal" data-brain="neocortex" data-brain-note="AI & Automation">AI &amp; Automation</p>
           <div class="skill-chip reveal">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <rect x="4" y="4" width="16" height="16" rx="2"/>
   <rect x="9" y="9" width="6" height="6"/>
   <line x1="9" y1="1" x2="9" y2="4"/>
@@ -580,7 +579,7 @@
             Generative AI / LLMs
           </div>
           <div class="skill-chip reveal reveal-d1">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <rect x="4" y="4" width="16" height="16" rx="2"/>
   <rect x="9" y="9" width="6" height="6"/>
   <line x1="9" y1="1" x2="9" y2="4"/>
@@ -595,28 +594,28 @@
             AI / LLM APIs
           </div>
           <div class="skill-chip reveal reveal-d2">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="11" cy="11" r="8"/>
   <line x1="21" y1="21" x2="16.65" y2="16.65"/>
 </svg></span>
             OCR &amp; Document Processing
           </div>
           <div class="skill-chip reveal reveal-d3">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="12" cy="12" r="3"/>
   <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
 </svg></span>
             AI-driven Workflows
           </div>
           <div class="skill-chip reveal reveal-d4">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
   <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
 </svg></span>
             MCP Development
           </div>
           <div class="skill-chip reveal reveal-d5">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polygon points="12 2 2 7 12 12 22 7 12 2"/>
   <polyline points="2 17 12 22 22 17"/>
   <polyline points="2 12 12 17 22 12"/>
@@ -624,7 +623,7 @@
             MCP Server Integration
           </div>
           <div class="skill-chip reveal reveal-d1">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <rect x="4" y="4" width="16" height="16" rx="2"/>
   <rect x="9" y="9" width="6" height="6"/>
   <line x1="9" y1="1" x2="9" y2="4"/>
@@ -639,14 +638,14 @@
             Prompt Engineering
           </div>
           <div class="skill-chip reveal reveal-d2">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="11" cy="11" r="8"/>
   <line x1="21" y1="21" x2="16.65" y2="16.65"/>
 </svg></span>
             RAG / Vector Search
           </div>
           <div class="skill-chip reveal reveal-d3">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <rect x="4" y="4" width="16" height="16" rx="2"/>
   <rect x="9" y="9" width="6" height="6"/>
   <line x1="9" y1="1" x2="9" y2="4"/>
@@ -662,15 +661,15 @@
           </div>
 
           <!-- Cloud & DevOps -->
-          <p class="skill-category reveal">Cloud &amp; DevOps</p>
+          <p class="skill-category reveal" data-brain="brainstem" data-brain-note="Cloud & DevOps">Cloud &amp; DevOps</p>
           <div class="skill-chip reveal">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
 </svg></span>
             AWS
           </div>
           <div class="skill-chip reveal reveal-d1">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polygon points="12 2 2 7 12 12 22 7 12 2"/>
   <polyline points="2 17 12 22 22 17"/>
   <polyline points="2 12 12 17 22 12"/>
@@ -678,7 +677,7 @@
             Docker
           </div>
           <div class="skill-chip reveal reveal-d2">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polyline points="17 1 21 5 17 9"/>
   <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
   <polyline points="7 23 3 19 7 15"/>
@@ -687,7 +686,7 @@
             CI/CD
           </div>
           <div class="skill-chip reveal reveal-d3">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polygon points="12 2 2 7 12 12 22 7 12 2"/>
   <polyline points="2 17 12 22 22 17"/>
   <polyline points="2 12 12 17 22 12"/>
@@ -695,14 +694,14 @@
             Microservices
           </div>
           <div class="skill-chip reveal reveal-d4">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polyline points="4 17 10 11 4 5"/>
   <line x1="12" y1="19" x2="20" y2="19"/>
 </svg></span>
             Git / GitHub
           </div>
           <div class="skill-chip reveal reveal-d5">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <line x1="18" y1="20" x2="18" y2="10"/>
   <line x1="12" y1="20" x2="12" y2="4"/>
   <line x1="6" y1="20" x2="6" y2="14"/>
@@ -711,7 +710,7 @@
             Database Design
           </div>
           <div class="skill-chip reveal reveal-d1">
-            <span class="skill-chip__icon" aria-hidden="true"><svg class="ic-responsive"  class="ic-robot"  class="ic-link"  class="ic-layers"  class="ic-palette"  class="ic-component"  class="ic-terminal"   width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor">
+            <span class="skill-chip__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <line x1="18" y1="20" x2="18" y2="10"/>
   <line x1="12" y1="20" x2="12" y2="4"/>
   <line x1="6" y1="20" x2="6" y2="14"/>
@@ -732,7 +731,7 @@
         <p class="label reveal">Career</p>
         <h2 class="section-title reveal reveal-d1">Work Experience</h2>
 
-        <ul class="experience-list" role="list">
+        <ul class="experience-list" role="list" data-brain="hippocampus" data-brain-note="10 years of work">
 
           <!-- Get Covered -->
           <li class="exp-item reveal reveal-d2">
@@ -791,7 +790,7 @@
     ============================================================ -->
     <section aria-label="Contact call to action">
       <div class="container">
-        <div class="cta-banner reveal">
+        <div class="cta-banner reveal" data-brain="all" data-brain-note="Let's build something">
           <h2 class="cta-banner__title">Let's Build Something Together</h2>
           <p class="cta-banner__desc">Whether you need a new website, Salesforce expertise, or want to collaborate on one of my projects - I'd love to hear from you.</p>
           <div class="hero__actions">
@@ -815,24 +814,24 @@
 
         <nav class="footer__nav" aria-label="Footer navigation">
           <a href="#">Home</a>
-          <a href="pages/hubbubb.html"><svg class="ic-hubbub" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <a href="pages/hubbubb.html"><svg class="ic-hubbub" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
   <circle cx="9" cy="11" r="0.8" fill="currentColor" stroke="none"/>
   <circle cx="12" cy="11" r="0.8" fill="currentColor" stroke="none"/>
   <circle cx="15" cy="11" r="0.8" fill="currentColor" stroke="none"/>
 </svg>Hubbubb</a>
-          <a href="pages/web-design.html"><svg class="ic-webdesign" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <a href="pages/web-design.html"><svg class="ic-webdesign" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
   <line x1="8" y1="21" x2="16" y2="21"/>
   <line x1="12" y1="17" x2="12" y2="21"/>
 </svg>Web Design</a>
-          <a href="pages/salesforce.html"><svg class="ic-salesforce" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <a href="pages/salesforce.html"><svg class="ic-salesforce" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
 </svg>Salesforce</a>
-          <a href="pages/hoozr.html"><svg class="ic-hoozr" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <a href="pages/hoozr.html"><svg class="ic-hoozr" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
 </svg>Hoozr</a>
-          <a href="pages/rankless.html"><svg class="ic-rankless" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <a href="pages/rankless.html"><svg class="ic-rankless" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/>
   <line x1="5" y1="20" x2="19" y2="20"/>
 </svg>Rankless</a>
@@ -873,6 +872,7 @@
 
   <!-- Scripts -->
   <script src="js/main.js" defer></script>
+  <script src="js/brain.js" defer></script>
 
 </body>
 </html>

@@ -49,7 +49,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <!-- Styles -->
   <link rel="stylesheet" href="../css/styles.css" />
@@ -58,6 +58,7 @@
 
 <body>
   <div class="page-bg" aria-hidden="true"></div>
+  <div class="brain" aria-hidden="true" data-src="../images/brain-{theme}.jpg" data-home="language" data-home-note="Hubbubb"></div>
 
   <!-- ============================================================
        Navigation
@@ -69,12 +70,31 @@
           <a href="../index.html" class="nav__logo" aria-label="Scott Landes - Home"><img src="../images/icons/icon-logo.png" data-logo-light="../images/icons/icon-logo.png" data-logo-dark="../images/icons/icon-logo-dark.png" alt="" width="22" height="24"><span>Scott Landes</span></a>
 
           <ul class="nav__links" role="list">
-            <li><a href="../index.html" class="nav__link"><img src="../images/icons/icon-home.svg" alt="" width="14" height="14">Home</a></li>
-            <li><a href="web-design.html" class="nav__link"><img src="../images/icons/icon-web-design.svg" alt="" width="14" height="14">Web Design</a></li>
-            <li><a href="salesforce.html" class="nav__link"><img src="../images/icons/icon-salesforce.svg" alt="" width="14" height="14">Salesforce</a></li>
-            <li><a href="hubbubb.html" class="nav__link active" aria-current="page"><img src="../images/icons/icon-hubbub.svg" alt="" width="14" height="14">Hubbubb</a></li>
-            <li><a href="hoozr.html" class="nav__link"><img src="../images/icons/icon-hoozr.svg" alt="" width="14" height="14">Hoozr</a></li>
-            <li><a href="rankless.html" class="nav__link"><img src="../images/icons/icon-rankless.svg" alt="" width="14" height="14">Rankless</a></li>
+            <li><a href="../index.html" class="nav__link"><svg class="ic-home" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+  <polyline points="9 22 9 12 15 12 15 22"/>
+</svg>Home</a></li>
+            <li><a href="web-design.html" class="nav__link"><svg class="ic-webdesign" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+  <line x1="8" y1="21" x2="16" y2="21"/>
+  <line x1="12" y1="17" x2="12" y2="21"/>
+</svg>Web Design</a></li>
+            <li><a href="salesforce.html" class="nav__link"><svg class="ic-salesforce" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+</svg>Salesforce</a></li>
+            <li><a href="hubbubb.html" class="nav__link active" aria-current="page"><svg class="ic-hubbub" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  <circle cx="9" cy="11" r="0.8" fill="currentColor" stroke="none"/>
+  <circle cx="12" cy="11" r="0.8" fill="currentColor" stroke="none"/>
+  <circle cx="15" cy="11" r="0.8" fill="currentColor" stroke="none"/>
+</svg>Hubbubb</a></li>
+            <li><a href="hoozr.html" class="nav__link"><svg class="ic-hoozr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+</svg>Hoozr</a></li>
+            <li><a href="rankless.html" class="nav__link"><svg class="ic-rankless" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/>
+  <line x1="5" y1="20" x2="19" y2="20"/>
+</svg>Rankless</a></li>
           </ul>
 
           <button class="nav__theme" aria-label="Toggle dark/light mode">
@@ -92,12 +112,31 @@
 
     <!-- Mobile overlay menu -->
     <div class="nav__mobile" aria-hidden="true">
-      <a href="../index.html" class="nav__mobile-link"><img src="../images/icons/icon-home.svg" alt="" width="28" height="28">Home</a>
-      <a href="web-design.html" class="nav__mobile-link"><img src="../images/icons/icon-web-design.svg" alt="" width="28" height="28">Web Design</a>
-      <a href="salesforce.html" class="nav__mobile-link"><img src="../images/icons/icon-salesforce.svg" alt="" width="28" height="28">Salesforce</a>
-      <a href="hubbubb.html" class="nav__mobile-link"><img src="../images/icons/icon-hubbub.svg" alt="" width="28" height="28">Hubbubb</a>
-      <a href="hoozr.html" class="nav__mobile-link"><img src="../images/icons/icon-hoozr.svg" alt="" width="28" height="28">Hoozr</a>
-      <a href="rankless.html" class="nav__mobile-link"><img src="../images/icons/icon-rankless.svg" alt="" width="28" height="28">Rankless</a>
+      <a href="../index.html" class="nav__mobile-link"><svg class="ic-home" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+  <polyline points="9 22 9 12 15 12 15 22"/>
+</svg>Home</a>
+      <a href="web-design.html" class="nav__mobile-link"><svg class="ic-webdesign" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+  <line x1="8" y1="21" x2="16" y2="21"/>
+  <line x1="12" y1="17" x2="12" y2="21"/>
+</svg>Web Design</a>
+      <a href="salesforce.html" class="nav__mobile-link"><svg class="ic-salesforce" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+</svg>Salesforce</a>
+      <a href="hubbubb.html" class="nav__mobile-link"><svg class="ic-hubbub" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  <circle cx="9" cy="11" r="0.8" fill="currentColor" stroke="none"/>
+  <circle cx="12" cy="11" r="0.8" fill="currentColor" stroke="none"/>
+  <circle cx="15" cy="11" r="0.8" fill="currentColor" stroke="none"/>
+</svg>Hubbubb</a>
+      <a href="hoozr.html" class="nav__mobile-link"><svg class="ic-hoozr" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+</svg>Hoozr</a>
+      <a href="rankless.html" class="nav__mobile-link"><svg class="ic-rankless" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/>
+  <line x1="5" y1="20" x2="19" y2="20"/>
+</svg>Rankless</a>
     </div>
   </header>
 
@@ -107,12 +146,16 @@
          Beta Hero
     ============================================================ -->
     <section class="cs-hero" aria-label="Hubbubb - Now in Beta">
-      <div class="hero__bg"></div>
       <div class="hero__grid"></div>
 
       <div class="container">
         <div class="cs-hero__content reveal">
-          <div class="cs-hero__logo" aria-hidden="true"><img src="../images/icons/icon-hubbub.svg" alt="" width="80" height="80"></div>
+          <div class="cs-hero__logo" aria-hidden="true"><svg class="ic-hubbub" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  <circle cx="9" cy="11" r="0.8" fill="currentColor" stroke="none"/>
+  <circle cx="12" cy="11" r="0.8" fill="currentColor" stroke="none"/>
+  <circle cx="15" cy="11" r="0.8" fill="currentColor" stroke="none"/>
+</svg></div>
           <p class="cs-hero__tag cs-hero__tag--beta">Now in Beta</p>
           <h1 class="cs-hero__title gradient-text">Hubbubb</h1>
           <p class="cs-hero__desc">Run your whole organization in one place. CRM, cases, contracts, workflows, knowledge, and your team - unified, with an AI assistant that helps you build it.</p>
@@ -127,7 +170,7 @@
     <!-- ============================================================
          The Idea
     ============================================================ -->
-    <section aria-labelledby="hubbubb-vision-title">
+    <section aria-labelledby="hubbubb-vision-title" data-brain="parietal" data-brain-note="One workspace, every signal">
       <div class="container">
         <p class="label reveal">The Idea</p>
         <h2 class="section-title reveal reveal-d1" id="hubbubb-vision-title">One Workspace Instead of Nine Tabs</h2>
@@ -136,25 +179,43 @@
         <div class="feature-grid">
 
           <div class="card reveal reveal-d1">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-chart.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-chart" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <line x1="18" y1="20" x2="18" y2="10"/>
+  <line x1="12" y1="20" x2="12" y2="4"/>
+  <line x1="6" y1="20" x2="6" y2="14"/>
+  <line x1="2" y1="20" x2="22" y2="20"/>
+</svg></div>
             <h3 class="feature-card__title">CRM &amp; Pipeline</h3>
             <p class="feature-card__desc">Accounts, contacts, deals, and products with drag-and-drop pipelines. AI prospecting researches accounts, enriches company data, and finds contacts that match your ideal customer profile.</p>
           </div>
 
           <div class="card reveal reveal-d2">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-pen.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-pen" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+</svg></div>
             <h3 class="feature-card__title">Quotes, Contracts &amp; E-Signature</h3>
             <p class="feature-card__desc">Build quotes from deal line items, assemble contracts from a reusable clause library, track version history with line-level redlines, then send a secure signing link. Signing is built in - no separate e-sign subscription.</p>
           </div>
 
           <div class="card reveal reveal-d3">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-users.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-users" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+  <circle cx="9" cy="7" r="4"/>
+  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+</svg></div>
             <h3 class="feature-card__title">Cases &amp; Support Desk</h3>
             <p class="feature-card__desc">Skills-based routing with per-agent capacity, queues, and business hours. Cases arrive by email or phone and land in the same place as everything else you know about that customer.</p>
           </div>
 
           <div class="card reveal reveal-d4">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-refresh.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-refresh" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <polyline points="17 1 21 5 17 9"/>
+  <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+  <polyline points="7 23 3 19 7 15"/>
+  <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+</svg></div>
             <h3 class="feature-card__title">Visual Workflow Builder</h3>
             <p class="feature-card__desc">Drag-and-drop automation with versioning, test runs, and scheduling. Build email cadences, phone menus, or embeddable forms you can drop onto any external website.</p>
           </div>
@@ -166,7 +227,7 @@
     <!-- ============================================================
          Beyond CRM
     ============================================================ -->
-    <section aria-labelledby="hubbubb-more-title">
+    <section aria-labelledby="hubbubb-more-title" data-brain="occipital" data-brain-note="Site builder & dashboards">
       <div class="container">
         <p class="label reveal">Beyond the CRM</p>
         <h2 class="section-title reveal reveal-d1" id="hubbubb-more-title">The Parts Nobody Puts in the Box</h2>
@@ -175,37 +236,59 @@
         <div class="feature-grid">
 
           <div class="card reveal reveal-d1">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-layers.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-layers" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+  <polyline points="2 17 12 22 22 17"/>
+  <polyline points="2 12 12 17 22 12"/>
+</svg></div>
             <h3 class="feature-card__title">Build Your Own Objects</h3>
             <p class="feature-card__desc">Not every business runs on leads and opportunities. Create your own objects and fields - text, picklists, lookups, currency, formulas, rollups - and get full record pages, list views, and reports for free.</p>
           </div>
 
           <div class="card reveal reveal-d2">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-globe.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-globe" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <circle cx="12" cy="12" r="10"/>
+  <line x1="2" y1="12" x2="22" y2="12"/>
+  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+</svg></div>
             <h3 class="feature-card__title">Site Builder &amp; Analytics</h3>
             <p class="feature-card__desc">Build and publish a real website on your own domain, then see who visits it with first-party analytics - sessions, acquisition, behavior, heatmaps, and journeys - plus uptime monitoring.</p>
           </div>
 
           <div class="card reveal reveal-d3">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-search.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-search" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <circle cx="11" cy="11" r="8"/>
+  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+</svg></div>
             <h3 class="feature-card__title">Reputation Manager</h3>
             <p class="feature-card__desc">One inbox for reviews, mentions, and social posts across Google, Yelp, Facebook, Instagram and more. Draft replies yourself or let AI draft them, and keep an eye on your listings and keyword rankings.</p>
           </div>
 
           <div class="card reveal reveal-d4">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-book.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-book" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+</svg></div>
             <h3 class="feature-card__title">Knowledge Base</h3>
             <p class="feature-card__desc">Write, categorize, version, and publish help articles. Keep them internal for your team or expose them publicly for customers.</p>
           </div>
 
           <div class="card reveal reveal-d5">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-component.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-component" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <rect x="3" y="3" width="7" height="7" rx="1"/>
+  <rect x="14" y="3" width="7" height="7" rx="1"/>
+  <rect x="14" y="14" width="7" height="7" rx="1"/>
+  <rect x="3" y="14" width="7" height="7" rx="1"/>
+</svg></div>
             <h3 class="feature-card__title">Reports &amp; Dashboards</h3>
             <p class="feature-card__desc">A report builder that works across your custom objects too, organized in folders, exportable to CSV or Excel, and pinned to dashboards you assemble yourself.</p>
           </div>
 
           <div class="card reveal reveal-d6">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-terminal.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-terminal" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <polyline points="4 17 10 11 4 5"/>
+  <line x1="12" y1="19" x2="20" y2="19"/>
+</svg></div>
             <h3 class="feature-card__title">Team Chat &amp; Activity</h3>
             <p class="feature-card__desc">Channels, DMs, and mentions in real time, plus an org activity feed with posts, comments, and reactions - so the conversation about a deal lives next to the deal.</p>
           </div>
@@ -217,7 +300,7 @@
     <!-- ============================================================
          Connected
     ============================================================ -->
-    <section aria-labelledby="hubbubb-connected-title">
+    <section aria-labelledby="hubbubb-connected-title" data-brain="temporal" data-brain-note="Email, calendar & phone">
       <div class="container">
         <p class="label reveal">Connected</p>
         <h2 class="section-title reveal reveal-d1" id="hubbubb-connected-title">Email, Calendar &amp; Phone</h2>
@@ -226,25 +309,38 @@
         <div class="feature-grid">
 
           <div class="card reveal reveal-d1">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-cloud.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-cloud" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+</svg></div>
             <h3 class="feature-card__title">Email That's Yours</h3>
             <p class="feature-card__desc">Verify your own sending domain and send from your own address, with templates, merge fields, contact lists, and delivery, open, click, and bounce tracking.</p>
           </div>
 
           <div class="card reveal reveal-d2">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-calendar.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-calendar" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+</svg></div>
             <h3 class="feature-card__title">Google Integration</h3>
             <p class="feature-card__desc">Sign in with Google, sync Gmail threads onto the right records, and keep meetings in step with two-way Google Calendar sync.</p>
           </div>
 
           <div class="card reveal reveal-d3">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-map.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-map" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
+  <line x1="8" y1="2" x2="8" y2="18"/>
+  <line x1="16" y1="6" x2="16" y2="22"/>
+</svg></div>
             <h3 class="feature-card__title">Built-In Phone</h3>
             <p class="feature-card__desc">Provision a phone number, build an IVR menu with the flow builder, and record and log calls straight onto the case or contact they belong to.</p>
           </div>
 
           <div class="card reveal reveal-d4">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-shield.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-shield" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+</svg></div>
             <h3 class="feature-card__title">Serious Permissions</h3>
             <p class="feature-card__desc">Hierarchical roles with inheritance, object and field-level rules, per-user overrides, and audit logs. Support access requires your explicit, time-boxed consent - nobody quietly looks at your data.</p>
           </div>
@@ -256,7 +352,7 @@
     <!-- ============================================================
          AI
     ============================================================ -->
-    <section aria-labelledby="hubbubb-ai-title">
+    <section aria-labelledby="hubbubb-ai-title" data-brain="neocortex" data-brain-note="An assistant on every page">
       <div class="container">
         <p class="label reveal">AI, Where It Actually Helps</p>
         <h2 class="section-title reveal reveal-d1" id="hubbubb-ai-title">It Builds the CRM With You</h2>
@@ -265,19 +361,37 @@
         <div class="feature-grid">
 
           <div class="card reveal reveal-d1">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-robot.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-robot" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <rect x="4" y="4" width="16" height="16" rx="2"/>
+  <rect x="9" y="9" width="6" height="6"/>
+  <line x1="9" y1="1" x2="9" y2="4"/>
+  <line x1="15" y1="1" x2="15" y2="4"/>
+  <line x1="9" y1="20" x2="9" y2="23"/>
+  <line x1="15" y1="20" x2="15" y2="23"/>
+  <line x1="20" y1="9" x2="23" y2="9"/>
+  <line x1="20" y1="14" x2="23" y2="14"/>
+  <line x1="1" y1="9" x2="4" y2="9"/>
+  <line x1="1" y1="14" x2="4" y2="14"/>
+</svg></div>
             <h3 class="feature-card__title">Conversational Setup</h3>
             <p class="feature-card__desc">Tell the assistant what your business does. It proposes a blueprint - objects, fields, list views - you review it, and it builds your workspace while you watch.</p>
           </div>
 
           <div class="card reveal reveal-d2">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-agile.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-agile" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <polyline points="23 4 23 10 17 10"/>
+  <polyline points="1 20 1 14 7 14"/>
+  <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+</svg></div>
             <h3 class="feature-card__title">An Assistant On Every Page</h3>
             <p class="feature-card__desc">Ask it to create a report, add a field, build a dashboard, or just explain what you're looking at. Your conversations follow you across devices.</p>
           </div>
 
           <div class="card reveal reveal-d3">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-settings.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-settings" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <circle cx="12" cy="12" r="3"/>
+  <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+</svg></div>
             <h3 class="feature-card__title">Your Key, Your Bill</h3>
             <p class="feature-card__desc">Every org gets an AI budget with usage metering and alerts - or bring your own Anthropic API key and AI usage bills directly to you instead.</p>
           </div>
@@ -289,7 +403,7 @@
     <!-- ============================================================
          Beta Status
     ============================================================ -->
-    <section aria-labelledby="hubbubb-status-title">
+    <section aria-labelledby="hubbubb-status-title" data-brain="prefrontal" data-brain-note="What's next">
       <div class="container">
         <p class="label reveal">Status</p>
         <h2 class="section-title reveal reveal-d1" id="hubbubb-status-title">What Beta Means Here</h2>
@@ -313,7 +427,7 @@
     <!-- ============================================================
          CTA
     ============================================================ -->
-    <section aria-label="Try the Hubbubb beta">
+    <section aria-label="Try the Hubbubb beta" data-brain="all" data-brain-note="Try the beta">
       <div class="container">
         <div class="cta-banner reveal">
           <h2 class="cta-banner__title">Kick the Tires</h2>
@@ -339,10 +453,23 @@
 
         <nav class="footer__nav" aria-label="Footer navigation">
           <a href="../index.html">Home</a>
-          <a href="hubbubb.html"><img src="../images/icons/icon-hubbub.svg" alt="" width="12" height="12">Hubbubb</a>
-          <a href="web-design.html"><img src="../images/icons/icon-web-design.svg" alt="" width="12" height="12">Web Design</a>
-          <a href="salesforce.html"><img src="../images/icons/icon-salesforce.svg" alt="" width="12" height="12">Salesforce</a>
-          <a href="hoozr.html"><img src="../images/icons/icon-hoozr.svg" alt="" width="12" height="12">Hoozr</a>
+          <a href="hubbubb.html"><svg class="ic-hubbub" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  <circle cx="9" cy="11" r="0.8" fill="currentColor" stroke="none"/>
+  <circle cx="12" cy="11" r="0.8" fill="currentColor" stroke="none"/>
+  <circle cx="15" cy="11" r="0.8" fill="currentColor" stroke="none"/>
+</svg>Hubbubb</a>
+          <a href="web-design.html"><svg class="ic-webdesign" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+  <line x1="8" y1="21" x2="16" y2="21"/>
+  <line x1="12" y1="17" x2="12" y2="21"/>
+</svg>Web Design</a>
+          <a href="salesforce.html"><svg class="ic-salesforce" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+</svg>Salesforce</a>
+          <a href="hoozr.html"><svg class="ic-hoozr" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+</svg>Hoozr</a>
         </nav>
 
         <div class="footer__social">
@@ -380,6 +507,7 @@
 
   <!-- Scripts -->
   <script src="../js/main.js" defer></script>
+  <script src="../js/brain.js" defer></script>
 
 </body>
 </html>

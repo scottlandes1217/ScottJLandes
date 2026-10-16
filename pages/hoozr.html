@@ -49,7 +49,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <!-- Styles -->
   <link rel="stylesheet" href="../css/styles.css" />
@@ -58,6 +58,7 @@
 
 <body>
   <div class="page-bg" aria-hidden="true"></div>
+  <div class="brain" aria-hidden="true" data-src="../images/brain-{theme}.jpg" data-home="limbic" data-home-note="Hoozr"></div>
 
   <!-- ============================================================
        Navigation
@@ -69,12 +70,31 @@
           <a href="../index.html" class="nav__logo" aria-label="Scott Landes - Home"><img src="../images/icons/icon-logo.png" data-logo-light="../images/icons/icon-logo.png" data-logo-dark="../images/icons/icon-logo-dark.png" alt="" width="22" height="24"><span>Scott Landes</span></a>
 
           <ul class="nav__links" role="list">
-            <li><a href="../index.html" class="nav__link"><img src="../images/icons/icon-home.svg" alt="" width="14" height="14">Home</a></li>
-            <li><a href="web-design.html" class="nav__link"><img src="../images/icons/icon-web-design.svg" alt="" width="14" height="14">Web Design</a></li>
-            <li><a href="salesforce.html" class="nav__link"><img src="../images/icons/icon-salesforce.svg" alt="" width="14" height="14">Salesforce</a></li>
-            <li><a href="hubbubb.html" class="nav__link"><img src="../images/icons/icon-hubbub.svg" alt="" width="14" height="14">Hubbubb</a></li>
-            <li><a href="hoozr.html" class="nav__link active" aria-current="page"><img src="../images/icons/icon-hoozr.svg" alt="" width="14" height="14">Hoozr</a></li>
-            <li><a href="rankless.html" class="nav__link"><img src="../images/icons/icon-rankless.svg" alt="" width="14" height="14">Rankless</a></li>
+            <li><a href="../index.html" class="nav__link"><svg class="ic-home" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+  <polyline points="9 22 9 12 15 12 15 22"/>
+</svg>Home</a></li>
+            <li><a href="web-design.html" class="nav__link"><svg class="ic-webdesign" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+  <line x1="8" y1="21" x2="16" y2="21"/>
+  <line x1="12" y1="17" x2="12" y2="21"/>
+</svg>Web Design</a></li>
+            <li><a href="salesforce.html" class="nav__link"><svg class="ic-salesforce" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+</svg>Salesforce</a></li>
+            <li><a href="hubbubb.html" class="nav__link"><svg class="ic-hubbub" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  <circle cx="9" cy="11" r="0.8" fill="currentColor" stroke="none"/>
+  <circle cx="12" cy="11" r="0.8" fill="currentColor" stroke="none"/>
+  <circle cx="15" cy="11" r="0.8" fill="currentColor" stroke="none"/>
+</svg>Hubbubb</a></li>
+            <li><a href="hoozr.html" class="nav__link active" aria-current="page"><svg class="ic-hoozr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+</svg>Hoozr</a></li>
+            <li><a href="rankless.html" class="nav__link"><svg class="ic-rankless" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/>
+  <line x1="5" y1="20" x2="19" y2="20"/>
+</svg>Rankless</a></li>
           </ul>
 
           <button class="nav__theme" aria-label="Toggle dark/light mode">
@@ -92,12 +112,31 @@
 
     <!-- Mobile overlay menu -->
     <div class="nav__mobile" aria-hidden="true">
-      <a href="../index.html" class="nav__mobile-link"><img src="../images/icons/icon-home.svg" alt="" width="28" height="28">Home</a>
-      <a href="web-design.html" class="nav__mobile-link"><img src="../images/icons/icon-web-design.svg" alt="" width="28" height="28">Web Design</a>
-      <a href="salesforce.html" class="nav__mobile-link"><img src="../images/icons/icon-salesforce.svg" alt="" width="28" height="28">Salesforce</a>
-      <a href="hubbubb.html" class="nav__mobile-link"><img src="../images/icons/icon-hubbub.svg" alt="" width="28" height="28">Hubbubb</a>
-      <a href="hoozr.html" class="nav__mobile-link"><img src="../images/icons/icon-hoozr.svg" alt="" width="28" height="28">Hoozr</a>
-      <a href="rankless.html" class="nav__mobile-link"><img src="../images/icons/icon-rankless.svg" alt="" width="28" height="28">Rankless</a>
+      <a href="../index.html" class="nav__mobile-link"><svg class="ic-home" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+  <polyline points="9 22 9 12 15 12 15 22"/>
+</svg>Home</a>
+      <a href="web-design.html" class="nav__mobile-link"><svg class="ic-webdesign" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+  <line x1="8" y1="21" x2="16" y2="21"/>
+  <line x1="12" y1="17" x2="12" y2="21"/>
+</svg>Web Design</a>
+      <a href="salesforce.html" class="nav__mobile-link"><svg class="ic-salesforce" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+</svg>Salesforce</a>
+      <a href="hubbubb.html" class="nav__mobile-link"><svg class="ic-hubbub" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  <circle cx="9" cy="11" r="0.8" fill="currentColor" stroke="none"/>
+  <circle cx="12" cy="11" r="0.8" fill="currentColor" stroke="none"/>
+  <circle cx="15" cy="11" r="0.8" fill="currentColor" stroke="none"/>
+</svg>Hubbubb</a>
+      <a href="hoozr.html" class="nav__mobile-link"><svg class="ic-hoozr" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+</svg>Hoozr</a>
+      <a href="rankless.html" class="nav__mobile-link"><svg class="ic-rankless" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/>
+  <line x1="5" y1="20" x2="19" y2="20"/>
+</svg>Rankless</a>
     </div>
   </header>
 
@@ -107,12 +146,13 @@
          Beta Hero
     ============================================================ -->
     <section class="cs-hero" aria-label="Hoozr - Now in Beta">
-      <div class="hero__bg"></div>
       <div class="hero__grid"></div>
 
       <div class="container">
         <div class="cs-hero__content reveal">
-          <div class="cs-hero__logo" aria-hidden="true"><img src="../images/icons/icon-hoozr.svg" alt="" width="80" height="80"></div>
+          <div class="cs-hero__logo" aria-hidden="true"><svg class="ic-hoozr" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+</svg></div>
           <p class="cs-hero__tag cs-hero__tag--beta">Now in Beta</p>
           <h1 class="cs-hero__title gradient-text">Hoozr</h1>
           <p class="cs-hero__desc">The community app for pet people. Adopt, volunteer, run shelter dogs, and explore your town with your dog.</p>
@@ -127,7 +167,7 @@
     <!-- ============================================================
          The Idea
     ============================================================ -->
-    <section aria-labelledby="hoozr-vision-title">
+    <section aria-labelledby="hoozr-vision-title" data-brain="limbic" data-brain-note="Adopt & volunteer">
       <div class="container">
         <p class="label reveal">The Idea</p>
         <h2 class="section-title reveal reveal-d1" id="hoozr-vision-title">Good Vibes. Good Causes.</h2>
@@ -136,25 +176,39 @@
         <div class="feature-grid">
 
           <div class="card reveal reveal-d1">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-search.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-search" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <circle cx="11" cy="11" r="8"/>
+  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+</svg></div>
             <h3 class="feature-card__title">Find Your Next Pet</h3>
             <p class="feature-card__desc">Browse adoptable pets from nearby shelters and search the way you'd actually say it - "small friendly dog near me" works. Filter by species, size, shelter, and distance.</p>
           </div>
 
           <div class="card reveal reveal-d2">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-pen.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-pen" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+</svg></div>
             <h3 class="feature-card__title">Apply to Adopt</h3>
             <p class="feature-card__desc">A guided application that walks through you, your home, your household, and your other pets - then a status timeline so you're not left wondering where it went.</p>
           </div>
 
           <div class="card reveal reveal-d3">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-calendar.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-calendar" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+</svg></div>
             <h3 class="feature-card__title">Volunteer Board</h3>
             <p class="feature-card__desc">Dog walking, fostering, adoption events, facility care, transport runs, cleanups, fundraising. Browse as a list or a month calendar, see how many spots are left, and sign up.</p>
           </div>
 
           <div class="card reveal reveal-d4">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-camera.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-camera" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+  <circle cx="12" cy="13" r="4"/>
+</svg></div>
             <h3 class="feature-card__title">Community Feed</h3>
             <p class="feature-card__desc">Photo posts, likes, and comments from both people and shelters. Filter to just shelters when you want the news, or just the community when you want the dogs.</p>
           </div>
@@ -166,7 +220,7 @@
     <!-- ============================================================
          Out In The World
     ============================================================ -->
-    <section aria-labelledby="hoozr-local-title">
+    <section aria-labelledby="hoozr-local-title" data-brain="hippocampus" data-brain-note="The brain's own map of where you are">
       <div class="container">
         <p class="label reveal">Out in the World</p>
         <h2 class="section-title reveal reveal-d1" id="hoozr-local-title">Built Around Where You Are</h2>
@@ -175,25 +229,40 @@
         <div class="feature-grid">
 
           <div class="card reveal reveal-d1">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-map.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-map" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
+  <line x1="8" y1="2" x2="8" y2="18"/>
+  <line x1="16" y1="6" x2="16" y2="22"/>
+</svg></div>
             <h3 class="feature-card__title">Dog-Friendly Map</h3>
             <p class="feature-card__desc">Trails, parks, patios, cafés, breweries, campgrounds, and shops that welcome dogs. Search real-world places and add the ones that are missing.</p>
           </div>
 
           <div class="card reveal reveal-d2">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-users.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-users" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+  <circle cx="9" cy="7" r="4"/>
+  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+</svg></div>
             <h3 class="feature-card__title">Local Tips</h3>
             <p class="feature-card__desc">Leave notes on a place - trail conditions, hazards, seasonal closures, or just what's good. The local pack knows things a listing never will.</p>
           </div>
 
           <div class="card reveal reveal-d3">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-shield.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-shield" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+</svg></div>
             <h3 class="feature-card__title">Lost &amp; Found</h3>
             <p class="feature-card__desc">Report a lost or found pet with photos, last-seen location, and time. Nearby users see it in their own Lost &amp; Found, and the post follows the story all the way to reunited.</p>
           </div>
 
           <div class="card reveal reveal-d4">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-globe.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-globe" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <circle cx="12" cy="12" r="10"/>
+  <line x1="2" y1="12" x2="22" y2="12"/>
+  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+</svg></div>
             <h3 class="feature-card__title">Drone Search</h3>
             <p class="feature-card__desc">Request an aerial search for a missing pet. A volunteer FAA Part 107 pilot gets matched to your search area, and you follow it through requested, matched, searching, and complete.</p>
           </div>
@@ -205,7 +274,7 @@
     <!-- ============================================================
          Community
     ============================================================ -->
-    <section aria-labelledby="hoozr-community-title">
+    <section aria-labelledby="hoozr-community-title" data-brain="motor" data-brain-note="Get out and run a shelter dog">
       <div class="container">
         <p class="label reveal">The Pack</p>
         <h2 class="section-title reveal reveal-d1" id="hoozr-community-title">Showing Up, Made Social</h2>
@@ -214,25 +283,41 @@
         <div class="feature-grid">
 
           <div class="card reveal reveal-d1">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-trophy.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-trophy" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <polyline points="6 9 6 2 18 2 18 9"/>
+  <path d="M6 9a6 6 0 0 0 12 0"/>
+  <line x1="12" y1="15" x2="12" y2="22"/>
+  <line x1="8" y1="22" x2="16" y2="22"/>
+  <path d="M6 2H2v4a4 4 0 0 0 4 4"/>
+  <path d="M18 2h4v4a4 4 0 0 1-4 4"/>
+</svg></div>
             <h3 class="feature-card__title">Run a Shelter Dog</h3>
             <p class="feature-card__desc">Take a shelter dog on a run, log your miles, and earn points and badges for it. Monthly and all-time leaderboards, because a little competition gets more dogs out the door.</p>
           </div>
 
           <div class="card reveal reveal-d2">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-user.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-user" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+  <circle cx="12" cy="7" r="4"/>
+</svg></div>
             <h3 class="feature-card__title">Your Impact Profile</h3>
             <p class="feature-card__desc">Shelter miles run, opportunities signed up for, badges earned, and your pets - a public profile that shows what you've actually done, not just what you follow.</p>
           </div>
 
           <div class="card reveal reveal-d3">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-terminal.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-terminal" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <polyline points="4 17 10 11 4 5"/>
+  <line x1="12" y1="19" x2="20" y2="19"/>
+</svg></div>
             <h3 class="feature-card__title">Messaging</h3>
             <p class="feature-card__desc">Direct messages, group threads, and a way to message a shelter directly. Shelter staff can reply as the shelter rather than as themselves.</p>
           </div>
 
           <div class="card reveal reveal-d4">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-link.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-link" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+</svg></div>
             <h3 class="feature-card__title">Litter Groups</h3>
             <p class="feature-card__desc">Keep-in-touch threads for littermates who found their homes. Opt in when you adopt and watch your dog's siblings grow up alongside yours.</p>
           </div>
@@ -244,7 +329,7 @@
     <!-- ============================================================
          Built For
     ============================================================ -->
-    <section aria-labelledby="hoozr-audience-title">
+    <section aria-labelledby="hoozr-audience-title" data-brain="dmn" data-brain-note="Thinking about others">
       <div class="container">
         <p class="label reveal">Who It's For</p>
         <h2 class="section-title reveal reveal-d1" id="hoozr-audience-title">Pet People &amp; Shelters Alike</h2>
@@ -252,13 +337,19 @@
         <div class="feature-grid">
 
           <div class="card reveal reveal-d2">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-user.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-user" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+  <circle cx="12" cy="7" r="4"/>
+</svg></div>
             <h3 class="feature-card__title">Pet People</h3>
             <p class="feature-card__desc">Adopt, volunteer, run shelter dogs, report a lost pet, find somewhere to take the dog on Saturday, and meet the people doing the same thing down the street.</p>
           </div>
 
           <div class="card reveal reveal-d3">
-            <div class="feature-card__icon" aria-hidden="true"><img src="../images/icons/icon-home.svg" alt="" width="32" height="32"></div>
+            <div class="feature-card__icon" aria-hidden="true"><svg class="ic-home" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+  <polyline points="9 22 9 12 15 12 15 22"/>
+</svg></div>
             <h3 class="feature-card__title">Shelters &amp; Rescues</h3>
             <p class="feature-card__desc">List adoptable animals, post volunteer needs, share updates as your organization, and message supporters. Shelters running Hubbubb get their animals and shifts synced into Hoozr automatically.</p>
           </div>
@@ -270,7 +361,7 @@
     <!-- ============================================================
          Beta Status
     ============================================================ -->
-    <section aria-labelledby="hoozr-status-title">
+    <section aria-labelledby="hoozr-status-title" data-brain="prefrontal" data-brain-note="What's next">
       <div class="container">
         <p class="label reveal">Status</p>
         <h2 class="section-title reveal reveal-d1" id="hoozr-status-title">What Beta Means Here</h2>
@@ -292,7 +383,7 @@
     <!-- ============================================================
          CTA
     ============================================================ -->
-    <section aria-label="Join the Hoozr beta">
+    <section aria-label="Join the Hoozr beta" data-brain="all" data-brain-note="Join the pack">
       <div class="container">
         <div class="cta-banner reveal">
           <h2 class="cta-banner__title">Join the Pack</h2>
@@ -318,10 +409,23 @@
 
         <nav class="footer__nav" aria-label="Footer navigation">
           <a href="../index.html">Home</a>
-          <a href="hubbubb.html"><img src="../images/icons/icon-hubbub.svg" alt="" width="12" height="12">Hubbubb</a>
-          <a href="web-design.html"><img src="../images/icons/icon-web-design.svg" alt="" width="12" height="12">Web Design</a>
-          <a href="salesforce.html"><img src="../images/icons/icon-salesforce.svg" alt="" width="12" height="12">Salesforce</a>
-          <a href="hoozr.html"><img src="../images/icons/icon-hoozr.svg" alt="" width="12" height="12">Hoozr</a>
+          <a href="hubbubb.html"><svg class="ic-hubbub" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  <circle cx="9" cy="11" r="0.8" fill="currentColor" stroke="none"/>
+  <circle cx="12" cy="11" r="0.8" fill="currentColor" stroke="none"/>
+  <circle cx="15" cy="11" r="0.8" fill="currentColor" stroke="none"/>
+</svg>Hubbubb</a>
+          <a href="web-design.html"><svg class="ic-webdesign" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+  <line x1="8" y1="21" x2="16" y2="21"/>
+  <line x1="12" y1="17" x2="12" y2="21"/>
+</svg>Web Design</a>
+          <a href="salesforce.html"><svg class="ic-salesforce" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+</svg>Salesforce</a>
+          <a href="hoozr.html"><svg class="ic-hoozr" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+</svg>Hoozr</a>
         </nav>
 
         <div class="footer__social">
@@ -359,6 +463,7 @@
 
   <!-- Scripts -->
   <script src="../js/main.js" defer></script>
+  <script src="../js/brain.js" defer></script>
 
 </body>
 </html>
