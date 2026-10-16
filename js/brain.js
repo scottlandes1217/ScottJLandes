@@ -218,7 +218,9 @@
       if (top < line && top > bestTop + 8) { best = [t]; bestTop = top; }
       else if (top < line && Math.abs(top - bestTop) <= 8) best.push(t);
     }
-    document.body.classList.toggle('brain-past-hero', scrollY > innerHeight * 0.45);
+    // Two thresholds, so a fast flick or bounce near one line can't make it flicker.
+    const past = document.body.classList.contains('brain-past-hero');
+    document.body.classList.toggle('brain-past-hero', scrollY > innerHeight * (past ? 0.3 : 0.5));
     if (!best) return show(heroKey, heroNote);
     if (best.length === 1) return show(best[0].dataset.brain, best[0].dataset.brainNote || '');
     // A row of cards: light the union, and list what's lit.

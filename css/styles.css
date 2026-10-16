@@ -1648,25 +1648,51 @@ body.brain-past-hero .brain { opacity: 0.55; transform: translateY(-46%) scale(0
 .label { font-family: var(--font-mono); font-weight: 500; }
 
 @media (max-width: 900px) {
-  /* Phones and tablets: the brain sits behind the text, centered */
-  .brain { right: auto; left: 50%; top: 60%; width: 125vw; transform: translate(-50%, -50%); opacity: 0.55; }
-  /* Past the hero, full-width cards would bury it: shrink to a live mini-brain in the corner */
-  body.brain-past-hero .brain {
-    z-index: 60; top: auto; left: auto; right: 0.25rem; bottom: 3.2rem;
-    width: 150px; transform: none; opacity: 1;
-    animation: brain-dock 0.5s var(--ease-out);
+  /* Phones and tablets: the brain sits behind the text, centered.
+     Past the hero, full-width cards would bury it, so it docks as a mini
+     brain in the corner. Docking is a pure transform from one fixed size,
+     so it glides (and the canvas never resizes); svh keeps it still while
+     the mobile address bar shows and hides. */
+  .brain {
+    --dock-w: 40vw;   /* docked width */
+    --dock-s: 0.32;   /* = dock-w / 125vw */
+    right: auto; left: 50%; top: 60svh; width: 125vw;
+    transform: translate(-50%, -50%);
+    opacity: 0.55;
+    transition: transform 0.7s var(--ease-out), opacity 0.5s var(--ease-smooth), z-index 0s;
   }
-  body.brain-past-hero .brain__stage { background: radial-gradient(closest-side, color-mix(in srgb, var(--bg) 85%, transparent) 75%, transparent); }
+  body.brain-past-hero .brain {
+    z-index: 60;
+    opacity: 1;
+    /* move the center to the bottom-right corner, above the readout pill */
+    transform: translate(-50%, -50%)
+               translate(calc(50vw - 0.25rem - var(--dock-w) / 2), calc(40svh - 3.2rem - var(--dock-w) * 0.3108))
+               scale(var(--dock-s));
+    /* rise above the content only once it's mostly shrunk */
+    transition: transform 0.7s var(--ease-out), opacity 0.5s var(--ease-smooth), z-index 0s 0.3s;
+  }
+  .brain__stage::before {
+    content: '';
+    position: absolute;
+    inset: -4%;
+    background: radial-gradient(closest-side, color-mix(in srgb, var(--bg) 85%, transparent) 75%, transparent);
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  body.brain-past-hero .brain__stage::before { opacity: 1; }
   .brain__labels { display: none; }
   .brain__readout { font-size: 0.66rem; right: auto; left: 50%; transform: translateX(-50%); bottom: max(0.75rem, env(safe-area-inset-bottom)); }
   .hero__content { max-width: none; }
 }
-@keyframes brain-dock { from { opacity: 0; transform: translateY(12px) scale(0.9); } }
+@media (min-width: 600px) and (max-width: 900px) {
+  .brain { --dock-w: 25vw; --dock-s: 0.2; }  /* tablets: keep the docked brain small */
+}
 @media (max-width: 520px) {
   .brain__readout-text span { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .brain.is-drawn .brain__img { animation: none; opacity: 1; }
+  .brain, body.brain-past-hero .brain { transition: none; }
 }
 
 /* Feature cards: each card in a grid gets its own hue, so neighbours never match */
