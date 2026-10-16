@@ -376,35 +376,6 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   50% { opacity: 0; }
 }
 
-.hero__badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 1rem;
-  border-radius: 100px;
-  border: 1px solid rgba(96,165,250,0.3);
-  background: rgba(96,165,250,0.08);
-  color: var(--ice-blue);
-  font-size: 0.8rem;
-  font-weight: 600;
-  margin-bottom: 1.75rem;
-  backdrop-filter: blur(8px);
-}
-
-.hero__badge-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #22c55e;
-  box-shadow: 0 0 8px rgba(34,197,94,0.5);
-  animation: dot-pulse 2.2s ease-in-out infinite;
-}
-
-@keyframes dot-pulse {
-  0%,100% { opacity:1; transform:scale(1); }
-  50%      { opacity:.4; transform:scale(.7); }
-}
-
 .hero__name-row {
   display: flex;
   align-items: center;
@@ -1388,7 +1359,6 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   .hero__logo     { width: 64px !important; height: 64px !important; filter: none !important; }
   .hero__glow { width: 200px; height: 200px; left: -20px; top: -40px; opacity: 0; }
   .hero__scroll { bottom: calc(2.5rem - 10px); }
-  .hero__badge  { margin-bottom: 1.25rem; font-size: 0.75rem; padding: 0.3rem 0.75rem; }
   .hero__subtitle { margin-bottom: 1.5rem; font-size: 0.95rem; }
   .hero__actions { flex-direction: column; align-items: stretch; }
   .hero__actions .btn { width: 100%; justify-content: center; }
@@ -1403,7 +1373,6 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   .hero__name-row { gap: 0.75rem; }
   .hero__logo     { width: 76px !important; height: 76px !important; }
   .hero__glow { width: 240px; height: 240px; opacity: 0.3; }
-  .hero__badge  { margin-bottom: 1rem; font-size: 0.75rem; padding: 0.3rem 0.75rem; }
   .hero__subtitle { margin-bottom: 1.5rem; }
 }
 
@@ -1475,12 +1444,7 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 
 [data-theme="light"] .hero__glow { opacity: 0.4; }
 
-[data-theme="light"] .hero__badge {
-  border-color: rgba(217,119,6,0.3);
-  background: rgba(245,158,11,0.08);
-}
-
-/* ---- Ice-blue tones for light mode atmosphere */
+[data-theme="light"] /* ---- Ice-blue tones for light mode atmosphere */
 [data-theme="light"] .page-bg {
   background:
     radial-gradient(ellipse 70% 60% at 5%  25%,  rgba(96,165,250,0.08) 0%, transparent 55%),
