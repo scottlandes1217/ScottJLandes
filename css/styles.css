@@ -1539,16 +1539,25 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 }
 
 .brain {
+  /* A screen-sized clipping box: the brain inside can hang past the edges
+     (125vw on phones) without ever widening or lengthening the page,
+     which iOS Safari otherwise allows. */
   position: fixed;
+  inset: 0;
   z-index: -1;
   pointer-events: none;
+  overflow: hidden;
+  transition: opacity 0.8s var(--ease-smooth);
+}
+.brain__stage {
+  position: absolute;
+  aspect-ratio: 1776 / 1104;
   top: 50%;
   right: 1vw;
   width: min(60vw, 960px);
   transform: translateY(-46%);
-  transition: opacity 0.8s var(--ease-smooth), transform 1s var(--ease-out);
+  transition: transform 1s var(--ease-out);
 }
-.brain__stage { position: relative; aspect-ratio: 1776 / 1104; }
 .brain__svg, .brain__canvas { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 
 /* The photo: feathered at the edges so its backdrop melts into the page */
@@ -1621,7 +1630,8 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 [data-theme="light"] .brain ~ main .card { background: rgba(255,255,255,0.7); }
 
 /* Past the hero the brain steps back so the content leads */
-body.brain-past-hero .brain { opacity: 0.55; transform: translateY(-46%) scale(0.92); }
+body.brain-past-hero .brain { opacity: 0.55; }
+body.brain-past-hero .brain__stage { transform: translateY(-46%) scale(0.92); }
 
 /* Heroes sit left of the brain */
 @media (min-width: 901px) {
@@ -1647,10 +1657,10 @@ body.brain-past-hero .brain { opacity: 0.55; transform: translateY(-46%) scale(0
   /* Phones and tablets: the brain stays centered behind everything, the
      same size all the way down; svh keeps it still while the mobile
      address bar shows and hides. */
-  .brain, body.brain-past-hero .brain {
+  .brain, body.brain-past-hero .brain { opacity: 0.55; }
+  .brain__stage, body.brain-past-hero .brain__stage {
     right: auto; left: 50%; top: 60svh; width: 125vw;
     transform: translate(-50%, -50%);
-    opacity: 0.55;
   }
   .brain__labels { display: none; }
   .brain__readout { font-size: 0.66rem; right: auto; left: 50%; transform: translateX(-50%); bottom: max(0.75rem, env(safe-area-inset-bottom)); }
