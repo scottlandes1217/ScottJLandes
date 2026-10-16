@@ -1239,6 +1239,13 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 .cta-banner__desc  { font-size: 1rem; color: var(--text-2); margin-bottom: 2rem; }
 .cta-banner .hero__actions { justify-content: center; align-items: center; }
 
+/* Light mode: the dark gradient art and overlay would leave dark text on dark */
+[data-theme="light"] .cta-banner {
+  background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 50%, #ecfeff 100%);
+  border-color: rgba(37,99,235,0.18);
+}
+[data-theme="light"] .cta-banner::before { background: radial-gradient(ellipse at 50% 0%, rgba(96,165,250,0.22), transparent 70%); }
+
 /* ---- Scroll Reveal --------------------------------------- */
 /* Base reveal — upward motion */
 .reveal {
