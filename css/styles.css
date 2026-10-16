@@ -1363,8 +1363,8 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
 
 @media (max-width: 768px) {
   .nav__links { display: none; }
-  .nav__ham   { display: flex; margin-left: auto; }
-  .nav__tools { order: 1; margin-left: 0.25rem; }
+  .nav__ham   { display: flex; margin-left: 0.25rem; }  /* last, on the far right */
+  .nav__tools { margin-left: auto; }
   .hero       { align-items: flex-start; padding-top: 4.5rem; }
   .hero__subtitle { margin-bottom: 1.5rem; }
 
