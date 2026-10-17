@@ -70,6 +70,8 @@
     s.setProperty('--border-a', rgba(p.accent, 0.32));
     s.setProperty('--accent-glow', rgba(p.accent, 0.22));
     s.setProperty('--night', Math.min(1, Math.max(0, (t - 0.42) / 0.16)).toFixed(3));
+    s.setProperty('--moon', t.toFixed(3));
+    s.setProperty('--orb', rgb(t < 0.5 ? mix('#fde047', '#f97316', t / 0.5) : mix('#f97316', '#e5e7eb', (t - 0.5) / 0.5)));
     s.setProperty('--warm', (t < 0.5 ? t / 0.5 : t < 0.75 ? 1 : 1 - (t - 0.75) / 0.25).toFixed(3));
     if (root.dataset.theme !== theme) {
       root.dataset.theme = theme;

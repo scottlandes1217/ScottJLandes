@@ -1190,17 +1190,17 @@ section { padding: clamp(4rem,10vw,7rem) 0; }
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: var(--bg);
-  border: 2px solid var(--ice-blue);
-  box-shadow: 0 0 10px var(--accent-glow);
+  border: 0;
+  background: radial-gradient(circle at calc(var(--moon) * 11px - 8px) 6px, transparent 6.5px, var(--orb) 7px);
+  filter: drop-shadow(0 0 calc(6px - var(--moon) * 4px) var(--orb));
 }
 .sky__range::-moz-range-thumb {
-  width: 12px;
-  height: 12px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  background: var(--bg);
-  border: 2px solid var(--ice-blue);
-  box-shadow: 0 0 10px var(--accent-glow);
+  border: 0;
+  background: radial-gradient(circle at calc(var(--moon) * 11px - 8px) 6px, transparent 6.5px, var(--orb) 7px);
+  filter: drop-shadow(0 0 calc(6px - var(--moon) * 4px) var(--orb));
 }
 .sky__range:focus-visible { outline: 2px solid var(--ice-blue); outline-offset: 4px; }
 .sky__now {
